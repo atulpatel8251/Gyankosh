@@ -1,5 +1,5 @@
 import json
-import pdfplumber
+
 from langchain_community.llms import OpenAI
 import chat
 import openai
@@ -17,7 +17,6 @@ import pytesseract
 from pdf2image import convert_from_bytes
 from PyPDF2 import PdfReader
 from langchain_openai import ChatOpenAI
-from langchain_ollama import ChatOllama
 from langchain.chains import ConversationChain
 from langchain.memory import ConversationBufferMemory
 import docx
@@ -39,7 +38,6 @@ from langchain_ollama import OllamaEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
-from langchain_ollama.llms import OllamaLLM
 from langchain_community.vectorstores import FAISS
 from docx import Document
 from langchain.vectorstores import Chroma
