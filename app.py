@@ -317,40 +317,21 @@ class OCRCache:
         }
         self.save_cache_index(cache_index)
 
-def extract_text_with_ocr_cached(pdf_file_path, cache_system):
-    """Extract text from PDF using cache if available"""
-    # Check cache first
-    cached_text = cache_system.get_cached_text(pdf_file_path)
-    if cached_text is not None:
-        st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
-        return cached_text
-    
-    # If not in cache, perform OCR
+def setup_tesseract():
+    """Configure Tesseract environment for cloud deployment"""
     try:
-        images = convert_from_path(
-            pdf_file_path,
-            dpi=200,
-            thread_count=multiprocessing.cpu_count(),
-            grayscale=True,
-            size=(1800, None)
-        )
+        # On Streamlit Cloud, tesseract is installed system-wide
+        pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
         
-        max_workers = min(multiprocessing.cpu_count(), len(images))
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            results = list(executor.map(process_page, images))
-        
-        extracted_text = "\n".join(filter(None, results))
-        
-        # Save to cache if extraction was successful
-        if extracted_text.strip():
-            cache_system.save_text_to_cache(pdf_file_path, extracted_text)
-        
-        return extracted_text
-    
+        # Quick test
+        test_image = Image.new('RGB', (1, 1), color='white')
+        pytesseract.image_to_string(test_image)
+        st.success("Tesseract setup completed successfully!")
+        return True
     except Exception as e:
-        st.error(f"Error during OCR extraction: {str(e)}")
-        return ""
-    
+        st.error(f"Tesseract setup failed: {str(e)}")
+        return False
+
 def optimize_image_for_ocr(image):
     """Optimize image for faster OCR processing"""
     # Convert to grayscale if not already
@@ -368,58 +349,6 @@ def optimize_image_for_ocr(image):
     image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
     
     return image
-
-import os
-import pathlib
-from PIL import Image
-import pytesseract
-import streamlit as st
-
-def setup_tesseract(base_path="./Tesseract-OCR"):
-    """
-    Configure Tesseract environment using Tesseract-OCR folder structure
-    
-    Args:
-        base_path (str): Path to Tesseract-OCR directory (default: "./Tesseract-OCR")
-        
-    Returns:
-        bool: True if setup successful, False otherwise
-    """
-    try:
-        # Convert to Path object and resolve absolute path
-        tesseract_base = pathlib.Path(base_path).absolute()
-        
-        # Set paths directly from Tesseract-OCR folder
-        tesseract_cmd = tesseract_base / "tesseract"
-        tessdata_dir = tesseract_base / "tessdata"
-        
-        # Set Tesseract command path
-        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
-        
-        # Set TESSDATA_PREFIX environment variable
-        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
-        
-        # Quick test
-        test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = 'test_ocr.png'
-        test_image.save(test_image_path)
-        
-        try:
-            pytesseract.image_to_string(test_image_path, lang='eng')
-            st.success("Tesseract setup completed successfully!")
-            return True
-        finally:
-            if os.path.exists(test_image_path):
-                os.remove(test_image_path)
-                
-    except Exception as e:
-        st.error(f"""Tesseract setup failed. Please check:
-        1. Tesseract is installed in: {base_path}
-        2. Language files are present in: {tessdata_dir}
-        
-        Error: {str(e)}""")
-        return False
-    
 
 def process_page(img, language='hin+eng'):
     """Process a single page with error handling and verification"""
@@ -447,7 +376,7 @@ def process_page(img, language='hin+eng'):
             st.warning(f"Failed with language {language}, falling back to English")
             text = pytesseract.image_to_string(
                 img,
-                lang='hin+eng',
+                lang='eng',
                 config=custom_config
             )
         
@@ -456,80 +385,39 @@ def process_page(img, language='hin+eng'):
         st.error(f"Error processing page: {str(e)}")
         return ""
 
-def extract_text_with_ocr_optimized(pdf_file_path):
-    """Extract text from PDF with improved error handling"""
+def extract_text_with_ocr_cached(pdf_file_path, cache_system):
+    """Extract text from PDF using cache if available"""
+    # Check cache first
+    cached_text = cache_system.get_cached_text(pdf_file_path)
+    if cached_text is not None:
+        st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
+        return cached_text
+    
+    # If not in cache, perform OCR
     try:
-        # Verify Tesseract setup before processing
-        if not setup_tesseract():
-            raise Exception("Tesseract initialization failed")
-        
-        # Convert PDF to images with optimized settings
         images = convert_from_path(
             pdf_file_path,
             dpi=200,
-            thread_count=multiprocessing.cpu_count(),
+            thread_count=min(multiprocessing.cpu_count(), 2),  # Limit threads for cloud
             grayscale=True,
             size=(1800, None)
         )
         
-        # Process pages in parallel with proper error handling
-        max_workers = min(multiprocessing.cpu_count(), len(images))
-        results = []
-        
+        max_workers = min(2, len(images))  # Limit workers for cloud resources
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            futures = [executor.submit(process_page, img) for img in images]
-            
-            for future in concurrent.futures.as_completed(futures):
-                try:
-                    result = future.result()
-                    if result:
-                        results.append(result)
-                except Exception as e:
-                    st.error(f"Error processing page: {str(e)}")
+            results = list(executor.map(process_page, images))
         
-        return "\n".join(results)
+        extracted_text = "\n".join(filter(None, results))
+        
+        # Save to cache if extraction was successful
+        if extracted_text.strip():
+            cache_system.save_text_to_cache(pdf_file_path, extracted_text)
+        
+        return extracted_text
     
     except Exception as e:
         st.error(f"Error during OCR extraction: {str(e)}")
         return ""
-
-def batch_process_pdfs(selected_files, folder_path, progress_bar, status_text):
-    """Process multiple PDFs in parallel"""
-    total_files = len(selected_files)
-    combined_text = []
-    processed_files = []
-    
-    # Process files in smaller batches to manage memory
-    batch_size = 3
-    for i in range(0, total_files, batch_size):
-        batch = selected_files[i:i + batch_size]
-        
-        # Process batch in parallel
-        with ThreadPoolExecutor(max_workers=batch_size) as executor:
-            future_to_file = {
-                executor.submit(
-                    extract_text_with_ocr_optimized, 
-                    os.path.join(folder_path, file + '.pdf')
-                ): file for file in batch
-            }
-            
-            for future in concurrent.futures.as_completed(future_to_file):
-                file = future_to_file[future]
-                try:
-                    text = future.result()
-                    if text.strip():
-                        combined_text.append(text)
-                        processed_files.append(file)
-                    
-                    # Update progress
-                    progress = (len(processed_files) / total_files)
-                    progress_bar.progress(progress)
-                    status_text.text(f"Processed {len(processed_files)}/{total_files} files")
-                    
-                except Exception as e:
-                    st.warning(f"Error processing {file}: {str(e)}")
-    
-    return combined_text, processed_files    
 
 def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
     """Process multiple PDFs using cache when available"""
@@ -540,8 +428,8 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
     # Initialize cache system
     cache_system = OCRCache()
     
-    # Process files in smaller batches
-    batch_size = 3
+    # Process files in smaller batches - reduce batch size for cloud
+    batch_size = 2  
     for i in range(0, total_files, batch_size):
         batch = selected_files[i:i + batch_size]
         
@@ -549,7 +437,7 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
             future_to_file = {
                 executor.submit(
                     extract_text_with_ocr_cached,
-                    os.path.join(folder_path, file + '.pdf'),
+                    os.path.join(folder_path, file),
                     cache_system
                 ): file for file in batch
             }
