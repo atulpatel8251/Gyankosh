@@ -379,16 +379,14 @@ import shutil
 
 def setup_tesseract(base_path=None):
     try:
-        # If no custom base_path is given, assume tesseract is installed system-wide
+        # Use system Tesseract if no custom path provided
         if base_path is None:
-            # Check if Tesseract is available in the system path
             tesseract_path = shutil.which("tesseract")
             if not tesseract_path:
                 raise FileNotFoundError("System Tesseract binary not found in PATH.")
             pytesseract.pytesseract.tesseract_cmd = tesseract_path
             logging.info(f"Using system Tesseract at: {tesseract_path}")
         else:
-            # Use provided path (used for bundled Tesseract like in Windows zip)
             tesseract_base = pathlib.Path(base_path).absolute()
             tesseract_cmd = tesseract_base / "tesseract"
             tessdata_dir = tesseract_base / "tessdata"
@@ -400,10 +398,11 @@ def setup_tesseract(base_path=None):
             os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
             logging.info(f"Using custom Tesseract at: {tesseract_cmd}")
 
-        # Test if Tesseract works
-        test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = 'test_ocr.png'
-        test_image.save(test_image_path)
+        # ✅ Create temp image safely
+        with tempfile.NamedTemporaryFile(suffix=".png", delete=False) as tmp_file:
+            test_image_path = tmp_file.name
+            test_image = Image.new('RGB', (100, 30), color='white')
+            test_image.save(test_image_path)
 
         try:
             pytesseract.image_to_string(test_image_path, lang='eng')
@@ -416,8 +415,8 @@ def setup_tesseract(base_path=None):
     except Exception as e:
         logging.error(f"Tesseract setup failed: {e}")
         st.error(f"""Tesseract setup failed. Please check:
-        1. Is Tesseract installed system-wide? Try: `sudo apt install tesseract-ocr`
-        2. If using a custom path, does it include the binary and tessdata?
+        1. Is Tesseract installed and accessible?
+        2. Does it have language data files?
         Error: {str(e)}""")
         return False
 
