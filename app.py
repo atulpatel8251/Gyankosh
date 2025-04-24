@@ -427,27 +427,37 @@ def setup_tesseract(base_path="./Tesseract-OCR"):
         return False    
 
 def process_page(img, language='hin+eng'):
+    """Process a single page with error handling and verification"""
     try:
+        # Verify Tesseract is properly initialized
         if not hasattr(process_page, 'tesseract_initialized'):
-            logging.info("Initializing Tesseract for process_page...")
             process_page.tesseract_initialized = setup_tesseract()
             if not process_page.tesseract_initialized:
                 raise Exception("Tesseract not properly initialized")
         
+        # Optimize image
         img = optimize_image_for_ocr(img)
-        logging.info("Performing OCR on image...")
-
-        custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
+        
+        # OCR with optimized settings and fallback
         try:
-            text = pytesseract.image_to_string(img, lang=language, config=custom_config)
+            # Try with specified language
+            custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
+            text = pytesseract.image_to_string(
+                img, 
+                lang=language,
+                config=custom_config
+            )
         except Exception as lang_error:
-            logging.warning(f"OCR failed with language {language}, falling back to English.")
-            text = pytesseract.image_to_string(img, lang='eng', config=custom_config)
+            # Fallback to English if specified language fails
+            st.warning(f"Failed with language {language}, falling back to English")
+            text = pytesseract.image_to_string(
+                img,
+                lang='eng',
+                config=custom_config
+            )
         
         return text.strip()
-    
     except Exception as e:
-        logging.error(f"Error processing page: {e}")
         st.error(f"Error processing page: {str(e)}")
         return ""
 
