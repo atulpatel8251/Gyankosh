@@ -375,47 +375,49 @@ from PIL import Image
 import pytesseract
 import streamlit as st
 
-def setup_tesseract(base_path="./Tesseract-OCR"):
+def setup_tesseract(base_path=None):
     """
-    Configure Tesseract environment using Tesseract-OCR folder structure
+    Configure Tesseract environment for both local and cloud environments
     
     Args:
-        base_path (str): Path to Tesseract-OCR directory (default: "./Tesseract-OCR")
+        base_path (str, optional): Path to Tesseract-OCR directory
         
     Returns:
         bool: True if setup successful, False otherwise
     """
     try:
-        # Convert to Path object and resolve absolute path
-        tesseract_base = pathlib.Path(base_path).absolute()
+        # First try system installation (this will work on Streamlit Cloud)
+        if platform.system() == "Linux":
+            # Standard Linux path (works on Streamlit Cloud)
+            pytesseract.pytesseract.tesseract_cmd = "/usr/bin/tesseract"
+            os.environ['TESSDATA_PREFIX'] = "/usr/share/tesseract-ocr/4.00/tessdata"
+        elif platform.system() == "Windows":
+            # Windows path
+            pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+            os.environ['TESSDATA_PREFIX'] = r"C:\Program Files\Tesseract-OCR\tessdata"
         
-        # Set paths directly from Tesseract-OCR folder
-        tesseract_cmd = tesseract_base / "tesseract"
-        tessdata_dir = tesseract_base / "tessdata"
+        # If base_path is provided, try that as well
+        if base_path:
+            tesseract_base = pathlib.Path(base_path).absolute()
+            tesseract_cmd = tesseract_base / "tesseract"
+            tessdata_dir = tesseract_base / "tessdata"
+            
+            # Only set these if the path exists
+            if tesseract_cmd.exists():
+                pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
+                
+            if tessdata_dir.exists():
+                os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
         
-        # Set Tesseract command path
-        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
+        # Quick test to verify Tesseract is working
+        test_image = Image.new('RGB', (10, 10), color='white')
+        pytesseract.image_to_string(test_image, lang='eng')
         
-        # Set TESSDATA_PREFIX environment variable
-        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
-        
-        # Quick test
-        test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = 'test_ocr.png'
-        test_image.save(test_image_path)
-        
-        try:
-            pytesseract.image_to_string(test_image_path, lang='eng')
-            st.success("Tesseract setup completed successfully!")
-            return True
-        finally:
-            if os.path.exists(test_image_path):
-                os.remove(test_image_path)
+        st.success("Tesseract setup completed successfully!")
+        return True
                 
     except Exception as e:
-        st.error(f"""Tesseract setup failed. Please check:
-        1. Tesseract is installed in: {base_path}
-        2. Language files are present in: {tessdata_dir}
+        st.error(f"""Tesseract setup failed. Please check if Tesseract is properly installed.
         
         Error: {str(e)}""")
         return False
