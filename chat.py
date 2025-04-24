@@ -1,16 +1,19 @@
-from langchain.embeddings.openai import OpenAIEmbeddings
+__import__('pysqlite3')
 #__import__('pysqlite3')
 import sys
-#sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
+from langchain.embeddings.openai import OpenAIEmbeddings
 from langchain.vectorstores import Chroma
 from langchain_openai import ChatOpenAI
 from langchain.text_splitter import CharacterTextSplitter
+#from langchain.llms import OpenAI
 from langchain_community.llms import OpenAI
 from openai import OpenAI
 from langchain.chains import VectorDBQA
 from langchain.document_loaders import DirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
-from langchain_community.embeddings import HuggingFaceInstructEmbeddings
+from langchain.embeddings import HuggingFaceInstructEmbeddings
 from langchain.chains import (
     ConversationalRetrievalChain,ConversationChain
 )
@@ -39,7 +42,7 @@ import tempfile
 import json
 import re
 
-
+openai_api_key2 = st.secrets["secret_section"]["OPENAI_API_KEY"]
 languages = {
     'English': 'eng',
     'Hindi': 'hi'
@@ -113,7 +116,7 @@ def load_documents(files=[]):
             if fname.endswith('.pdf'):
                 loader = PyPDFLoader(temp_filepath)
                 documents.extend(loader.load())
-            elif fname.endswith('.docx'):
+            elif fname.endswith('.doc'):
                 loader = Docx2txtLoader(temp_filepath)
                 documents.extend(loader.load())
             elif fname.endswith('.txt'):
@@ -192,9 +195,10 @@ def load_chain(docsearch):
     
     doc_chain = ConversationalRetrievalChain.from_llm(
         llm=ChatOpenAI(
-            openai_api_key = "sk-proj-NduY6NQbG0f2uR6n22F9T3BlbkFJqNztRCFEE5TPFh4vB6Ym",
+            #openai_api_key = values["openai_api_key"],
             model = "gpt-3.5-turbo",
-            temperature=0.7
+            temperature=0.7,
+            api_key=openai_api_key2
         ),
         chain_type="stuff",
         retriever=docsearch.as_retriever(),
@@ -221,6 +225,7 @@ def answer(user_input: str, persist_directory: str = constants.PERSIST_DIR) -> s
     print(master_prompt.format(
                                st.session_state.mode_of_questions,
                                st.session_state.complexity,
+                               #st.session_state.topic_name,
                                st.session_state.no_of_questions,
                                st.session_state.type_of_questions,
                                st.session_state.mode_of_questions,
@@ -231,7 +236,7 @@ def answer(user_input: str, persist_directory: str = constants.PERSIST_DIR) -> s
                                                                     st.session_state.mode_of_questions,
                                                                     # st.session_state.filename,
                                                                     st.session_state.complexity,
-                                                                     
+                                                                    #st.session_state.topic_name, 
                                                                     st.session_state.no_of_questions,
                                                                     st.session_state.type_of_questions,
                                                                     st.session_state.mode_of_questions,
@@ -239,38 +244,56 @@ def answer(user_input: str, persist_directory: str = constants.PERSIST_DIR) -> s
                                                                     )})
 
     answer = result["answer"]
+
     print("Answer  - ",answer)
+
     with open('dictionary.json','r') as f:
                 existing_dictionary = json.load(f)
+
     lowercase_dict = {key.lower(): value for key, value in existing_dictionary.items()}                 
     answer_2=correct_bhashni_translations(answer,lowercase_dict)
+    
     translated_response = ""
     if st.session_state.language == 'English' or st.session_state.language =='English and Hindi':
         print("Prompt went of translation ---------------------------",lang_prompt.format(st.session_state.language,answer_2))
         translated_response = st.session_state.language_chain.predict(input=lang_prompt.format(st.session_state.language,answer_2))
         # translated_response = translated_response["response"]
+    
     # Log a message indicating the answer that was generated
     LOGGER.info(f"The returned answer is: {translated_response}")
+    
     # Log a message indicating that the function has finished and return the answer.
     LOGGER.info(f"Answering process completed.")
     return answer,translated_response
+
 def answerq(user_input: str,context:str, persist_directory: str = constants.PERSIST_DIR) -> str:
+    
     # Log a message indicating that the function has started
     LOGGER.info(f"Start answering based on prompt: {user_input}.")
+
+    
     # Log a message indicating the number of chunks to be considered when answering the user's query.
     LOGGER.info(f"The top {constants.k} chunks are considered to answer the user's query.")
+    
     # Create a VectorDBQA object using a vector store, a QA chain, and a number of chunks to consider.
     #qa = VectorDBQA(vectorstore=docsearch, combine_documents_chain=doc_chain, k=constants.k)
+
     # Call the VectorDBQA object to generate an answer to the prompt.
     #print("prompt going = ",filter_prompt2.format(st.session_state.filename,user_input))
     print(student_prompt.format(user_input,context))
+    
+    
     result = st.session_state.llm({"question": student_prompt.format(user_input,context)})
+    
     answer = result["answer"]
+
     return answer
+
 def format_response(result: str, persist_directory: str = constants.PERSIST_DIR) -> str:
      print("prompt going = ",format_prompt.format(result))
      formatted_response = st.session_state.format_chain.predict(input=format_prompt.format(result))
      return formatted_response
+
 def aiformat_response(result: str, persist_directory: str = constants.PERSIST_DIR) -> str:
      ##print("prompt going = ",format_prompt.format(result))
      formatted_response = st.session_state.aiformat_chain.predict(input=aiformat_prompt.format(result))
@@ -298,6 +321,5 @@ def learn_outcome_term(result: str, persist_directory: str = constants.PERSIST_D
      formatted_response = st.session_state.learn_outcome_chain.predict(input=learn_outcome_prompt.format(result))
      st.write(formatted_response)
      return formatted_response
-
 
 
