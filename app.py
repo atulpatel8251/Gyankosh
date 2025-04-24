@@ -44,6 +44,7 @@ import os
 import time
 from io import StringIO
 import logging
+import platform
 
 logging.basicConfig(
     level=logging.INFO,
@@ -375,110 +376,55 @@ from PIL import Image
 import pytesseract
 import streamlit as st
 
-def setup_tesseract():
+def setup_tesseract(base_path="./Tesseract-OCR"):
     """
-    Configure Tesseract environment for Streamlit Cloud deployment with detailed logging
+    Configure Tesseract environment using Tesseract-OCR folder structure
     
+    Args:
+        base_path (str): Path to Tesseract-OCR directory (default: "./Tesseract-OCR")
+        
     Returns:
         bool: True if setup successful, False otherwise
     """
-    # Set up logging
-    logging.basicConfig(level=logging.DEBUG)
-    logger = logging.getLogger("tesseract_setup")
-    logger.debug("Starting Tesseract setup")
-
     try:
-        # Log platform information
+        # Convert to Path object and resolve absolute path
+        tesseract_base = pathlib.Path(base_path).absolute()
+        
+        # Set paths based on platform
         system_platform = platform.system()
-        logger.debug(f"Detected platform: {system_platform}")
-        logger.debug(f"Python version: {platform.python_version()}")
-        
-        # Check if we're on Streamlit Cloud (Linux) or local Windows
         if system_platform == "Windows":
-            # Local Windows setup
-            tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-            tessdata_path = r"C:\Program Files\Tesseract-OCR\tessdata"
-            
-            logger.debug(f"Setting Windows paths - cmd: {tesseract_path}, data: {tessdata_path}")
-            pytesseract.pytesseract.tesseract_cmd = tesseract_path
-            os.environ['TESSDATA_PREFIX'] = tessdata_path
+            tesseract_cmd = tesseract_base / "tesseract.exe"
         else:
-            # Streamlit Cloud (Linux)
-            tesseract_path = r"/usr/bin/tesseract"
-            logger.debug(f"Setting Linux path - cmd: {tesseract_path}")
-            pytesseract.pytesseract.tesseract_cmd = tesseract_path
+            tesseract_cmd = tesseract_base / "tesseract"
             
-            # Check if Tesseract is installed
-            try:
-                version_output = subprocess.check_output([tesseract_path, "--version"], stderr=subprocess.STDOUT, text=True)
-                logger.debug(f"Tesseract version info: {version_output}")
-            except FileNotFoundError:
-                logger.error(f"Tesseract not found at {tesseract_path}")
-                st.error(f"Tesseract executable not found at {tesseract_path}")
-                return False
-            except subprocess.CalledProcessError as e:
-                logger.error(f"Error checking Tesseract version: {e.output}")
-                st.error(f"Error running Tesseract: {e.output}")
-                return False
-            
-            # Check for tessdata directory
-            tessdata_paths = [
-                "/usr/share/tesseract-ocr/4.00/tessdata",  # Ubuntu 20.04+
-                "/usr/share/tesseract-ocr/tessdata",       # Older Ubuntu
-                "/usr/share/tessdata",                     # Generic location
-            ]
-            
-            for path in tessdata_paths:
-                if os.path.exists(path):
-                    logger.debug(f"Found tessdata directory: {path}")
-                    logger.debug(f"Contents: {os.listdir(path)}")
-                    os.environ['TESSDATA_PREFIX'] = path
-                    break
-            else:
-                logger.warning("No tessdata directory found in standard locations")
-                
-            # List languages
-            try:
-                langs_output = subprocess.check_output([tesseract_path, "--list-langs"], stderr=subprocess.STDOUT, text=True)
-                logger.debug(f"Available languages: {langs_output}")
-            except subprocess.CalledProcessError as e:
-                logger.warning(f"Error listing languages: {e.output}")
+        tessdata_dir = tesseract_base / "tessdata"
         
-        # Quick test with white image
-        logger.debug("Creating test image for OCR")
-        with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as temp_file:
-            test_path = temp_file.name
-            test_image = Image.new('RGB', (100, 30), color='white')
-            test_image.save(test_path)
-            logger.debug(f"Test image saved to {test_path}")
-            
-            try:
-                logger.debug("Running OCR on test image")
-                result = pytesseract.image_to_string(test_path)
-                logger.debug(f"OCR result: '{result}'")
-                
-                # Even empty result is fine, we just want to make sure it runs
-                os.unlink(test_path)
-                logger.debug("Tesseract test successful")
-                st.success("✅ Tesseract is working!")
-                return True
-            except Exception as ocr_err:
-                logger.error(f"OCR test failed: {str(ocr_err)}")
-                st.error(f"OCR test failed: {str(ocr_err)}")
-                os.unlink(test_path)
-                return False
+        # Set Tesseract command path
+        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
+        
+        # Set TESSDATA_PREFIX environment variable
+        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
+        
+        # Quick test
+        test_image = Image.new('RGB', (1, 1), color='white')
+        test_image_path = 'test_ocr.png'
+        test_image.save(test_image_path)
+        
+        try:
+            pytesseract.image_to_string(test_image_path, lang='eng')
+            st.success("Tesseract setup completed successfully!")
+            return True
+        finally:
+            if os.path.exists(test_image_path):
+                os.remove(test_image_path)
                 
     except Exception as e:
-        logger.error(f"Tesseract setup failed with exception: {str(e)}", exc_info=True)
-        st.error(f"""Tesseract setup failed.
+        st.error(f"""Tesseract setup failed. Please check:
+        1. Tesseract is installed in: {base_path}
+        2. Language files are present in: {tessdata_dir}
         
-        Error: {str(e)}
-        
-        Make sure Tesseract is properly installed on the system.
-        For Streamlit Cloud, check your packages.txt file includes tesseract-ocr.
-        """)
-        return False
-    
+        Error: {str(e)}""")
+        return False    
 
 def process_page(img, language='hin+eng'):
     try:
