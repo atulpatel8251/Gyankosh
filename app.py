@@ -377,39 +377,99 @@ import streamlit as st
 
 def setup_tesseract():
     """
-    Configure Tesseract environment for Streamlit Cloud deployment
+    Configure Tesseract environment for Streamlit Cloud deployment with detailed logging
     
     Returns:
         bool: True if setup successful, False otherwise
     """
+    # Set up logging
+    logging.basicConfig(level=logging.DEBUG)
+    logger = logging.getLogger("tesseract_setup")
+    logger.debug("Starting Tesseract setup")
+
     try:
-        import platform
+        # Log platform information
+        system_platform = platform.system()
+        logger.debug(f"Detected platform: {system_platform}")
+        logger.debug(f"Python version: {platform.python_version()}")
         
         # Check if we're on Streamlit Cloud (Linux) or local Windows
-        if platform.system() == "Windows":
+        if system_platform == "Windows":
             # Local Windows setup
-            pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-            os.environ['TESSDATA_PREFIX'] = r"C:\Program Files\Tesseract-OCR\tessdata"
+            tesseract_path = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+            tessdata_path = r"C:\Program Files\Tesseract-OCR\tessdata"
+            
+            logger.debug(f"Setting Windows paths - cmd: {tesseract_path}, data: {tessdata_path}")
+            pytesseract.pytesseract.tesseract_cmd = tesseract_path
+            os.environ['TESSDATA_PREFIX'] = tessdata_path
         else:
-            # Streamlit Cloud (Linux) - Tesseract should be installed via packages.txt
-            pytesseract.pytesseract.tesseract_cmd = r"/usr/bin/tesseract"
-            # No need to set TESSDATA_PREFIX as it uses the default location
+            # Streamlit Cloud (Linux)
+            tesseract_path = r"/usr/bin/tesseract"
+            logger.debug(f"Setting Linux path - cmd: {tesseract_path}")
+            pytesseract.pytesseract.tesseract_cmd = tesseract_path
+            
+            # Check if Tesseract is installed
+            try:
+                version_output = subprocess.check_output([tesseract_path, "--version"], stderr=subprocess.STDOUT, text=True)
+                logger.debug(f"Tesseract version info: {version_output}")
+            except FileNotFoundError:
+                logger.error(f"Tesseract not found at {tesseract_path}")
+                st.error(f"Tesseract executable not found at {tesseract_path}")
+                return False
+            except subprocess.CalledProcessError as e:
+                logger.error(f"Error checking Tesseract version: {e.output}")
+                st.error(f"Error running Tesseract: {e.output}")
+                return False
+            
+            # Check for tessdata directory
+            tessdata_paths = [
+                "/usr/share/tesseract-ocr/4.00/tessdata",  # Ubuntu 20.04+
+                "/usr/share/tesseract-ocr/tessdata",       # Older Ubuntu
+                "/usr/share/tessdata",                     # Generic location
+            ]
+            
+            for path in tessdata_paths:
+                if os.path.exists(path):
+                    logger.debug(f"Found tessdata directory: {path}")
+                    logger.debug(f"Contents: {os.listdir(path)}")
+                    os.environ['TESSDATA_PREFIX'] = path
+                    break
+            else:
+                logger.warning("No tessdata directory found in standard locations")
+                
+            # List languages
+            try:
+                langs_output = subprocess.check_output([tesseract_path, "--list-langs"], stderr=subprocess.STDOUT, text=True)
+                logger.debug(f"Available languages: {langs_output}")
+            except subprocess.CalledProcessError as e:
+                logger.warning(f"Error listing languages: {e.output}")
         
-        # Quick test
-        with tempfile.NamedTemporaryFile(suffix='.png') as temp_file:
+        # Quick test with white image
+        logger.debug("Creating test image for OCR")
+        with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as temp_file:
+            test_path = temp_file.name
             test_image = Image.new('RGB', (100, 30), color='white')
-            test_image.save(temp_file.name)
+            test_image.save(test_path)
+            logger.debug(f"Test image saved to {test_path}")
             
-            result = pytesseract.image_to_string(temp_file.name)
-            
-            if result is not None:  # Even if empty, it should not be None
+            try:
+                logger.debug("Running OCR on test image")
+                result = pytesseract.image_to_string(test_path)
+                logger.debug(f"OCR result: '{result}'")
+                
+                # Even empty result is fine, we just want to make sure it runs
+                os.unlink(test_path)
+                logger.debug("Tesseract test successful")
                 st.success("✅ Tesseract is working!")
                 return True
-            else:
-                st.error("Tesseract test failed")
+            except Exception as ocr_err:
+                logger.error(f"OCR test failed: {str(ocr_err)}")
+                st.error(f"OCR test failed: {str(ocr_err)}")
+                os.unlink(test_path)
                 return False
                 
     except Exception as e:
+        logger.error(f"Tesseract setup failed with exception: {str(e)}", exc_info=True)
         st.error(f"""Tesseract setup failed.
         
         Error: {str(e)}
