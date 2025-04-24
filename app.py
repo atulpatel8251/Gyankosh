@@ -69,7 +69,7 @@ images = ['6MarkQ']
 
 #os.environ["OPENAI_API_TYPE"] = ""
 #os.environ["OPENAI_API_VERSION"] = ""openai_api_key = os.getenv("OPENAI_API_KEY")
-openai_api_key2 = "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"
+openai_api_key2 = st.secrets["secret_section"]["OPENAI_API_KEY"]
 
 
 TEMP_MD_FILE = r"question.pdf"
@@ -811,7 +811,7 @@ if st.session_state.teach == 'Teachers':
 
                             if submitted and st.session_state.final_text and st.session_state.mode_of_questions != 'Select Option':
                                 if st.session_state.final_text:
-                                    st.session_state.llm = ConversationChain(llm=ChatOllama(model="llama3", temperature=0.7))
+                                    st.session_state.llm = ConversationChain(llm=ChatOpenAI(model="gpt-4o", temperature=0.7, api_key=openai_api_key2))
                                     chapter_info = f"Chapter: {selected_file}" if selected_file != "All Chapters" else "All Chapters"
 
                                     # Determine language based on medium
@@ -901,10 +901,12 @@ if st.session_state.teach == 'Teachers':
 
                                 try:
                                     # Initialize OpenAI model with correct model name
-                                    llm = ChatOllama(
-                                        model="llama3",  # Fixed model name from "gpt-4o" to "gpt-4"
-                                        temperature=0.7
+                                    llm = ChatOpenAI(
+                                        model="gpt-4o",  # Fixed model name from "gpt-4o" to "gpt-4"
+                                        temperature=0.7,
+                                        api_key=openai_api_key2 
                                     )
+                                            
                                     # Create conversation chain
                                     st.session_state.mcq_chain = ConversationChain(llm=llm)
                                     
@@ -1006,10 +1008,12 @@ if st.session_state.teach == 'Teachers':
 
                                 try:
                                     # Initialize OpenAI model with correct model name
-                                    llm = ChatOllama(
-                                        model="llama3",  # Fixed model name from "gpt-4o" to "gpt-4"
-                                        temperature=0.7
+                                    llm = ChatOpenAI(
+                                        model="gpt-4o",  # Fixed model name from "gpt-4o" to "gpt-4"
+                                        temperature=0.7,
+                                        api_key=openai_api_key2
                                     )
+                                           
                                     # Create conversation chain
                                     st.session_state.mcq_chain = ConversationChain(llm=llm)
                                     
@@ -1077,9 +1081,7 @@ if st.session_state.teach == 'Teachers':
                             st.session_state.type_of_questions =  st.selectbox('Choose Question Type*', ['Select Option','Short Questions','MCQ','Fill in the Blanks','True and False'],index=0,key="ai_questions_no_s")
                         submitted = st.form_submit_button("Submit")
                     if submitted and st.session_state.text and st.session_state.no_of_questions>0:
-                            st.session_state.llm = ConversationChain(llm=ChatOllama(
-                            model="llama3",
-                            temperature=0.7)) 
+                            st.session_state.llm = ConversationChain(llm=ChatOpenAI(model="gpt-4o", temperature=0.7, api_key=openai_api_key2)) 
                             formatted_output = st.session_state.llm.predict(input = ai_prompt.format(st.session_state.no_of_questions,
                                                                             st.session_state.mode_of_questions,
                                                                             st.session_state.type_of_questions,
@@ -1526,7 +1528,7 @@ if st.session_state.teach=='Students':
 
                     if submitted and st.session_state.final_text and st.session_state.mode_of_questions != 'Select Option':
                         if st.session_state.final_text:
-                            st.session_state.llm = ConversationChain(llm=ChatOllama(model="llama3", temperature=0.7))
+                            st.session_state.llm = ConversationChain(llm=ChatOpenAI(model="gpt-4o", temperature=0.7, api_key=openai_api_key2))
                             chapter_info = f"Chapter: {selected_file}" if selected_file != "All Chapters" else "All Chapters"
 
                             # Determine language based on medium
@@ -1765,10 +1767,7 @@ if st.session_state.teach=='Students':
                             st.session_state.type_of_questions =  st.selectbox('Choose Question Type*', ['Select Option','Short Questions','MCQ','Fill in the Blanks','True and False'],index=0,key="ai_questions_no_s")
                         submitted = st.form_submit_button("Submit")
                     if submitted and st.session_state.text and st.session_state.no_of_questions>0:
-                            st.session_state.llm = ConversationChain( llm=ChatOllama(
-                            model="llama3",
-                            temperature=0.7
-                            )) 
+                            st.session_state.llm = ConversationChain( llm=ChatOpenAI(model="gpt-4o", temperature=0.7, api_key=openai_api_key2)) 
                             formatted_output = st.session_state.llm.predict(input = ai_prompt.format(st.session_state.no_of_questions,
                                                                             st.session_state.mode_of_questions,
                                                                             st.session_state.type_of_questions,
@@ -1966,7 +1965,7 @@ if st.session_state.teach=='Students':
 
 
     openai_api_key = os.getenv("OPENAI_API_KEY")
-    openai_api_key2 = "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"
+    openai_api_key2 = st.secrets["secret_section"]["OPENAI_API_KEY"]
     if 'history' not in st.session_state:
         st.session_state.history = []
 
@@ -1993,10 +1992,10 @@ if st.session_state.teach=='Students':
                 texts = text_splitter.split_text(raw_text)
                 #st.write(f"PDF loaded and split into {len(texts)} chunks.")
 
-                embeddings = OllamaEmbeddings(model="llama3")
+                embeddings = OpenAIEmbeddings(api_key=openai_api_key2)
                 document_search = FAISS.from_texts(texts, embeddings)
                 #st.write("Document embeddings created and stored in FAISS index.")
-                chain = load_qa_chain(ChatOllama(model="llama3"), chain_type="stuff")
+                chain = load_qa_chain(OpenAI(api_key=openai_api_key2), chain_type="stuff")
                 query = st.chat_input("Ask a question about the PDF:")
                 st.write(query)
                 
