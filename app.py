@@ -34,7 +34,6 @@ from io import BytesIO
 import streamlit as st
 from PyPDF2 import PdfReader
 from langchain_community.embeddings import OpenAIEmbeddings
-from langchain_ollama import OllamaEmbeddings
 from langchain.text_splitter import CharacterTextSplitter
 from langchain.chains.question_answering import load_qa_chain
 from langchain.llms import OpenAI
