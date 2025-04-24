@@ -375,36 +375,49 @@ from PIL import Image
 import pytesseract
 import streamlit as st
 
-def setup_tesseract(base_path="./Tesseract-OCR"):
+def setup_tesseract():
+    """
+    Configure Tesseract environment for Streamlit Cloud deployment
+    
+    Returns:
+        bool: True if setup successful, False otherwise
+    """
     try:
-        tesseract_base = pathlib.Path(base_path).absolute()
-        tesseract_cmd = tesseract_base / "tesseract"
-        tessdata_dir = tesseract_base / "tessdata"
+        import platform
         
-        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
-        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
-
-        logging.info("Testing Tesseract setup...")
-        test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = 'test_ocr.png'
-        test_image.save(test_image_path)
-
-        try:
-            pytesseract.image_to_string(test_image_path, lang='eng')
-            st.success("Tesseract setup completed successfully!")
-            return True
-        finally:
-            if os.path.exists(test_image_path):
-                os.remove(test_image_path)
+        # Check if we're on Streamlit Cloud (Linux) or local Windows
+        if platform.system() == "Windows":
+            # Local Windows setup
+            pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
+            os.environ['TESSDATA_PREFIX'] = r"C:\Program Files\Tesseract-OCR\tessdata"
+        else:
+            # Streamlit Cloud (Linux) - Tesseract should be installed via packages.txt
+            pytesseract.pytesseract.tesseract_cmd = r"/usr/bin/tesseract"
+            # No need to set TESSDATA_PREFIX as it uses the default location
+        
+        # Quick test
+        with tempfile.NamedTemporaryFile(suffix='.png') as temp_file:
+            test_image = Image.new('RGB', (100, 30), color='white')
+            test_image.save(temp_file.name)
+            
+            result = pytesseract.image_to_string(temp_file.name)
+            
+            if result is not None:  # Even if empty, it should not be None
+                st.success("✅ Tesseract is working!")
+                return True
+            else:
+                st.error("Tesseract test failed")
+                return False
                 
     except Exception as e:
-        logging.error(f"Tesseract setup failed: {e}")
-        st.error(f"""Tesseract setup failed. Please check:
-        1. Tesseract is installed in: {base_path}
-        2. Language files are present in: {tessdata_dir}
-        Error: {str(e)}""")
+        st.error(f"""Tesseract setup failed.
+        
+        Error: {str(e)}
+        
+        Make sure Tesseract is properly installed on the system.
+        For Streamlit Cloud, check your packages.txt file includes tesseract-ocr.
+        """)
         return False
-
     
 
 def process_page(img, language='hin+eng'):
