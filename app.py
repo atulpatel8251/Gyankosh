@@ -377,39 +377,19 @@ import pytesseract
 import streamlit as st
 
 def setup_tesseract(base_path="./Tesseract-OCR"):
-    """
-    Configure Tesseract environment using Tesseract-OCR folder structure
-    
-    Args:
-        base_path (str): Path to Tesseract-OCR directory (default: "./Tesseract-OCR")
-        
-    Returns:
-        bool: True if setup successful, False otherwise
-    """
     try:
-        # Convert to Path object and resolve absolute path
         tesseract_base = pathlib.Path(base_path).absolute()
-        
-        # Set paths based on platform
-        system_platform = platform.system()
-        if system_platform == "Windows":
-            tesseract_cmd = tesseract_base / "tesseract.exe"
-        else:
-            tesseract_cmd = tesseract_base / "tesseract"
-            
+        tesseract_cmd = tesseract_base / "tesseract"
         tessdata_dir = tesseract_base / "tessdata"
         
-        # Set Tesseract command path
         pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
-        
-        # Set TESSDATA_PREFIX environment variable
         os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
-        
-        # Quick test
+
+        logging.info("Testing Tesseract setup...")
         test_image = Image.new('RGB', (1, 1), color='white')
         test_image_path = 'test_ocr.png'
         test_image.save(test_image_path)
-        
+
         try:
             pytesseract.image_to_string(test_image_path, lang='eng')
             st.success("Tesseract setup completed successfully!")
@@ -419,48 +399,37 @@ def setup_tesseract(base_path="./Tesseract-OCR"):
                 os.remove(test_image_path)
                 
     except Exception as e:
+        logging.error(f"Tesseract setup failed: {e}")
         st.error(f"""Tesseract setup failed. Please check:
         1. Tesseract is installed in: {base_path}
         2. Language files are present in: {tessdata_dir}
-        
         Error: {str(e)}""")
-        return False    
-
+        return False
+    
 def process_page(img, language='hin+eng'):
-    """Process a single page with error handling and verification"""
     try:
-        # Verify Tesseract is properly initialized
         if not hasattr(process_page, 'tesseract_initialized'):
+            logging.info("Initializing Tesseract for process_page...")
             process_page.tesseract_initialized = setup_tesseract()
             if not process_page.tesseract_initialized:
                 raise Exception("Tesseract not properly initialized")
         
-        # Optimize image
         img = optimize_image_for_ocr(img)
-        
-        # OCR with optimized settings and fallback
+        logging.info("Performing OCR on image...")
+
+        custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
         try:
-            # Try with specified language
-            custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
-            text = pytesseract.image_to_string(
-                img, 
-                lang=language,
-                config=custom_config
-            )
+            text = pytesseract.image_to_string(img, lang=language, config=custom_config)
         except Exception as lang_error:
-            # Fallback to English if specified language fails
-            st.warning(f"Failed with language {language}, falling back to English")
-            text = pytesseract.image_to_string(
-                img,
-                lang='eng',
-                config=custom_config
-            )
+            logging.warning(f"OCR failed with language {language}, falling back to English.")
+            text = pytesseract.image_to_string(img, lang='eng', config=custom_config)
         
         return text.strip()
+    
     except Exception as e:
+        logging.error(f"Error processing page: {e}")
         st.error(f"Error processing page: {str(e)}")
         return ""
-
 
 def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
     total_files = len(selected_files)
