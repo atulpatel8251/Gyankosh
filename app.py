@@ -378,54 +378,66 @@ import streamlit as st
 
 def setup_tesseract(base_path="./Tesseract-OCR"):
     try:
-        tesseract_base = pathlib.Path(base_path).absolute()
+        # Get the absolute path based on current script location
+        script_dir = pathlib.Path(__file__).resolve().parent
+        tesseract_base = (script_dir / base_path).resolve()
         tesseract_cmd = tesseract_base / "tesseract"
         tessdata_dir = tesseract_base / "tessdata"
-        
+
+        # Ensure the tesseract binary exists
+        if not tesseract_cmd.exists():
+            raise FileNotFoundError(f"Tesseract binary not found at: {tesseract_cmd}")
+
+        # Set up Tesseract
         pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
         os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
 
         logging.info("Testing Tesseract setup...")
+
+        # Create and test with a dummy image
         test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = 'test_ocr.png'
+        test_image_path = (tesseract_base / 'test_ocr.png').resolve()
         test_image.save(test_image_path)
 
         try:
-            pytesseract.image_to_string(test_image_path, lang='eng')
+            pytesseract.image_to_string(str(test_image_path), lang='eng')
             st.success("Tesseract setup completed successfully!")
             return True
         finally:
             if os.path.exists(test_image_path):
                 os.remove(test_image_path)
-                
+
     except Exception as e:
         logging.error(f"Tesseract setup failed: {e}")
         st.error(f"""Tesseract setup failed. Please check:
-        1. Tesseract is installed in: {base_path}
-        2. Language files are present in: {tessdata_dir}
+        1. Tesseract is installed at: {base_path}
+        2. Language files are in: {tessdata_dir}
         Error: {str(e)}""")
         return False
-    
+
+
 def process_page(img, language='hin+eng'):
     try:
         if not hasattr(process_page, 'tesseract_initialized'):
             logging.info("Initializing Tesseract for process_page...")
             process_page.tesseract_initialized = setup_tesseract()
             if not process_page.tesseract_initialized:
-                raise Exception("Tesseract not properly initialized")
-        
-        img = optimize_image_for_ocr(img)
-        logging.info("Performing OCR on image...")
+                raise Exception("Tesseract initialization failed")
+
+        # Preprocess image if needed (you must define this function)
+        img = optimize_image_for_ocr(img)  # Ensure this is defined elsewhere
 
         custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
+        logging.info("Performing OCR on image...")
+
         try:
             text = pytesseract.image_to_string(img, lang=language, config=custom_config)
         except Exception as lang_error:
-            logging.warning(f"OCR failed with language {language}, falling back to English.")
+            logging.warning(f"OCR failed with language {language}: {lang_error}. Falling back to English.")
             text = pytesseract.image_to_string(img, lang='eng', config=custom_config)
-        
+
         return text.strip()
-    
+
     except Exception as e:
         logging.error(f"Error processing page: {e}")
         st.error(f"Error processing page: {str(e)}")
