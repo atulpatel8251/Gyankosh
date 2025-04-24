@@ -335,28 +335,65 @@ class OCRCache:
             return None
     
     def save_text_to_cache(self, file_path, text):
+        """
+        Save extracted text to cache with Linux compatibility
+        
+        Args:
+            file_path (str): Original PDF file path
+            text (str): Extracted text content
+        """
         try:
+            # Generate file hash
             file_hash = self.get_file_hash(file_path)
             cache_index = self.load_cache_index()
-            logging.info(f"Saving text to cache for: {file_path}")
-            cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
             
-            # Make sure the directory exists
-            os.makedirs(os.path.dirname(cache_file), exist_ok=True)
+            # Normalize path for Linux
+            normalized_path = os.path.normpath(file_path).replace('\\', '/')
+            logging.info(f"Saving text to cache for: {normalized_path}")
             
-            with open(cache_file, 'w', encoding='utf-8') as f:
+            # Create cache file path
+            cache_filename = f"{file_hash}.txt"
+            cache_file = os.path.join(self.cache_dir, cache_filename)
+            
+            # Ensure directory exists and has proper permissions
+            os.makedirs(self.cache_dir, exist_ok=True)
+            
+            # Attempt to set proper permissions on the directory (755)
+            try:
+                os.chmod(self.cache_dir, 0o755)
+            except Exception as e:
+                logging.warning(f"Could not set directory permissions: {e}")
+            
+            # Write text content with UTF-8 encoding
+            with open(cache_file, 'w', encoding='utf-8', newline='\n') as f:
                 f.write(text)
             
-            # Normalize path for storage
-            normalized_path = file_path.replace('\\', '/')
+            # Try to set proper file permissions (644)
+            try:
+                os.chmod(cache_file, 0o644)
+            except Exception as e:
+                logging.warning(f"Could not set file permissions: {e}")
             
+            # Update cache index
             cache_index[file_hash] = {
                 'file_path': normalized_path,
                 'cached_date': datetime.now().isoformat(),
-                'cache_file': f"{file_hash}.txt"
+                'cache_file': cache_filename
             }
+            
             self.save_cache_index(cache_index)
-            logging.info(f"Successfully saved to cache: {normalized_path}")
+            logging.info(f"Successfully saved to cache: {cache_file}")
+            
+            # Verify file was written successfully
+            if os.path.exists(cache_file) and os.path.getsize(cache_file) > 0:
+                logging.info(f"Cache file verified: {cache_file} ({os.path.getsize(cache_file)} bytes)")
+            else:
+                logging.warning(f"Cache file verification failed: {cache_file}")
+                
+        except PermissionError as pe:
+            logging.error(f"Permission error saving to cache (try running with sudo or check folder permissions): {pe}")
+        except OSError as oe:
+            logging.error(f"OS error saving to cache: {oe}")
         except Exception as e:
             logging.error(f"Failed to save text to cache: {e}")
                 
