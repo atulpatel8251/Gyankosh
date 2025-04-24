@@ -5,6 +5,7 @@ import os
 import weaviate
 #import db
 import prompts
+import streamlit as st
 import utils
 import logging
 #from langchain_openai import ChatOpenAI
@@ -12,7 +13,6 @@ import logging
 from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI()
 #from langchain.llms import AzureOpenAI
 
 
@@ -22,7 +22,7 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
-
+openai_api_key2 = st.secrets["secret_section"]["OPENAI_API_KEY"]
 
 
 GPT_MODELS = ["gpt-3.5-turbo"]
@@ -51,7 +51,7 @@ class RAGTask:
 
     def get_output(self, source_text: str, model_name: str = "gpt-3.5-turbo", overwrite: bool = False) -> str:
         """
-         Get the output for the task, either by generating it or fetching from Weaviate.
+        Get the output for the task, either by generating it or fetching from Weaviate.
         :param source_text: The source text based on which the task is created.
         :param model_name: The name of the model to use for generating output.
         :param overwrite: Whether to overwrite the output if it already exists in Weaviate.
@@ -119,10 +119,11 @@ def call_chatgpt(prompt: str, model_name: str = "gpt-3.5-turbo") -> str:
     #openai.api_type = "azure"
     #openai.api_version = "2024-02-15-preview"
     #openai.api_base = "https://aipmuuat.openai.azure.com/"  # Your Azure OpenAI resource's endpoint value.
-    
+    openai_api_key2 = st.secrets["secret_section"]["OPENAI_API_KEY"]
+    client = OpenAI(api_key=openai_api_key2)
     completion = client.chat.completions.create(
-        engine="gpt-3.5-turbo",
-        messages= [
+        engine=model_name,
+        messages=[
             prompts.SYSTEM_PROMPTS["Default"],
             {
                 "role": "user",
