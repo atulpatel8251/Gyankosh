@@ -261,68 +261,104 @@ import concurrent.futures
 
 
 class OCRCache:
-    def __init__(self, cache_dir="./ocr_cache"):
+    def __init__(self, cache_dir=None):
+        """Initialize OCR cache system with configurable cache directory"""
         logging.info("Initializing OCRCache...")
-        self.cache_dir = cache_dir
-        self.cache_index_file = os.path.join(cache_dir, "cache_index.json")
+        # Use environment variable or default to a relative path
+        self.cache_dir = cache_dir or os.environ.get("OCR_CACHE_DIR", "./ocr_cache")
+        # Convert to absolute path if needed
+        if not os.path.isabs(self.cache_dir):
+            self.cache_dir = os.path.abspath(self.cache_dir)
+        self.cache_index_file = os.path.join(self.cache_dir, "cache_index.json")
         self.initialize_cache()
     
     def initialize_cache(self):
-        logging.info("Creating cache directory and index...")
+        logging.info(f"Creating cache directory and index at {self.cache_dir}...")
         os.makedirs(self.cache_dir, exist_ok=True)
         if not os.path.exists(self.cache_index_file):
             self.save_cache_index({})
     
     def get_file_hash(self, file_path):
         logging.info(f"Generating file hash for: {file_path}")
-        modification_time = os.path.getmtime(file_path)
-        file_size = os.path.getsize(file_path)
-        hash_string = f"{file_path}_{modification_time}_{file_size}"
-        return hashlib.md5(hash_string.encode()).hexdigest()
+        try:
+            modification_time = os.path.getmtime(file_path)
+            file_size = os.path.getsize(file_path)
+            # Normalize the file path to use forward slashes for consistency across platforms
+            normalized_path = file_path.replace('\\', '/')
+            hash_string = f"{normalized_path}_{modification_time}_{file_size}"
+            return hashlib.md5(hash_string.encode()).hexdigest()
+        except Exception as e:
+            logging.error(f"Error generating file hash: {e}")
+            # Fallback to just the filename if there's an error
+            normalized_name = os.path.basename(file_path).replace('\\', '/')
+            return hashlib.md5(normalized_name.encode()).hexdigest()
     
     def load_cache_index(self):
-        logging.info("Loading cache index...")
+        logging.info(f"Loading cache index from {self.cache_index_file}...")
         try:
-            with open(self.cache_index_file, 'r', encoding='utf-8') as f:
-                return json.load(f)
+            if os.path.exists(self.cache_index_file):
+                with open(self.cache_index_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            else:
+                logging.warning("Cache index file doesn't exist, returning empty index")
+                return {}
         except Exception as e:
             logging.warning(f"Failed to load cache index: {e}")
             return {}
     
     def save_cache_index(self, index):
-        logging.info("Saving cache index...")
-        with open(self.cache_index_file, 'w', encoding='utf-8') as f:
-            json.dump(index, f, ensure_ascii=False, indent=2)
+        logging.info(f"Saving cache index to {self.cache_index_file}...")
+        try:
+            with open(self.cache_index_file, 'w', encoding='utf-8') as f:
+                json.dump(index, f, ensure_ascii=False, indent=2)
+        except Exception as e:
+            logging.error(f"Failed to save cache index: {e}")
     
     def get_cached_text(self, file_path):
-        file_hash = self.get_file_hash(file_path)
-        logging.info(f"Checking cache for hash: {file_hash}")
-        cache_index = self.load_cache_index()
-        if file_hash in cache_index:
-            cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
-            if os.path.exists(cache_file):
-                try:
-                    with open(cache_file, 'r', encoding='utf-8') as f:
-                        logging.info(f"Cache hit for file: {file_path}")
-                        return f.read()
-                except Exception as e:
-                    logging.error(f"Failed to read cached file: {e}")
-        logging.info("Cache miss.")
-        return None
+        try:
+            file_hash = self.get_file_hash(file_path)
+            logging.info(f"Checking cache for hash: {file_hash}")
+            cache_index = self.load_cache_index()
+            if file_hash in cache_index:
+                cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
+                if os.path.exists(cache_file):
+                    try:
+                        with open(cache_file, 'r', encoding='utf-8') as f:
+                            logging.info(f"Cache hit for file: {file_path}")
+                            return f.read()
+                    except Exception as e:
+                        logging.error(f"Failed to read cached file: {e}")
+            logging.info("Cache miss.")
+            return None
+        except Exception as e:
+            logging.error(f"Error in get_cached_text: {e}")
+            return None
     
     def save_text_to_cache(self, file_path, text):
-        file_hash = self.get_file_hash(file_path)
-        cache_index = self.load_cache_index()
-        logging.info(f"Saving text to cache for: {file_path}")
-        cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
-        with open(cache_file, 'w', encoding='utf-8') as f:
-            f.write(text)
-        cache_index[file_hash] = {
-            'file_path': file_path,
-            'cached_date': datetime.now().isoformat(),
-            'cache_file': f"{file_hash}.txt"
-        }
-        self.save_cache_index(cache_index)
+        try:
+            file_hash = self.get_file_hash(file_path)
+            cache_index = self.load_cache_index()
+            logging.info(f"Saving text to cache for: {file_path}")
+            cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
+            
+            # Make sure the directory exists
+            os.makedirs(os.path.dirname(cache_file), exist_ok=True)
+            
+            with open(cache_file, 'w', encoding='utf-8') as f:
+                f.write(text)
+            
+            # Normalize path for storage
+            normalized_path = file_path.replace('\\', '/')
+            
+            cache_index[file_hash] = {
+                'file_path': normalized_path,
+                'cached_date': datetime.now().isoformat(),
+                'cache_file': f"{file_hash}.txt"
+            }
+            self.save_cache_index(cache_index)
+            logging.info(f"Successfully saved to cache: {normalized_path}")
+        except Exception as e:
+            logging.error(f"Failed to save text to cache: {e}")
                 
 def extract_text_with_ocr_cached(pdf_file_path, cache_system):
     logging.info(f"Processing file: {pdf_file_path}")
@@ -333,14 +369,30 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
         return cached_text
     
     try:
+        # Check file existence
+        if not os.path.exists(pdf_file_path):
+            logging.error(f"PDF file not found: {pdf_file_path}")
+            st.error(f"File not found: {pdf_file_path}")
+            return ""
+            
         images = convert_from_path(
             pdf_file_path,
             dpi=200,
-            thread_count=multiprocessing.cpu_count(),
+            thread_count=max(1, multiprocessing.cpu_count() - 1),  # Leave one CPU core free
             grayscale=True,
             size=(1800, None)
         )
+        
+        if not images:
+            logging.warning(f"No images extracted from PDF: {pdf_file_path}")
+            st.warning(f"No images could be extracted from {os.path.basename(pdf_file_path)}")
+            return ""
+            
         max_workers = min(multiprocessing.cpu_count(), len(images))
+        max_workers = max(1, max_workers)  # Ensure at least 1 worker
+        
+        logging.info(f"Processing {len(images)} pages with {max_workers} workers")
+        
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             results = list(executor.map(process_page, images))
         
@@ -348,6 +400,10 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
         
         if extracted_text.strip():
             cache_system.save_text_to_cache(pdf_file_path, extracted_text)
+            logging.info(f"Successfully extracted text from {pdf_file_path}")
+        else:
+            logging.warning(f"No text extracted from {pdf_file_path}")
+            st.warning(f"No text could be extracted from {os.path.basename(pdf_file_path)}")
         
         return extracted_text
     
@@ -358,17 +414,22 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
     
 def optimize_image_for_ocr(image):
     logging.info("Optimizing image for OCR...")
-    if image.mode != 'L':
-        image = image.convert('L')
-    
-    max_dimension = 2000
-    if max(image.size) > max_dimension:
-        ratio = max_dimension / max(image.size)
-        new_size = tuple(int(dim * ratio) for dim in image.size)
-        image = image.resize(new_size, Image.LANCZOS)
-    
-    image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
-    return image
+    try:
+        if image.mode != 'L':
+            image = image.convert('L')
+        
+        max_dimension = 2000
+        if max(image.size) > max_dimension:
+            ratio = max_dimension / max(image.size)
+            new_size = tuple(int(dim * ratio) for dim in image.size)
+            image = image.resize(new_size, Image.LANCZOS)
+        
+        # Enhance contrast
+        image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
+        return image
+    except Exception as e:
+        logging.error(f"Error optimizing image: {e}")
+        return image
 
 import os
 import pathlib
@@ -378,51 +439,57 @@ import streamlit as st
 import shutil
 import tempfile
 
-def setup_tesseract(base_path="./Tesseract-OCR"):
-    """
-    Configure Tesseract environment using Tesseract-OCR folder structure
+def setup_tesseract():
+    """Configure Tesseract with flexible path resolution for Linux environments"""
+    logging.info("Setting up Tesseract...")
     
-    Args:
-        base_path (str): Path to Tesseract-OCR directory (default: "./Tesseract-OCR")
-        
-    Returns:
-        bool: True if setup successful, False otherwise
-    """
-    try:
-        # Convert to Path object and resolve absolute path
-        tesseract_base = pathlib.Path(base_path).absolute()
-        
-        # Set paths directly from Tesseract-OCR folder
-        tesseract_cmd = tesseract_base / "tesseract"
-        tessdata_dir = tesseract_base / "tessdata"
-        
-        # Set Tesseract command path
-        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
-        
-        # Set TESSDATA_PREFIX environment variable
-        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
-        
-        # Quick test
-        test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = 'test_ocr.png'
-        test_image.save(test_image_path)
-        
-        try:
-            pytesseract.image_to_string(test_image_path, lang='eng')
-            st.success("Tesseract setup completed successfully!")
-            return True
-        finally:
-            if os.path.exists(test_image_path):
-                os.remove(test_image_path)
-                
-    except Exception as e:
-        st.error(f"""Tesseract setup failed. Please check:
-        1. Tesseract is installed in: {base_path}
-        2. Language files are present in: {tessdata_dir}
-        
-        Error: {str(e)}""")
+    # Try different methods to locate tesseract
+    tesseract_paths = [
+        os.environ.get("TESSERACT_PATH"),        # Environment variable
+        "/usr/bin/tesseract",                    # Standard Linux path
+        "/usr/local/bin/tesseract",              # Alternative Linux path
+        "./Tesseract-OCR/tesseract",             # Local relative path
+        "tesseract"                              # Rely on PATH environment variable
+    ]
+    
+    # Handle tessdata directory separately
+    tessdata_paths = [
+        os.environ.get("TESSDATA_PREFIX"),       # Environment variable
+        "/usr/share/tesseract-ocr/4.00/tessdata/",  # Ubuntu/Debian path
+        "/usr/share/tesseract/tessdata/",        # Common Linux path
+        "/usr/share/tessdata/",                  # Another common Linux path 
+        "./Tesseract-OCR/tessdata/"              # Local relative path
+    ]
+    
+    # Try each tesseract path
+    tesseract_found = False
+    for path in tesseract_paths:
+        if path and (os.path.exists(path) or shutil.which(path)):
+            try:
+                pytesseract.pytesseract.tesseract_cmd = path
+                pytesseract.get_tesseract_version()
+                logging.info(f"Tesseract found at: {path}")
+                tesseract_found = True
+                st.success(f"Tesseract found at: {path}")
+                break
+            except Exception as e:
+                logging.warning(f"Found tesseract at {path} but test failed: {e}")
+    
+    # Set tessdata path if found
+    if tesseract_found:
+        for tessdata_path in tessdata_paths:
+            if tessdata_path and os.path.exists(tessdata_path):
+                os.environ['TESSDATA_PREFIX'] = tessdata_path
+                logging.info(f"TESSDATA_PREFIX set to: {tessdata_path}")
+                break
+    
+    if not tesseract_found:
+        error_msg = "Tesseract not found. Please install it or set TESSERACT_PATH environment variable."
+        logging.error(error_msg)
+        st.error(error_msg)
         return False
-    
+        
+    return tesseract_found
 
 def process_page(img, language='hin+eng'):
     """Process a single page with error handling and verification"""
@@ -440,6 +507,7 @@ def process_page(img, language='hin+eng'):
         try:
             # Try with specified language
             custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
+            logging.info(f"Running OCR with language: {language}")
             text = pytesseract.image_to_string(
                 img, 
                 lang=language,
@@ -447,20 +515,27 @@ def process_page(img, language='hin+eng'):
             )
         except Exception as lang_error:
             # Fallback to English if specified language fails
+            logging.warning(f"Failed with language {language}: {lang_error}, falling back to English")
             st.warning(f"Failed with language {language}, falling back to English")
-            text = pytesseract.image_to_string(
-                img,
-                lang='hin+eng',
-                config=custom_config
-            )
+            try:
+                text = pytesseract.image_to_string(
+                    img,
+                    lang='eng',
+                    config=custom_config
+                )
+            except Exception as eng_error:
+                logging.error(f"English fallback also failed: {eng_error}")
+                return ""
         
         return text.strip()
     except Exception as e:
+        logging.error(f"Error processing page: {str(e)}")
         st.error(f"Error processing page: {str(e)}")
         return ""
         
 def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
     """Process multiple PDFs using cache when available"""
+    logging.info(f"Starting batch processing of {len(selected_files)} files from {folder_path}")
     total_files = len(selected_files)
     combined_text = []
     processed_files = []
@@ -469,26 +544,39 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
     cache_system = OCRCache()
     
     # Process files in smaller batches
-    batch_size = 3
+    batch_size = min(3, max(1, multiprocessing.cpu_count() - 1))  # Adjust batch size based on CPU count
     for i in range(0, total_files, batch_size):
         batch = selected_files[i:i + batch_size]
+        logging.info(f"Processing batch {i//batch_size + 1}/{(total_files + batch_size - 1)//batch_size}: {batch}")
         
         with ThreadPoolExecutor(max_workers=batch_size) as executor:
-            future_to_file = {
-                executor.submit(
-                    extract_text_with_ocr_cached,
-                    os.path.join(folder_path, file + '.pdf'),
-                    cache_system
-                ): file for file in batch
-            }
+            # Create normalized paths for Linux
+            futures_to_file = {}
+            for file in batch:
+                # Normalize path for Linux
+                pdf_path = os.path.join(folder_path, file + '.pdf')
+                pdf_path = os.path.normpath(pdf_path).replace('\\', '/')
+                
+                # Check if file exists
+                if not os.path.exists(pdf_path):
+                    logging.warning(f"File does not exist: {pdf_path}")
+                    st.warning(f"File not found: {pdf_path}")
+                    processed_files.append(file)  # Count as processed even if not found
+                    continue
+                    
+                futures_to_file[executor.submit(extract_text_with_ocr_cached, pdf_path, cache_system)] = file
             
-            for future in concurrent.futures.as_completed(future_to_file):
-                file = future_to_file[future]
+            for future in concurrent.futures.as_completed(futures_to_file):
+                file = futures_to_file[future]
                 try:
                     text = future.result()
-                    if text.strip():
+                    if text and text.strip():
                         combined_text.append(text)
-                        processed_files.append(file)
+                        logging.info(f"Successfully processed: {file}")
+                    else:
+                        logging.warning(f"No text extracted from: {file}")
+                    
+                    processed_files.append(file)
                     
                     # Update progress
                     progress = (len(processed_files) / total_files)
@@ -496,8 +584,11 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
                     status_text.text(f"Processed {len(processed_files)}/{total_files} files")
                     
                 except Exception as e:
+                    logging.error(f"Error processing {file}: {str(e)}")
                     st.warning(f"Error processing {file}: {str(e)}")
+                    processed_files.append(file)  # Count as processed even if failed
     
+    logging.info(f"Batch processing complete. Processed {len(processed_files)} files, extracted text from {len(combined_text)} files")
     return combined_text, processed_files
     
 # Function to convert PDF to text
