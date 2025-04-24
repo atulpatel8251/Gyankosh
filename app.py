@@ -429,33 +429,6 @@ def process_page(img, language='hin+eng'):
             if not process_page.tesseract_initialized:
                 raise Exception("Tesseract initialization failed")
 
-        # Preprocess image if needed (you must define this function)
-        img = optimize_image_for_ocr(img)  # Ensure this is defined elsewhere
-
-        custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
-        logging.info("Performing OCR on image...")
-
-        try:
-            text = pytesseract.image_to_string(img, lang=language, config=custom_config)
-        except Exception as lang_error:
-            logging.warning(f"OCR failed with language {language}: {lang_error}. Falling back to English.")
-            text = pytesseract.image_to_string(img, lang='eng', config=custom_config)
-
-        return text.strip()
-
-    except Exception as e:
-        logging.error(f"Error processing page: {e}")
-        st.error(f"Error processing page: {str(e)}")
-        return ""
-
-def process_page(img, language='hin+eng'):
-    try:
-        if not hasattr(process_page, 'tesseract_initialized'):
-            logging.info("Initializing Tesseract for process_page...")
-            process_page.tesseract_initialized = setup_tesseract()
-            if not process_page.tesseract_initialized:
-                raise Exception("Tesseract initialization failed")
-
         # Preprocess image if needed
         img = optimize_image_for_ocr(img)
 
@@ -474,6 +447,47 @@ def process_page(img, language='hin+eng'):
         logging.error(f"Error processing page: {e}")
         st.error(f"Error processing page: {str(e)}")
         return ""
+
+def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
+    """Process multiple PDFs using cache when available"""
+    total_files = len(selected_files)
+    combined_text = []
+    processed_files = []
+    
+    # Initialize cache system
+    cache_system = OCRCache()
+    
+    # Process files in smaller batches
+    batch_size = 3
+    for i in range(0, total_files, batch_size):
+        batch = selected_files[i:i + batch_size]
+        
+        with ThreadPoolExecutor(max_workers=batch_size) as executor:
+            future_to_file = {
+                executor.submit(
+                    extract_text_with_ocr_cached,
+                    os.path.join(folder_path, file + '.pdf'),
+                    cache_system
+                ): file for file in batch
+            }
+            
+            for future in concurrent.futures.as_completed(future_to_file):
+                file = future_to_file[future]
+                try:
+                    text = future.result()
+                    if text.strip():
+                        combined_text.append(text)
+                        processed_files.append(file)
+                    
+                    # Update progress
+                    progress = (len(processed_files) / total_files)
+                    progress_bar.progress(progress)
+                    status_text.text(f"Processed {len(processed_files)}/{total_files} files")
+                    
+                except Exception as e:
+                    st.warning(f"Error processing {file}: {str(e)}")
+    
+    return combined_text, processed_files
     
 # Function to convert PDF to text
 def pdf_to_text(file_path):
