@@ -1,0 +1,65 @@
+### Multiple Choice Questions (MCQs)
+1. What is the SI unit of electric current?
+   a) Volt  
+   b) Ampere  
+   c) Ohm  
+   d) Coulomb
+
+2. Which of the following is a good conductor of electricity?
+   a) Rubber  
+   b) Glass  
+   c) Copper  
+   d) Wood
+
+3. What is the formula for calculating electric power?
+   a) P = IV  
+   b) P = IR  
+   c) P = V/R  
+   d) P = I^2R
+
+4. Which law states that the current passing through a conductor is directly proportional to the voltage across it?
+   a) Coulomb's Law  
+   b) Ohm's Law  
+   c) Faraday's Law  
+   d) Kirchhoff's Law
+
+5. What is the resistance of a conductor if the potential difference across it is 10V and the current flowing through it is 2A?
+   a) 5 Ohms  
+   b) 10 Ohms  
+   c) 2 Ohms  
+   d) 20 Ohms
+
+### Fill in the Blanks
+1. The unit of electric charge is the __________.
+2. The resistance of a wire depends on its __________ and __________.
+3. In a series circuit, the total resistance is the __________ of the individual resistances.
+4. The device used to measure electric current is called a __________.
+5. The potential difference between two points in a circuit is measured in __________.
+
+### True/False
+1. The resistance of a conductor increases with an increase in temperature. (True/False)
+2. An electric circuit must always be open to allow current to flow. (True/False)
+3. The SI unit of resistance is the ohm. (True/False)
+4. Electric power is the rate at which electrical energy is consumed. (True/False)
+5. A potentiometer is used to measure electric current. (True/False)
+
+### One-word Questions
+1. What is the SI unit of resistance?
+2. Name the instrument used to measure voltage.
+3. Which subatomic particle is primarily responsible for electric current?
+4. What is the term for materials that do not conduct electricity well?
+5. What is the symbol for resistance in a circuit diagram?
+
+### Short Answer Questions
+1. Explain Ohm's Law.
+2. What are the factors affecting the resistance of a conductor?
+3. Describe the difference between series and parallel circuits.
+4. What is the function of a fuse in an electrical circuit?
+5. How do you calculate the total resistance in a parallel circuit?
+
+### Long Answer Questions
+1. Describe the working principle of an electric motor.
+2. Explain the heating effect of electric current with examples.
+3. Discuss the advantages and disadvantages of series and parallel circuits.
+4. Explain the concept of electric power and how it is calculated.
+5. Describe the construction and working of a simple electric circuit with a diagram.

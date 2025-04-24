@@ -1,0 +1,502 @@
+ae          a
+F
+Oh    i
+Cuapter I]
+EE
+We have already studied the surface areas of cube, cuboid and cylinder. We will now
+study the surface area of cone.
+So far, we have been generating solids by stacking up congruent figures. Incidentally,
+such figures are called prisms. Now let us look at another kind of solid which is not a
+prism (These kinds of solids are called pyramids.). Let us see how we can generate
+them.
+Cut out a right-angled triangle ABC right angled at B. Paste a long thick
+string along one of the perpendicular sides say AB of the triangle [see Fig. ]l.(a)].
+Hold the string with your hands on either sides of the triangle and rotate the triangle
+about the string a number of times. What happens? Do you recognize the shape that
+the triangle is forming as it rotates around the string [see Fig. | [.[(0)]? Does it remind
+you of the time you had eaten an ice-cream heaped into a container of that shape [see
+Fig. l.] (c) and (d)]?
+2024-25
+This is called a right circular cone. In Fig. .|(c)
+
+of the right circular cone, the point A is called the
+
+vertex, AB is called the height, BC is called the radius
+
+and AC is called the slant height of the cone. Here B
+
+will be the centre of circular base of the cone. The
+
+height, radius and slant height of the cone are usually
+
+denoted by h, r and / respectively. Once again, let us
+
+see what kind of cone we can not call a right circular
+
+cone. Here, you are (see Fig. ].2)! What you see in
+
+these figures are not right circular cones; because in
+
+(a), the line joining its vertex to the centre of its base
+
+is not at right angle to the base, and in (b) the base is
+
+not circular.
+
+As in the case of cylinder, since we will be studying only about right circular cones,
+
+remember that by ‘cone’ in this chapter, we shall mean a ‘right circular cone.’
+
+(i) Cut out a neatly made paper cone that does not have any overlapped
+paper, straight along its side, and opening it out, to see the shape of paper that forms
+the surface of the cone. (The line along which you cut the cone is the s/ant height of
+the cone which is represented by /). It looks like a part of a round cake.
+
+(ii) If you now bring the sides marked A and B at the tips together, you can see that
+the curved portion of Fig. .3 (0) will form the circular base of the cone.
+
+(iti) If the paper like the one in Fig. .3 (c) is now cut into hundreds of little pieces,
+along the lines drawn from the point O, each cut portion is almost a small triangle,
+whose height is the slant height / of the cone.
+
+|
+(iv) Now the area of each triangle = 3 x base of each triangle * /.
+So, area of the entire piece of paper
+
+2024-25
+= sum of the areas of all the triangles
+ल 2 कक) a toy 4 = 4 (b, +b, +b, +++)
+27°27 2]          2.
+ग
+= 3 x / x length of entire curved boundary of Fig. .3(c)
+(as b, + b, + b, +... makes up the curved portion of the figure)
+But the curved portion of the figure makes up the perimeter of the base of the cone
+and the circumference of the base of the cone = 2mr, where r is the base radius of the
+cone.
+|
+So, Curved Surface Area of a Cone = 2 >> Inr = nrl
+where r is its base radius and / its slant height.
+Note that ? = 7° + h? (as can be seen from Fig. .4), by
+applying Pythagoras Theorem. Here / is the height of the
+cone.
+Therefore, / = Vr +P
+Now if the base of the cone is to be closed, then a circular piece of paper of radius r
+is also required whose area is 7.
+So, Total Surface Area of a Cone = nrl + ar? = nr(l +r)
+Find the curved surface area of a right circular cone whose slant height
+is ]0 cm and base radius is 7 cm.
+Curved surface area = mr
+2?    7x 0 cm?
+= — 26   x
+7         cm
+= 220 cm?
+The height of a cone is !6 cm and its base radius is [2 cm. Find the
+curved surface area and the total surface area of the cone (Use m = 3.4).
+Here, 4 = |6 cm and r = 42 cm.
+So, from P = h? + 7°, we have
+[= Vie + 20 +|2* cm=20cm
+2024-25
+So, curved surface area = पा                                        A
+= 3.4 2 x 20cm?                        Ba
+= 753.6 cm?                           = \
+Further, total surface area = mrl + n°                           \: ३22
+\  |
+= (753.6 + 3.4 x I2 x 2) cm?         Seer |
+;      \
+= (753.6 + 452.6) cm?                    | &     |
+= 205.76 cm?              |  /  |
+A corn cob (see Fig. I.5), shaped somewhat         |
+like a cone, has the radius of its broadest end as 2. | cm and        Xe
+length (height) as 20 cm. If each | cm? of the surface of the
+cob carries an average of four grains, find how many grains
+you would find on the entire cob.
+
+Since the grains of corn are found only on the curved surface of the corn
+cob, we would need to know the curved surface area of the corn cob to find the total
+number of grains on it. In this question, we are given the height of the cone, so we
+need to find its slant height.
+
+Here, /= {P+ = बट) + 207 [)” +20? cm
+= /404.4 cm = 20.l]l cm
+Therefore, the curved surface area of the corn cob = m/l
+22
+चयन x 2. x 20.l] cm? = 432.726 cm? = |32.73 cm? (approx.)
+Number of grains of corn on | cm? of the surface of the corn cob = 4
+Therefore, number of grains on the entire curved surface of the cob
+= 32.73 x 4= 530.92 = 53। (approx.)
+So, there would be approximately 53] grains of corn on the cob.
+22                         .
+Assume 7 = Fz unless stated otherwise.
+l. Diameter of the base ofa cone is |0.5 cm and its slant height is |0 cm. Find its curved
+surface area.
+2. Find the total surface area of a cone, if its slant height is 2 | m and diameter of its base
+is 24m.
+2024-25
+3. Curved surface area of a cone is 308 cm? and its slant height is [4 cm. Find
+(i) radius of the base and (ii) total surface area of the cone.
+
+4. Aconical tent is |0 m high and the radius of its base is 24 m. Find
+(i) slant height of the tent.
+
+(ii) cost of the canvas required to make the tent, if the cost of | m? canvas is हैं 70.
+
+5. What length of tarpaulin 3 m wide will be required to make conical tent of height 8 m
+and base radius 6 m? Assume that the extra length of material that will be required for
+stitching margins and wastage in cutting is approximately 20 cm (Use m = 3.4).
+
+6. The slant height and base diameter of a conical tomb are 25 m and |4 m respectively.
+Find the cost of white-washing its curved surface at the rate of ¥ 20 per 00 m?.
+
+7. Ajoker’s cap is in the form of a right circular cone of base radius 7 cm and height
+24 cm. Find the area of the sheet required to make 0 such caps.
+
+8. A bus stop is barricaded from the remaining part of the road, by using 50 hollow
+cones made of recycled cardboard. Each cone has a base diameter of 40 cm and height
+| m. If the outer side of each of the cones is to be painted and the cost of painting is
+& [2 per m’, what will be the cost of painting all these cones? (Use m = 3.4 and take
+04 =.02)
+
+What is a sphere? Is it the same as a circle? Can you draw a circle on a paper? Yes,
+you can, because a circle is a plane closed figure whose every point lies at a constant
+distance (called radius) from a fixed point, which is called the centre of the circle.
+Now if you paste a string along a diameter of a circular disc and rotate it as you had
+rotated the triangle in the previous section, you see a new solid (see Fig |.6). What
+does it resemble? A ball? Yes. It is called a sphere.
+
+2024-25
+Can you guess what happens to the centre of the circle, when it forms a sphere on
+rotation? Of course, it becomes the centre of the sphere. So, a sphere is a three
+dimensional figure (solid figure), which is made up of all points in the space,
+which lie at a constant distance called the radius, from a fixed point called the
+centre of the sphere.
+
+A sphere is like the surface of a ball. The word solid sphere is used for the
+solid whose surface is a sphere.
+
+Have you ever played with a top or have you at least watched someone
+play with one? You must be aware of how a string is wound around it. Now, let us take
+a rubber ball and drive a nail into it. Taking support of the nail, let us wind a string
+around the ball. When you have reached the ‘fullest’ part of the ball, use pins to keep
+the string in place, and continue to wind the string around the remaining part of the ball,
+till you have completely covered the ball [see Fig. |l.7(a)]. Mark the starting and
+finishing points on the string, and slowly unwind the string from the surface of the ball.
+Now, ask your teacher to help you in measuring the diameter of the ball, from which
+you easily get its radius. Then on a sheet of paper, draw four circles with radius equal
+to the radius of the ball. Start filling the circles one by one, with the string you had
+wound around the ball [see Fig. .7(b)].
+
+(a)          +4
+(b)
+What have you achieved in all this?
+The string, which had completely covered the surface area of the sphere, has been
+used to completely fill the regions of four circles, all of the same radius as of the sphere.
+So, what does that mean? This suggests that the surface area of a sphere of radius r
+= 4 times the area of a circle of radius r = 4 x (x 7°)
+So,               Surface Area of a Sphere = 4 x लग
+2024-25
+where r is the radius of the sphere.
+How many faces do you see in the surface of a sphere? There is only one, which is
+curved.
+Now, let us take a solid sphere, and slice it exactly ‘through
+the middle’ with a plane that passes through its centre. What
+happens to the sphere?
+Yes, it gets divided into two equal parts (see Fig. ].8)! What
+will each half be called? It is called a hemisphere. (Because
+‘hemi’ also means ‘half?)
+And what about the surface of a hemisphere? How many faces does it have?
+Two! There is a curved face and a flat face (base).
+The curved surface area of a hemisphere is half the surface area of the sphere, which
+[है
+
+is 5 of 47°.
+Therefore, Curved Surface Area of a Hemisphere = 2xr’
+where r is the radius of the sphere of which the hemisphere is a part.
+Now taking the two faces of a hemisphere, its surface area 2nr? + m7?
+So, Total Surface Area of a Hemisphere = उप
+
+Find the surface area of a sphere of radius 7 cm.
+
+The surface area of a sphere of radius 7 cm would be
+22
+4nr? न 4 > x7x 7 पाए न 66 cm?
+
+Find (i) the curved surface area and (ii) the total surface area of a
+
+hemisphere of radius 2 cm.
+The curved surface area of a hemisphere of radius 2! cm would be
+22
+= 2m = 2 x 7 x 2I x 2] cm? = 2772 cm?
+2024-25
+(ii) the total surface area of the hemisphere would be
+22
+3nr? = 3 x 7 x 2I x 2] cm? = 458 cm?
+The hollow sphere, in which the circus motorcyclist performs his stunts,
+has a diameter of 7 m. Find the area available to the motorcyclist for riding.
+
+Diameter of the sphere = 7 m. Therefore, radius is 3.5 m. So, the riding
+space available for the motorcyclist is the surface area of the ‘sphere’ which is
+given by
+
+22
+4nr = 4 x > % 3.5 x 3.5 m?
+= [उतार
+A hemispherical dome of a building needs to be painted
+(see Fig. .9). If the circumference of the base of the dome is [7.0 m, find the cost of
+painting it, given the cost of painting is हैं 5 per !00 cm’.
+
+Since only the rounded surface of the dome is to be painted, we would need
+to find the curved surface area of the hemisphere to know the extent of painting that
+needs to be done. Now, circumference of the dome = 7.6 m. Therefore, 7.6 = 2zr.
+
+7
+So, the radius of the dome = 47.6 x ——— m=2.8m
+2x22
+The curved surface area of the dome = 2n7?
+22
+=2x 7 x 2.8 x 2.8 m?
+= 49.28 पा?
+Now, cost of painting 00 cm’ is हैं 5.
+So, cost of painting | m?=% 500
+Therefore, cost of painting the whole dome
+= हें 500 x 49.28
+= % 24640
+22                         हि
+Assume प्राय न Fz: unless stated otherwise.
+l. Find the surface area of a sphere of radius:
+(i)  [0.50ा                        (ii) 5.6cm                      (iii) 4 छाए
+2024-25
+2. Find the surface area of a sphere of diameter:
+ही) ला                             (i) 2lcm                         (iii) 3.5m
+3. Find the total surface area of a hemisphere of radius 0 cm. (Use m= 3.4)
+4. The radius ofa spherical balloon increases from 7 cm to 4 cmas air is being pumped
+into it. Find the ratio of surface areas of the balloon in the two cases.
+5. A hemispherical bowl made of brass has inner diameter 0.5 cm. Find the cost of
+tin-plating it on the inside at the rate of € 6 per 00 cm’.
+6. Find the radius of a sphere whose surface area is [54 cm’.
+7. The diameter of the moon is approximately one fourth of the diameter of the earth.
+Find the ratio of their surface areas.
+8. A hemispherical bowl is made of steel, 0.25 cm thick. The inner radius of the bowl is
+5 cm. Find the outer curved surface area of the bowl.
+9. Aright circular cylinder just encloses a sphere of                                   ef६ )
+radius r (see Fig. |[.0). Find                                                             \
+(i) surface area of the sphere,                                                      ।
+(i) curved surface area of the cylinder,
+(iti) ratio of the areas obtained in (i) and (ii).
+:                                  :                                               |  >
+In earlier classes we have studied the volumes of
+cube, cuboid and cylinder
+In Fig I].], can you see that there is a right circular                        h
+cylinder and a right circular cone of the same base
+radius and the same height?
+IV
+Try to make a hollow cylinder and a hollow cone like this with the same
+base radius and the same height (see Fig. .]). Then, we can try out an experiment
+that will help us, to see practically what the volume of a right circular cone would be!
+=e
+न i    fh      >               rj           >
+h                                   h                                  =<
+(a)                  (b)                  (c)
+2024-25
+So, let us start like this.
+
+Fill the cone up to the brim with sand once, and empty it into the cylinder. We find
+that it fills up only a part of the cylinder [see Fig. .2(a)].
+
+When we fill up the cone again to the brim, and empty it into the cylinder, we see
+that the cylinder is still not full [see Fig. .2(b)].
+
+When the cone is filled up for the third time, and emptied into the cylinder, it can be
+seen that the cylinder is also full to the brim [see Fig. .2(c)].
+
+With this, we can safely come to the conclusion that three times the volume of a
+cone, makes up the volume of a cylinder, which has the same base radius and the
+same height as the cone, which means that the volume of the cone is one-third the
+volume of the cylinder.
+
+.               |
+50,      Volume of a Cone = 3बाय
+where r is the base radius and h is the height of the cone.
+The height and the slant height ofa cone are 2l cm and 28 cm respectively.
+Find the volume of the cone.
+From दी =r? + h?, we have
+r= JP =r = 28? जार —2P om न रची पा
+|          l 22       V7 x INF
+So, volume of the cone = 3th = 3 x J; x 7V7 x TV7 x 2 cm
+= 7546 लाएं
+Monica has a piece of canvas whose area is 55 पा. She uses it to have
+a conical tent made, with a base radius of 7 m. Assuming that all the stitching margins
+and the wastage incurred while cutting, amounts to approximately | m/, find the volume
+of the tent that can be made with it.
+
+Since the area of the canvas = 55] पा and area of the canvas lost in
+wastage is | m?, therefore the area of canvas available for making the tent is
+(55] — [) m? = 550 m’.
+
+Now, the surface area of the tent = 550 m? and the required base radius of the conical
+tent = 7m
+Note that a tent has only a curved surface (the floor of a tent is not covered by
+canvas!!).
+
+2024-25
+Therefore, curved surface area of tent = 550 पा,
+That is,                             trl = 550
+22
+or,                         = x7xl= 550
+7
+[=3 550       25
+or,                                                   =3>7m=25m
+22
+Now,                                 PH=rt+h
+Therefore,               h= Par लकी न सिर -7Tm= [625 — 49m= 576m
+= 24m
+.              ly      | 22                     3
+So, the volume of the conical tent = 3mh= 3 x 7 x 7x 7x 24 पा न 232 m’,
+22                     :
+Assume mt = 7? unless stated otherwise.
+
+l. Find the volume of the right circular cone with
+(i) radius 6 cm, height 7 cm                  (ii) radius 3.5 cm, height 2 cm
+
+2. Find the capacity in litres of a conical vessel with
+(i) radius 7 cm, slant height 25 cm        (ii) height |2 cm, slant height 3 cm
+
+3. The height of a cone is 5 cm. If its volume is |570 cm’, find the radius of the base.
+(Use m= 3.4)
+
+4. Ifthe volume ofa right circular cone of height 9 cm is 48 x cm’, find the diameter of its
+base.
+
+5. Aconical pit of top diameter 3.5 m is |2 m deep. What is its capacity in kilolitres?
+
+6. The volume ofa right circular cone is 9856 cm’. If the diameter of the base is 28 cm,
+find
+(i) height of the cone                     (ii) slant height of the cone
+(iii) curved surface area of the cone
+
+7. Aright triangle ABC with sides 5 cm, 42 cm and [3 cm is revolved about the side 2 cm.
+Find the volume of the solid so obtained.
+
+8. Ifthe triangle ABC in the Question 7 above is revolved about the side 5 cm, then find
+the volume of the solid so obtained. Find also the ratio of the volumes of the two
+solids obtained in Questions 7 and 8.
+
+9. A heap of wheat is in the form of a cone whose diameter is [0.5 m and height is 3 m.
+Find its volume. The heap is to be covered by canvas to protect it from rain. Find the
+area of the canvas required.
+
+2024-25
+Now, let us see how to go about measuring the volume of a sphere. First, take two or
+three spheres of different radii, and a container big enough to be able to put each of
+the spheres into it, one at a time. Also, take a large trough in which you can place the
+container. Then, fill the container up to the brim with water [see Fig. ]].3(a)].
+
+Now, carefully place one of the spheres in the container. Some of the water from
+the container will over flow into the trough in which it is kept [see Fig. !.3(b)].
+Carefully pour out the water from the trough into a measuring cylinder (i.e., a graduated
+cylindrical jar) and measure the water over flowed [see Fig. Il.3(c)]. Suppose the
+radius of the immersed sphere is r (you can find the radius by measuring the diameter
+
+4
+
+of the sphere). Then evaluate 3 mr>. Do you find this value almost equal to the
+measure of the volume over flowed?
+
+——            _————_)
+
+i             ।                      i             {
+
+||             {                      ||    है      t
+
+i        {               | जय     ।
+
+(a)                  (b)                (c)
+
+Once again repeat the procedure done just now, with a different size of sphere.
+Find the radius R of this sphere and then calculate the value of 3 mR*. Once again this
+value is nearly equal to the measure of the volume of the water displaced (over flowed)
+by the sphere. What does this tell us? We know that the volume of the sphere is the
+same as the measure of the volume of the water displaced by it. By doing this experiment
+repeatedly with spheres of varying radii, we are getting the same result, namely, the
+
+4
+volume of a sphere is equal to 3" times the cube of its radius. This gives us the idea
+that
+4    3
+Volume of a Sphere = 37"
+where 7 is the radius of the sphere.
+
+Later, in higher classes it can be proved also. But at this stage, we will just take it
+as true.
+
+2024-25
+Since a hemisphere is half of a sphere, can you guess what the volume of a
+.          :            wt 4 3 2,
+hemisphere will be? Yes, it is — of = mr” = ar,
+2 3         3
+203
+So, | Volume of a Hemisphere = rar
+where r is the radius of the hemisphere.
+Let us take some examples to illustrate the use of these formulae.
+Find the volume of a sphere of radius |.2 cm.
+4
+Required volume =  3 mr
+= : x > x I.2 x 2.2 x ].2 cm’ = 5887.32 cm?
+A shot-putt is a metallic sphere of radius 4.9 cm. If the density of the
+metal is 7.8 छू per cm’, find the mass of the shot-putt.
+Since the shot-putt is a solid sphere made of metal and its mass is equal to
+the product of its volume and density, we need to find the volume of the sphere.
+4
+Now, volume of the sphere = 3"r
+= 4 4.9 4.9: 4.9 em
+3. 7
+= 493 cm’ (nearly)
+Further, mass of | cm* of metal is 7.8 छू.
+Therefore, mass of the shot-putt = 7.8 x 493 g
+= 3845.44 g = 3.85 kg (nearly)
+A hemispherical bowl has a radius of 3.5 cm. What would be the
+volume of water it would contain?
+The volume of water the bowl can contain
+2
+= <n
+3
+2 22
+= —x—x35x3.5x3.5 लाए = 89.8 cm?
+3
+2024-25
+22
+Assume प्रा न 7 unless stated otherwise.
+l. Find the volume of a sphere whose radius is
+(i) 7em                                  (ii) 0.63m
+2. Find the amount of water displaced by a solid spherical ball of diameter
+@) 28cm                                Gi) 0.2lm
+3. The diameter ofa metallic ball is 4.2 cm. What is the mass of the ball, if the density of
+the metal is 8.9 g per cm*?
+4. The diameter of the moon is approximately one-fourth of the diameter of the earth.
+What fraction of the volume of the earth is the volume of the moon?
+5. How many litres of milk can a hemispherical bowl of diameter 0.5 cm hold?
+6. A hemispherical tank is made up of an iron sheet | cm thick. If the inner radius is | m,
+then find the volume of the iron used to make the tank.
+7. Find the volume of a sphere whose surface area is |54 cm’.
+8. A dome ofa building is in the form of a hemisphere. From inside, it was white-washed
+at the cost of ¥ 4989.60. If the cost of white-washing is हैं 20 per square metre, find the
+(i) inside surface area of the dome,      (ii) volume of the air inside the dome.
+9. Twenty seven solid iron spheres, each of radius r and surface area S are melted to
+form a sphere with surface area S'. Find the
+(i) radius r' of the new sphere,          (ii) ratio of S and S’.
+0. A capsule of medicine is in the shape of a sphere of diameter 3.5 mm. How much
+medicine (in mm*) is needed to fill this capsule?
+In this chapter, you have studied the following points:
+l. Curved surface area of a cone = ml
+2. Total surface area of a right circular cone = arl+ m7’, ie., mr (/ +r)
+3. Surface area of a sphere of radius r=4 27°
+4. Curved surface area of a hemisphere = 277?
+5. Total surface area of a hemisphere = 37°
+|
+6. Volume of a cone न 3 meh
+कि         43
+7. Volume of a sphere of radius r= 3 tr
+नि              23
+8. Volume of a hemisphere = 3 Tr
+(Here, letters /, b, h, a, r, etc. have been used in their usual meaning, depending on the
+context. ]
+2024-25

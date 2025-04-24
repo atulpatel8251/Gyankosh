@@ -1,0 +1,478 @@
+hapter4.                      ae |
+००७4०१04
+UCTURE  Vv                         iF
+STRUCTURE OF THE ATOM
+In Chapter 3, we have learnt that atoms and         From these activities, can we conclude
+molecules are the fundamental building — that on rubbing two objects together, they
+blocks of matter. The existence of different pecome electrically charged? Where does this
+kinds of‘matter is due to different atoms    charge come from? This question can be
+one wenew the anestions arise: answered by knowing that an atom is divisible
+(i) What makes the atom of one element    and consists of charged particles.
+different from the atom of another element?                   ienti           नि        ि          दि
+a                      rare               Many scientists contributed in revealing
+and (ii) Are atoms really indivisible, as                      दि                ti     y
+proposed by Dalton, or are there smaller   the presence of charged particles in an atom.
+constituents inside the atom? We shall find         It was known by 900 that the atom was
+out the answers to these questions in this indivisible particle but contained at least one
+chapter. We will learn about sub-atomic sub-atomic particle - the electron identified by
+particles and the various models that have J.J. Thomson. Even before the electron was
+been proposed to explain how these particles _ identified, E. Goldstein in 886 discovered the
+are arranged within the atom.                        presence of new radiations in a gas discharge
+A major challenge before the scientists था... and called them canal rays. These rays were
+the end of the l9th century was to reveal the     positively charged radiations which ultimately
+a of the atom as well asto explain its Jed to the discovery of another sub-atomic
+important properties. The elucidation of the        arti       नि            ic parti
+कि                               .               particle. This sub-atomic particle had a charge,
+structure of atoms is based on a series of       दि      .            [an
+.                                                                             equal in magnitude but opposite in sign to that
+experiments.                                                                     |
+One of the first indications that atoms are     of the electron. Its mass was approximately
+not indivisible, comes from studying static 2000 times as that of the electron. It was given
+electricity and the condition under which — the name of proton. In general, an electron is
+electricity is conducted by different represented as ‘e” and a proton as ‘p”. The
+substances.                                              mass of a proton is taken as one unit and its
+charge as plus one. The mass of an electron is
+4.  Charged Particles in Matter      considered to be negligible and its charge is
+Fr                        .                                               minus one.
+For understanding the nature of charged        It seemed that an atom was composed of
+particles in matter, let us carry out the                                                       -
+.     woe                          protons and electrons, mutually balancing
+following activities:                                            कि
+their charges. It also appeared that the protons
+Activity                             4.        were in the interior of the atom, for whereas
+electrons could easily be removed off but
+A. Comb dry hair. Does the comb then                            Fi       -       .
+मे                                 not protons. Now the big question was:
+attract small pieces of paper?                                                  दि                 लि
+B. Rub a glass rod with a silk cloth and       what sort of structure did these particles of
+bring the rod near an inflated balloon.      the atom form? We will find the answer to
+Observe what happens.                            this question below.
+2024-25
+J.J. Thomson (856- if    a”
+940),      a British है       bl)
+physicist, was born in po कि at
+Cheetham Hill, a suburb        .    flan
+of Manchester, on|,       F
+8 December 856. He
+was awarded the Nobel    «
+prize in Physics in 906  eee      ‘
+T                                               for his work on the         4     \
+4.2 The Structure of an Atom           discovery of electrons. He
+directed the Cavendish Laboratory at
+We have learnt Dalton’s atomic theory in    Cambridge for 35 years and seven of his
+Chapter 3, which suggested that the atom    research assistants subsequently won
+was indivisible and indestructible. But the    Nobel prizes.
+discovery of two fundamental particles
+(electrons and protons) inside the atom, led | Thomson proposed that:
+to the failure of this aspect of Dalton’s atomic       (i) An atom consists of a positively
+theory. It was then considered necessary to           charged sphere and the electrons are
+know how electrons and protons are arranged                embedded in it.
+within an atom. For explaining this, many     (ii) The negative and positive charges are
+scientists proposed various atomic models.            equal in magnitude. So, the atom as a
+J.J. Thomson was the first one to propose a            whole is electrically neutral.
+model for the structure of an atom.                   Although Thomson’s model explained that
+5                               atoms are electrically neutral, the results of
+4.2.॥ THOMSON’s MODEL OF AN ATOM       experiments carried out by other scientists
+Thomson proposed the model of an atom to    could not be explained by this model, as we
+be similar to that of a Christmas pudding. Will see below.
+The electrons, in a sphere of positive charge,
+were like currants (dry fruits) in a spherical    4.2.2 RUTHERFORD’S MODEL OF AN ATOM
+साय the prattfue tn the wena     Ernest Rutherford was interested in knowing
+-               .           कि            how the electrons are arranged within an
+is spread all over like the red edible part of                         .              .
+the watermelon, while the electrons are   atom. Rutherford designed an experiment for
+studded in the positively charged sphere, like   this. In this experiment, fast moving alpha
+the seeds in the watermelon (Fig. 4.).        (a)-particles were made to fall on a thin
+gold foil.
+« He selected a gold foil because he wanted
+©                                               as thin a layer as possible. This gold foil
+°            &              positive sphere          was about 000 atoms thick.
+6               थी   P      e  a-particles are doubly-charged helium
+6                  5                                   ions. Since they have a mass of 4 u, the
+fast-moving a-particles have a
+©                                             considerable amount of energy.
+°                ७9              Electron                    « It was expected that a-particles would be
+9                                         deflected by the sub-atomic particles in
+the gold atoms. Since the a-particles were
+much heavier than the protons, he did
+कूद, 4. Thomson's model of an atom                 not expect to see large deflections.
+STRUCTURE OF THE ATOM                                                                                                                      39
+2024-25                                              |
+Gold atoms              He will hear a sound when each stone strikes
+the wall. If he repeats this ten times, he will
+a aN       2       hear the sound ten times. But if a blind-folded
+o-particles         L- jal jal)              child were to throw stones at a barbed-wire
+aGoace           fence, most of the stones would not hit the
+== ८” == i =                  fencing and no sound would be heard. This is
+\*} सका             because there are lots of gaps in the fence
+पट 0 0९" 2)                 which allow the stone to pass through them.
+A   ><   ><            Followi    imil.       .  Rutherford
+oo     ay                           ollowing a similar reasoning, Rutherfor
+PhP              concluded from the a-particle scattering
+2     ><      ><                      नि
+SF       i                            experiment that—
+वे: कण डर             (i) Most of the space inside the atom is
+~\—_F — pS                            empty because most of the a-particles
+SL.) =<     ><                                                               न सन
+ane ae:                 passed through the gold foil without
+C4. KY.)                         getting deflected.
+CT     rT                 (ii) Very few particles were deflected from
+their path, indicating that the positive
+|             tert             ही                 |                 charge of the atom occupies very little
+Fig. 4.2: Scattering of a-particles by a gold foil                    space.
+|        कि       |        (iii) A very small fraction of a-particles
+But, the a-particle scattering experiment              were deflected by 80°, indicating that
+gave totally unexpected results (Fig. 4.2). The                all the positive charge and mass of the
+following observations were made:                          gold atom were concentrated in a very
+(i) Most of the fast moving a-particles         small volume within the atom.
+passed straight through the gold foil.          From the data he also calculated that the
+(ii) Some of the a-particles were deflected _ radius of the nucleus is about 05 times less
+by the foil by small angles.                  than the radius of the atom.
+(iii) Surprisingly one out of every 2000         On the basis of his experiment,
+particles appeared to rebound.             Rutherford put forward the nuclear model of
+In the words of Rutherford, “This result an atom, which had the following features:
+was almost as incredible as if you fire a      (i) There is a positively charged centre in
+उन shell at a piece of tissue paper and it              an atom called the nucleus. Nearly all
+comes back and hits you’.                         the mass of an atom resides in the
+nucleus.
+a        E. Rutherford (87-937)         (ii) The electrons revolve around the
+was born at Spring Grove       कि  nucleus in circularpaths.
+7          on 30 August 87]. He was      (iii) The size of the nucleus is very small
+oe      known as the ‘Father’ of             as compared to the size of the atom.
+Vy     nuclear physics. He is    Drawbacks of Rutherford’s model of
+famous for his work on      the atom
+radioactivity and the      नाग           ti                     |     कि            कि
+discovery of the nucleus of an atom with       The revolution of the electron ina circular orbit
+the gold foil experiment. He got the Nobel      is not expected to be stable. Any particle in a
+prize in chemistry in 908.                  circular orbit would undergo acceleration.
+During acceleration, charged particles would
+radiate energy. Thus, the revolving electron
+Let us think of an activity in an open field would lose energy and finally fall into the
+to understand the implications of this nucleus. If this were so, the atom should be
+experiment. Let a child stand in front of a highly unstable and hence matter would not
+wall with his eyes closed. Let him throw __ exist in the form that we know. We know that
+stones at the wall from a distance.    atoms are quite stable.
+40                                                                                                    SCIENCE
+|                                                   2024-25
+4.2.3 BOHR’S MODEL OF ATOM
+In order to overcome the objections raised
+against Rutherford’s model of the atom,
+Neils Bohr put forward the following
+postulates about the model of an atom:
+(i) Only certain special orbits known as
+discrete orbits of electrons, are allowed
+inside the atom.
+(ii) While revolving in discrete orbits the
+electrons do not radiate energy.
+4 Neils Bohr (885-962)
+£     was born in Copenhagen
+on 7 October 885. He was
+.       %     appointed professor of
+physics at Copenhagen     4.2.4 NEUTRONS
+श्र        fers an376 pe eet      In 932, J. Chadwick discovered another sub-
+               on the ctrnetare of atom in    atomic particle which had no charge and a
+922. Among Professor      mass nearly equal to that of a proton. It was
+Bohr’s numerouswritings three appearing     eventually named as neutron. Neutrons are
+as books are:            दि                    present in the nucleus of all atoms, except
+i) The T   °                              y      hydrogen. In general, a neutron is
+(i) he heory of epectra @ and Atomic    represented as ‘n’. The mass of an atom is
+Constitution, (ii) Atomic Theory and,     therefore given by the sum of the masses of
+iii) The Description of Nature.                          protons and neutrons present in the nucleus.
+These orbits or shells are called energy    fy We
+levels. Energy levels in an atom are shown in     a  |
+Fig. 4.3.
+N shell (n=4)
+M shell (n=3)
+L shell (n=2)
+K shell (n=I)
+Nucleus                43 Howare Electrons Distributed
+in Different Orbits (Shells)?
+The distribution of electrons into different
+orbits of an atom was suggested by Bohr
+and Bury.
+Fig. 4.3: A few energy levels in an atom                  The following rules are followed for writing
+the number of electrons in different energy
+These orbits or shells are represented by _levels or shells:
+the letters K,L,M,N,... or the numbers,     (i) The maximum number of electrons
+n=,2,3,4,....                                present in a shell is given by the
+STRUCTURE OF THE ATOM                                                                                                                      था
+2024-25                                              |
+formula 2n?, where ‘n’ is the orbit      .   The composition of atoms of the first
+number or energy level index, ,2,3,....                 eighteen elements is given in Table 4..
+Hence the maximum number of
+electrons in different shells are as
+follows:
+first orbit or K-shell will be = 2 x l? = 2,
+second orbit or L-shell will be = 2 x 2?= 8,
+third orbit or M-shell will be = 2 x 37= 8,
+fourth orbit or N-shell will be = 2 x 4?
+= 32, and so on.
+(ii) The maximum number of electrons that
+can be accommodated in the outermost      4.4 Val
+orbit is 8.                                            °       alency
+(iii) Electrons are not accommodated ina We have learnt how the electrons in an atom
+given shell, unlessthe innershells are   are arranged in different shells/orbits. The
+filled. That is, the shells are filledin a electrons present in the outermost shell of
+step-wise manner.                                an atom are known as the valence electrons.
+Atomic structure of the first eighteen         From the Bohr-Bury scheme, we also know
+elements is shown schematically in Fig. 4.4.      that the outermost shell of an atom can
+H                                                                                                     He
+©) ©      © © ©
+Li            Be            B             c             N             0             F             Ne
+oN      ——      aN                                                                    GS)  "
+CQKOTOKOCOCOTOKS)
+Na           Mg            Al             Si             P             s             a             Ar
+Fig. 4.4: Schematic atomic structure of the first eighteen elements
++e                                     accommodate a maximum of 8 electrons. It
+Activity —_——4.2     was observed that the atoms of elements,
+completely filled with 8 electrons in the
+e Make a static atomic model displaying        outermost shell show little chemical activity.
+electronic configuration of the first      In other words, their combining capacity or
+eighteen elements.                          valency is zero. Of these inert elements, the
+42                                                                                                    SCIENCE
+|                                                   2024-25
+Table 4. ]: Composition of Atoms of the First Eighteen Elements
+with Electron Distribution in Various Shells
+Name of |Symbol| Atomic | Number] Number | Number | Distribution of    Vale-
+Element              Number     of        of        of         Electrons       ney
+Protons|Neutrons|Electrons| K L M WN
+Hydrogen      H       | ह        |        -         | ही       | ह    -     -   -     | ह
+Helium        He       2        2        2         2      2    -     -   -     0
+Lithium        Li        3         3         4          3       2    | है     -    -      I
+Beryllium     Be       4        4        5         4      2    2    -   -     2
+Boron         B       5        5        6         5      2    3    -   -     3
+Carbon         Cc        6         6         6         6       2    4    -    -     4
+Nitrogen       N       7        7        7         7      2    5    -   -     3
+Oxygen        0       8        8        8         8      2    6    -   -     2
+Fluorine       F       9        9        0        9      2    7    =   -     | ह
+Neon                   Ne            0             0             0              0           2       8        -       -         0
+Sodium           Na           2         2      8       l -        | ही
+Magnesium Mg            2              2              2              ]2           2       8        2 -         2
+Aluminium        Al             3              3             4              3           2       8        3 -         3
+Silicon                Si             4             4             4              4           2       8        4      -         4
+Phosphorus         P                 5                 5                 6                  5              2         8          5 -           3,5
+Sulphur              5              6             6             6              6           2       8        6 -         2
+Chlorine                cl                ग7                 7                 [8                  गा              2         8          7 -            |
+Argon                 Ar             8             8             22              8           2       8        8                0
+helium atom has two electrons in its outermost —_ element, that is, the valency discussed in the
+shell and all other elements have atoms with previous chapter. For example, hydrogen/
+eight electrons in the outermost shell.               lithium/sodium atoms contain one electron
+The combining capacity of the atoms of   each in their outermost shell, therefore each
+elements, that is, their tendency to react and One of them can lose one electron. So, they are
+form molecules with atoms of the same or  S@id to have valency of one. Can you tell, what
+different elements, was thus explainedasan 5 valency of magnesium and aluminium? It
+न               *P                     is two and three, respectively, because
+attempt to attain a fully-filled outermost shell.                    ium has t       Jectr       init       t          t
+An outermost-shell, which had eight electrons     Magnesium has fwo electrons In Its outermos|
+“           ;                             shell and aluminium has three electrons in
+was said to possess an octet. Atoms would its outermost shell.
+thus react, so as to achieve an octet in the         If the number of electrons in the
+outermost shell. This was done by sharing, —_ outermost shell of an atom is close to its full
+gaining or losing electrons. The number of capacity, then valency is determined in a
+electrons gained, lost or sharedso as tomake different way. For example, the fluorine atom
+the octet of electrons in the outermost shell,     has 7 electrons in the outermost shell, and its
+gives us directly the combining capacity ofthe | valency could be 7. But it is easier for
+‘STRUCTURE OF THE ATOM                                                                                                                      43
+2024-25                                      |
+fluorine to gain one electron instead of losing 6 neutrons, 6 u + 6 u = ]2 u. Similarly, the
+seven electrons. Hence, its valency is determined mass of aluminium is 27 u (3 protons+l4
+by subtracting seven electrons from the octet     neutrons). The mass number is defined as the
+and this gives you a valency of one for fluorine. | sum of the total number of protons and
+Valency can be calculatedinasimilarmanner neutrons present in the nucleus of an atom. It
+for oxygen. What is the valency of oxygen that —__is denoted by ‘A’. In the notation for an atom,
+you get from this calculation?                               the atomic number, mass number and symbol
+Therefore, an atom of each element hasa __ of the element are to be written as:
+definite combining capacity, called its valency.                             Mass Number
+Valency of the first eighteen elements is given                               दे      _        A
+in the last column of Table 4. ].                                            Symbol of
+element             x
+Z
+Atomic Number
+For example, nitrogen is written as 7N .
+4.5 Atomic Number and Mass        |
+Number                                       (  )
+4 J
+4.5. ATOMIC NUMBER                                जे
+We know that protons are present in the
+nucleus of an atom. It is the number of    46 पृ
+protons of an atom, which determines its    °   sotopes
+atomic number. It is denoted byZz.Allatoms y, nature, a number of atoms of some
+of an element have theden’ nor number,      elements have been identified, which have the
+iaIn act cements are  Tins 4the Ze a    same atomic number but different mass
+b pro ons  hileosen mt  Of  ye Togen,   st  > numbers. For example, take the case of
+pecause in Ay Togen atom, only one PIO eD   hydrogen atom, it has three atomic species,
+is present in the nucleus. Similarly, for
+carbon, Z = 6. Therefore, the atomic number namely protium (/H), deuterium (7H or D)
+is defined as the total number of protons              5
+present in the nucleus of an atom.                 and tritium (| H or T). The atomic number of
+each one is l, but the mass number is l, 2
+4.5.2 Mass NUMBER                                     and 3, respectively. Other such examples are
+After studying the properties of the sub- (i) carbon, 20 and ‘éC, (i) chlorine, Cl
+atomic particles of an atom, we can conclude             37
+that mass of an atom is practically due to and {7 Cl, ete.
+protons and neutrons alone. These are       On the basis of these examples, isotopes
+present in the nucleus of an atom. Hence    are defined as the atoms of the same element,
+protons and neutrons are also called having the same atomic number but different
+nucleons. Therefore, the mass of an atom mass numbers. Therefore, we can say that
+resides in its nucleus. For example, mass of _ there are three isotopes of hydrogen atom,
+carbon is 2 u because it has 6 protons and _ namely protium, deuterium and tritium.
+44                                                                                                    SCIENCE
+|                                                   2024-25
+Many elements consist of a mixture of | Applications
+subutance. ‘The chemical properticn of      Since the chemical properties of all the
+.        .   ~          ;      °        isotopes of an element are the same,
+isotopes are similar but their physical     normally we are not concerned about
+Pre lorine eceure in nature in two isotopic          taking a mixture. But some isotopes have
+special properties which find them useful
+forms, with masses 35 u and 37 u in the ratio          in various fields. Some of them are:
+of 3:l. Obviously, the question arises: what        () An isotope of uranium is used as a fuel
+should we take as the mass of chlorine atom?                 in nuclear reactors.
+Let us find out.                             (ii) An isotope of cobalt is used in the
+The average atomic mass of chlorine atom,                treatment of cancer.
+on the basis of above data, will be             (iii) An isotope of iodine is used in the
+treatment of goitre.
+5    75          25
+3!   — +37 —
+00         00                         4.6. Isopars
+Let us consider two elements — calcium,
+_ 205 + 37 _ 24क2 _ 35.5u             atomic number 20, and argon, atomic
+4      4       4        है                       number 8. The number of protons in these
+atoms is different, but the mass number of
+The mass of an atom of any natural element    both these elements is 40. That is, the total
+is taken as the average mass of all the naturally      number of nucleons is the same in the atoms
+occuring atoms of that element. If an element    pisthis Par of ene Atoms of different
+has no isotopes. then the mass of its atom   elements with different atomic numbers, which
+Pes,                                 have the same mass number, are known as
+would be the same as the sum of protons and     isobars
+neutrons in it. But if an element occurs in          .
+isotopic forms, then we have to know the          .
+percentage of each isotopic form and then the         ,
+average mass is calculated.                                   {
+This does not mean that any one atom of        |
+chlorine has a fractional mass of 35.5 u. It}
+means that if you take a certain amount of
+chlorine, it will contain both isotopes of
+chlorine and the average mass is 35.5 u.
+j What
+Ny) you have
+© Alle) Y
+ray  a7   l
+pa?         Vi,     earnt
+oar, y
+Credit for the discovery of electron and proton goes to J.J.
+Thomson and E.Goldstein, respectively.
+J.J. Thomson proposed that electrons are embedded in a
+positive sphere.
+STRUCTURE OF THE ATOM                                                                                                                      45
+2024-25                                              |
+Rutherford’s alpha-particle scattering experiment led to the
+discovery of the atomic nucleus.
+Rutherford’s model of the atom proposed that a very tiny
+nucleus is present inside the atom and electrons revolve
+around this nucleus. The stability of the atom could not be
+explained by this model.
+Neils Bohr’s model of the atom was more successful. He
+proposed that electrons are distributed in different shells with
+discrete energy around the nucleus. If the atomic shells are
+complete, then the atom will be stable and less reactive.
+J. Chadwick discovered presence of neutrons in the nucleus of
+an atom. So, the three sub-atomic particles of an atom are:
+(i) electrons, (ii) protons and (iii) neutrons. Electrons are
+negatively charged, protons are positively charged and neutrons
+I
+have no charges. The mass of an electron is about 2000  times
+the mass of an hydrogen atom. The mass of a proton and a
+neutron is taken as one unit each.
+Shells of an atom are designated as K,L,M.N.....
+Valency is the combining capacity of an atom.
+The atomic number of an element is the same as the number
+of protons in the nucleus of its atom.
+The mass number of an atom is equal to the number of nucleons
+in its nucleus.
+Isotopes are atoms of the same element, which have different
+mass numbers.
+Isobars are atoms having the same mass number but different
+atomic numbers.
+Elements are defined by the number of protons they possess.
+Exercises
+Ry                l. Compare the properties of electrons, protons and neutrons.
+|  WeeJ                 2. What are the limitations of J.J. Thomson’s model of the atom?
+pel77                                      seta ga                       .                         5
+॥  LS          3. What are the limitations of Rutherford’s model of the atom?
+SP            4. Describe Bohr’s model of the atom.
+ee               5. Compare all the proposed models of an atom given in this
+chapter.
+6. Summarise the rules for writing of distribution of electrons in
+various shells for the first eighteen elements.
+7. Define valency by taking examples of silicon and oxygen.
+46                                                                                                    SCIENCE
+|                                                   2024-25
+|
+8. Explain with examples (i) Atomic number, (ii) Mass number,
+(iii) Isotopes and iv) Isobars. Give any two uses of isotopes.
+9. Na* has completely filled K and L shells. Explain.
+
+0. If bromine atom is available in the form of, say, two isotopes
+2Br (49.7%) and  iaBr (50.3%), calculate the average atomic
+mass of bromine atom.
+
+ll. The average atomic mass of a sample of an element X is 6.2 u.
+What are the percentages of isotopes '$X and '$X in the
+sample?
+
+2. IfZ=3, what would be the valency of the element? Also, name
+the element.
+
+3. Composition of the nuclei of two atomic species X and Y are
+given as under
+
+x     Y
+Protons =     6     6
+Neutrons =     6     8
+Give the mass numbers of X and Y. What is the relation between
+the two species?
+
+4. For the following statements, write T for True and F for False.
+
+(a) J.J. Thomson proposed that the nucleus of an atom
+contains only nucleons.
+
+(b) A neutron is formed by an electron and a proton
+combining together. Therefore, it is neutral.
+
+(c) The mass ofan electron is about soos times that of proton.
+
+(d) An isotope of iodine is used for making tincture iodine,
+which is used as a medicine.
+Put tick (“) against correct choice and cross (x) against
+wrong choice in questions ]5, 6 and ]7
+
+5. Rutherford’s alpha-particle scattering experiment was
+
+responsible for the discovery of
+(a) Atomic Nucleus          (b) Electron
+(c) Proton                      (d) Neutron
+6. Isotopes of an element have
+(a) the same physical properties
+(b) different chemical properties
+(c) different number of neutrons
+(d) different atomic numbers.
+7. Number of valence electrons in Cl ion are:
+(a) 6          (b) 8        (c) 7         (d) 8
+‘STRUCTURE OF THE ATOM                                                                                                                      47
+2024-25                                                   |
+गए
+8. Which one of the following is a correct electronic configuration
+of sodium?
+(a) 2,8          (b) 8,2, (c) 2,,8      (d) 2,8,.
+9. Complete the following table.
+Atomic | Mass | Number |Number| Number | Name of
+Number [Number      of         of         of     the Atomic]
+Neutrons | Protons |Electrons| Species
+9           -            0            -             -                -
+6         32            -             -             -          Sulphur
+-          24            -            2            -                -
+-           2             -             कह             -                -
+-            हह             0             हह             0               -
+48                                                                                                               SCIENCE
+|                                                         2024-25

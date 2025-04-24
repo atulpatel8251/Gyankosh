@@ -1,0 +1,650 @@
+ob ig   Oo
+Sues            F
+to)
+Cuarter 2
+You have studied algebraic expressions, their addition, subtraction, multiplication and
+division in earlier classes. You also have studied how to factorise some algebraic
+expressions. You may recall the algebraic identities :
+(x + yp =x? + 2xy + y?
+(x —yP नजा 2xy +
+and                                    wy =(x ty) -y)
+and their use in factorisation. In this chapter, we shall start our study with a particular
+type of algebraic expression, called polynomial, and the terminology related to it. We
+shall also study the Remainder Theorem and Factor Theorem and their use in the
+factorisation of polynomials. In addition to the above, we shall study some more algebraic
+identities and their use in factorisation and in evaluating some given expressions.
+Let us begin by recalling that a variable is denoted by a symbol that can take any real
+value. We use the letters x, y, 2, etc. to denote variables. Notice that 2x, 3x, — x, -5x
+are algebraic expressions. All these expressions are of the form (a constant) x. Now
+suppose we want to write an expression which is (a constant) x (a variable) and we do
+not know what the constant is. In such cases, we write the constant as a, b, c, etc. So
+the expression will be ax, say.
+
+However, there is a difference between a letter denoting a constant and a letter
+denoting a variable. The values of the constants remain the same throughout a particular
+situation, that is, the values of the constants do not change in a given problem, but the
+value of a variable can keep changing.
+
+2024-25
+Now, consider a square of side 3 units (see Fig. 2.[).
+What is its perimeter? You know that the perimeter of a square
+is the sum of the lengths of its four sides. Here, each side is
+3 units. So, its perimeter is 4 x 3, i.e., |2 units. What will be the
+perimeter if each side of the square is |0 units? The perimeter
+is 4 x 0, i.e., 40 units. In case the length of each side is x
+units (see Fig. 2.2), the perimeter is given by 4x units. So, as
+the length of the side varies, the perimeter varies.
+
+Can you find the area of the square PQRS? It is
+x X x =x? square units. जी is an algebraic expression. You are
+also familiar with other algebraic expressions like
+2x, x? + 2x, की न x? + 4x + 7. Note that, all the algebraic
+expressions we have considered so far have only whole
+numbers as the exponents of the variable. Expressions of this
+form are called polynomials in one variable. In the examples
+above, the variable is x. For instance, और जी + 4x + 7 isa
+polynomial in x. Similarly, 3y? + Sy is a polynomial in the
+variable y and है + 4 is a polynomial in the variable ४.
+
+In the polynomial x? + 2x, the expressions x? and 2x are called the terms of the
+polynomial. Similarly, the polynomial 3y? + 5y + 7 has three terms, namely, 3)”, Sy and
+7. Can you write the terms of the polynomial =x? + 4x? + 7x — 2 ? This polynomial has
+4 terms, namely, —x°, 4x?, 7x and —2.
+
+Each term of a polynomial has a coefficient. So, in —x? + 4x7 + 7x — 2, the
+coefficient of x* is —l, the coefficient of x? is 4, the coefficient of x is 7 and —2 is the
+coefficient of x° (Remember, x° = ). Do you know the coefficient of x in x? — x + 7?
+It is—l.
+
+2 is also a polynomial. In fact, 2, —5, 7, etc. are examples of constant polynomials.
+The constant polynomial 0 is called the zero polynomial. This plays a very important
+role in the collection of all polynomials, as you will see in the higher classes.
+
+|                           2
+Now, consider algebraic expressions such as x + —> Vx +3 and aly + y’. Do you
+x
+||
+know that you can write x + — =x +x'? Here, the exponent of the second term, i.e.,
+x
+x! is—l, which is not a whole number. So, this algebraic expression is not a polynomial.
+L                                        |
+
+Again, Jx +3 can be written as x? + 3 . Here the exponent of x is > which is
+not a whole number. So, is की +3 a polynomial? No, it is not. What about
+aly +’? It is also not a polynomial (Why?).
+
+2024-25
+If the variable in a polynomial is x, we may denote the polynomial by p(x), or g(x),
+or r(x), etc. So, for example, we may write :
+
+D(x) = 2x? + 5x —3
+g(x) =x =I
+
+ry) =y +y+]
+
+s(u) =2-—u-w + 6u?
+
+A polynomial can have any (finite) number of terms. For instance, x!°° + x!” + ...
++x?+ x +4] isa polynomial with 5] terms.
+
+Consider the polynomials 2x, 2, 5x°, —5x’, y and घी. Do you see that each of these
+polynomials has only one term? Polynomials having only one term are called monomials
+(‘mono’ means ‘one’).
+
+Now observe each of the following polynomials:
+
+pa)=xtl  g@)==x, ORV HL Kw =U
+
+How many terms are there in each of these? Each of these polynomials has only
+two terms. Polynomials having only two terms are called binomials (‘bi’ means ‘two’).
+
+Similarly, polynomials having only three terms are called trinomials
+(‘tri’ means ‘three’). Some examples of trinomials are
+
+P(x) नजर +7,                                gx) न वजन,
+
+कप न न प्र 2,                            tyy=yi+y+5.
+
+Now, look at the polynomial p(x) = 3x7 — 4x° + x + 9. What is the term with the
+highest power of x ? It is 3x’. The exponent of x in this term is 7. Similarly, in the
+polynomial q(v) = 5y° — 4)” — 6, the term with the highest power of y is 5y° and the
+exponent of y in this term is 6. We call the highest power of the variable in a polynomial
+as the degree of the polynomial. So, the degree of the polynomial 3x’ — 4x° + x + 9
+is 7 and the degree of the polynomial 5y° — 4)? — 6 is 6. The degree of a non-zero
+constant polynomial is zero.
+
+Find the degree of each of the polynomials given below:
+(i) P- xt +3             (ii) 2-—y°—y3 + 2y8             (iii) 2
+(i) The highest power of the variable is 5. So, the degree of the polynomial
+is 5.
+(ii) The highest power of the variable is 8. So, the degree of the polynomial is 8.
+(iti) The only term here is 2 which can be written as 2x°. So the exponent of x is 0.
+Therefore, the degree of the polynomial is 0.
+2024-25
+Now observe the polynomials p(x) = 4x + 5, q(v) न 2y, r(t) न ¢ + V2 and
+s(u) = 3 —u. Do you see anything common among all of them? The degree of each of
+these polynomials is one. A polynomial of degree one is called a /inear polynomial.
+Some more linear polynomials in one variable are 2x — |, V2» के , 2 न. Now, try and
+find a linear polynomial in x with 3 terms? You would not be able to find it because a
+linear polynomial in x can have at most two terms. So, any linear polynomial in x will
+be of the form ax + b, where a and b are constants and a # 0 (why?). Similarly,
+ay + bisa linear polynomial iny.
+
+Now consider the polynomials :
+
+2
+2x? + 5, ऊ + 3x +7, x? and x7 + 5%
+
+Do you agree that they are all of degree two? A polynomial of degree two is called
+a quadratic polynomial. Some examples of a quadratic polynomial are 5 — y’,
+4y + 5y’ and 6—y—y’. Can you write a quadratic polynomial in one variable with four
+different terms? You will find that a quadratic polynomial in one variable will have at
+most 3 terms. If you list a few more quadratic polynomials, you will find that any
+quadratic polynomial in x is of the form ax* + bx + 0, where a # 0 and a, b, ८ are
+constants. Similarly, quadratic polynomial in y will be of the form ay’ + by +c, provided
+a #0 and a, b, c are constants.
+
+We call a polynomial of degree three a cubic polynomial. Some examples of a
+cubic polynomial in x are 4x3, 2x3 + , 5x3 +.2x°, 6x3 — x, 6—23, 2x3 + 4x? + 6x +7. How
+many terms do you think a cubic polynomial in one variable can have? It can have at
+most 4 terms. These may be written in the form ax? + bx? + cx + d, where a # 0 and
+a, 0, c and d are constants.
+
+Now, that you have seen what a polynomial of degree |, degree 2, or degree 3
+looks like, can you write down a polynomial in one variable of degree n for any natural
+number 7? A polynomial in one variable x of degree n is an expression of the form
+
+ax" + a, na ' + se + aiad + a)
+where a,, a,, 4,,...,@, are constants and a, # 0.
+
+In particular, ifa, =a,=a,=a,=...=a,=0 (all the constants are zero), we get
+the zero polynomial, which is denoted by 0. What is the degree of the zero polynomial?
+The degree of the zero polynomial is not defined.
+
+So far we have dealt with polynomials in one variable only. We can also have
+polynomials in more than one variable. For example, x? +? + xyz (where variables
+are x, y and z) is a polynomial in three variables. Similarly p* + q'° + r (where the
+variables are p, q andr), घी + v? (where the variables are 2 and v) are polynomials in
+three and two variables, respectively. You will be studying such polynomials in detail
+later.
+
+2024-25
+l. Which of the following expressions are polynomials in one variable and which are
+not? State reasons for your answer.
+2
+(@) 4x°-3x+7     (i) + 2         (ii) उरी + ty2     (iv) y+ 5
+(४)  जग +y + p°
+2. Write the coefficients of x’ in each of the following:
+@) 24+x+x          (ii) 2-° +38           (iii)  3 जी नें          (iv) बिज
+3. Give one example each of a binomial of degree 35, and of a monomial of degree [00.
+4. Write the degree of each of the following polynomials:
+ही 5x8 +49? + 7x                                       (ii) 4)?
+(ii) St— 7                                   (iv) 3
+5. Classify the following as linear, quadratic and cubic polynomials:
+ही xwtx                 (ii) जजों                   (ii) y+ y?+4            (iv) l+x
+(v) 3t           (vi) हो            (vii) 7x3
+Consider the polynomial p(x) = 5x न 2x? + 3x — 2.
+If we replace x by | everywhere in p(x), we get
+p= 5x Up-2x (0) +3 x ()-2
+=5-2+3-2
+=4
+So, we say that the value of p(x) at x = | is 4.
+Similarly,        P(O) = 5(0)> — 2(0)? + 3(0) -2
+=2
+Can you find क(न )?
+Find the value of each of the following polynomials at the indicated value
+of variables:
+(i) px) = 5x°-3x4+ 7 atx=I.
+(ii) gv) न रो वीक VII aty =2.
+(ii) p(t) = 44+ 58 -P + 6att=a.
+2024-25
+|                                      L
+(i) p(x) = 5x? - 3x +7
+The value of the polynomial p(x) at x = | is given by
+p(l) = 5) 30) +7
+=5-3+7=9
+Gi) qv) = 3° —4y + थी
+The value of the polynomial g(y) at y = 2 is given by
+g(2) = 32 —4(2) + Vil =24-8+ Vil नकदी
+(iii) p(t) नवीन 5°-P +6
+The value of the polynomial p(t) at t= a is given by
+p(a) = 4a*+5a-a@+6
+Now, consider the polynomial p(x) =x — I.
+What is p(l)? Note that: 9() न |-न0.
+As p() = 0, we say that | is a zero of the polynomial p(x).
+Similarly, you can check that 2 is a zero of g(x), where g(x) = x — 2.
+In general, we say that a zero of a polynomial p(x) is a number c such that p(c) = 0.
+
+You must have observed that the zero of the polynomial x — | is obtained by
+equating it to 0, i.e.,x — | = 0, which gives x = [. We say p(x) = 0 is a polynomial
+equation and | is the root of the polynomial equation p(x) = 0. So we say | is the zero
+of the polynomial x — I, or a root of the polynomial equation x - | = 0.
+
+Now, consider the constant polynomial 5. Can you tell what its zero is? It has no
+zero because replacing x by any number in 5x° still gives us 5. In fact, a non-zero
+constant polynomial has no zero. What about the zeroes of the zero polynomial? By
+convention, every real number is a zero of the zero polynomial.
+
+Check whether —2 and 2 are zeroes of the polynomial x + 2.
+Let p(x) =x + 2.
+Then p(2)=2+2=4, p(-2) = -2+2=0
+Therefore, —2 is a zero of the polynomial x + 2, but 2 is not.
+Find a zero of the polynomial p(x) = 2x + [.
+Finding a zero of p(x), is the same as solving the equation
+P(x) = 0
+2024-25
+|                                       [
+ही                                      L
+Now,                    2x + | न 0 gives us x =-5
+So, न ; is a zero of the polynomial 2x + [.
+
+Now, if p(x) = ax + b, a # 0, is a linear polynomial, how can we find a zero of
+p(x)? Example 4 may have given you some idea. Finding a zero of the polynomial p(x),
+amounts to solving the polynomial equation p(x) = 0.
+
+Now, p(x) = 0 means           ax+b=0,a40
+So,                                    ax =—b
+कि                                    b
+L.¢.,                                       x= a .
+So, x= पा is the only zero of p(x), i.e., a linear polynomial has one and only one zero.
+Now we can say that | is the zero of x — |, and —2 is the zero of x + 2.
+Verify whether 2 and 0 are zeroes of the polynomial x? — 2x.
+Let                   D(x) =x? — 2x
+Then                      p(2)=2?-4=4-4=0
+and                       p(0)=0-0=0
+Hence, 2 and 0 are both zeroes of the polynomial x — 2x.
+Let us now list our observations:
+(i) A zero of a polynomial need not be 0.
+(il) 0 may be a zero of a polynomial.
+ii) Every linear polynomial has one and only one zero.
+(iv) A polynomial can have more than one zero.
+l. Find the value of the polynomial 5x — 4x? + 3 at
+() x=0       (ii) x=-I       (iii) x=2
+2. Find p(0), p(.) and p(2) for each of the following polynomials:
+@) pO)=y-yrl          (i) p(Q=2+4+2P-F
+(iii) px) =x?                     (iv) p(x) न (न) (जन )
+2024-25
+|                                       हि
+3. Verify whether the following are zeroes of the polynomial, indicated against them.
+|                               4
+ही कि) नाना, x= — 3                          (ii) p(x) न ऊन, x= 3
+ii) p(x) नजीन , अन्न                        (iv) p(x) =(«+ [) (न 2), अनन,2
+m
+(४) p(x)=x°, x=0                                   (vi) p@&)=k+m, x= —- 7
+(vid p(s) =3-, x= - दि    (vill) किन आना, x= 5
+vii) pO     eH, x      BS            viii) pa     व, x= 5
+4. Find the zero of the polynomial in each of the following cases:
+@) p@)=x+5                         (ii) p(x) =x-—5                      (ii) p(x) =2x+5
+(iv) p(x) =3x-2                       (४) p(x) =3x                        (vi) p(x) = ax, a¥0
+(vii) p(x) = cx +d, c #0, c, dare real numbers.
+Let us now look at the situation of Example 0 above more closely. It tells us that since
+|
+the remainder, 7[-5) = 0, (2t + ) is a factor of q(d), i.e., g(t) = (2t + ) g(t)
+for some polynomial g(t). This is a particular case of the following theorem.
+If p(x) is a polynomial of degree n > | and a is any real number,
+then (i) x—a isa factor of p(x), if p(a) = 0, and ही) p(a) = 0, ifx —a is a factor of p(x).
+By the Remainder Theorem, p(x)=(x — a) g(x) + p(a).
+Gi) Ifp(a) = 0, then p(x) = (x — a) q(x), which shows that x — a is a factor of p(x).
+(ii) Since x — a is a factor of p(x), p(x) = (x — a) g(x) for same polynomial g(x).
+In this case, p(a) = (a — a) g(a) = 0.
+Examine whether x + 2 is a factor of x3 + 3x? + 5x + 6 and of 2x + 4.
+The zero of x + 2 is —2. Let p(x) = 2° + 3x° + 5x + 6 and s(x) = 2x +4
+Then,              p(-2) = (-2 + 3-2) + 5(-2) + 6
+=-8+2-0+6
+=0
+2024-25
+So, by the Factor Theorem, x + 2 is a factor of x° + 3x? + 5x + 6.
+Again,                              s(—2) = 2(-2) + 4=0
+So, x + 2 is a factor of 2x + 4. In fact, you can check this without applying the Factor
+Theorem, since 2x + 4 = 2(x + 2).
+Find the value of k, if x — | is a factor of 4x° + 3x? — 4x + k.
+As x — is a factor of p(x) = 4x7 + 3° — 4x + k, p(l) =0
+Now,                    p() = 4()3 + 30. — 4) + &
+So,                        4+3-4+k=0
+i.e.,                                  k=-3
+We will now use the Factor Theorem to factorise some polynomials of degree 2 and 3.
+You are already familiar with the factorisation of a quadratic polynomial like
+x? + Ix +m. You had factorised it by splitting the middle term /x as ax + bx so that
+ab = m. Then x? + lx + m = (x + a) (x + b). We shall now try to factorise quadratic
+polynomials of the type ax? + bx + c, where a ¥ 0 and a, b, c are constants.
+Factorisation of the polynomial ax? + bx + c by splitting the middle term is as
+follows:                                               3x?                            कि
+Let its factors be (px + qg) and (rx +s). Then    x 3x = first term of quotient
+ax? + bx +c = (px + q) (9 +s) =pr x’ + (ps + qr) x + qs
+Comparing the coefficients of x’, we get a = pr.
+Similarly, comparing the coefficients of x, we get b = ps + qr.
+And, on comparing the constant terms, we get c = qs.
+This shows us that 6 is the sum of two numbers ps and gr, whose product is
+(ps)\(qr) = (pr)(qs) = ac.
+Therefore, to factorise ax? + bx + c, we have to write b as the sum of two
+numbers whose product is ac. This will be clear from Example [3.
+Factorise 6x? + 7 + 5 by splitting the middle term, and by using the
+Factor Theorem.
+(By splitting method) : If we can find two numbers p and q such that
+p+q=l7 and pq =6 x 5 = 30, then we can get the factors.
+So, let us look for the pairs of factors of 30. Some are | and 30, 2 and 5, 3 and 0, 5
+and 6. Of these pairs, 2 and |5 will give usp + q =7.
+2024-25
+So, 6x? ने इक +5 = 6x? के (2+ [5)ऋन 5
+= 6x7 +2x+ [ऊिजि +5
+= 2x(3x + [) + 5(3x + )
+= (3x + |) (2x +5)
+(Using the Factor Theorem)
+> 7      5
+6x? + किन ऊन 6 x7 + 7x + ra  = 6 p(x), say. If a and b are the zeroes of p(x), then
+6x? + [फिन 5 = 6(x—a) (x—b). So, ab= ra Let us look at some possibilities for a and
+b. They could be +!otI +> +> के. Now, p I = i + W A + 4 ~ 0. But
+2 3 3 2                    2) 4 6\2) 6
+-]                      [है
+Pp 5  = 0. So, | ++ 3  is a factor of p(x). Similarly, by trial, you can find that
+5).
+x+ 3  is a factor of p(x).
+qT                                        ]      5
+herefore,                6 ने | न ऊन 6[+ + :) [x + >|
+- 6 3 के | | 23 क5
+3       2
+= (3x + |) (2x + 5)
+For the example above, the use of the splitting method appears more efficient. However,
+let us consider another example.
+Factorise ] — 5y + 6 by using the Factor Theorem.
+
+Let p(v) = . न S5y + 6. Now, if p(v) = (v न a) हुए — b), you know that the
+constant term will be ab. So, ab = 6. So, to look for the factors of p(v), we look at the
+factors of 6.
+
+The factors of 6 are |, 2 and 3.
+Now, p(2)=2?-(5 x 2)+6=0
+So, y-—2 isa factor of p(y).
+2024-25
+ही                                      L
+Also, p(3) = 3?-(5 x 3)+6=0
+So, y—3 isalsoa factor of y —5y + 6.
+Therefore, y?—5y+6=(y—2)(v-3)
+Note that y? — 5y + 6 can also be factorised by splitting the middle term —5y.
+Now, let us consider factorising cubic polynomials. Here, the splitting method will not
+be appropriate to start with. We need to find at least one factor first, as you will see in
+the following example.
+Factorise जी — 23x? + [42 न 20.
+Let p(x) = x3 न 23x? + वि न 20
+We shall now look for all the factors of -!20. Some of these are ऊ ], +2, +3,
++4, +5, +6, +8, ऊ0, ऊ2, ऊ5, +20, +24, +30, +60.
+By trial, we find that p() = 0. Sox — | is a factor of p(x).
+Now we see that जी — 23x? + 42 — 420 = x3 — x° — 22x? + 22x + |200 — 420
+नकल) — 22x(x न ) + [20(0 न ) (Why?)
+न (न |) (न 22 ने 20) [Taking (x न ) common]
+We could have also got this by dividing p(x) by x न.
+Now x? — 22x + |20 can be factorised either by splitting the middle term or by using
+the Factor theorem. By splitting the middle term, we have:
+x? न 22x + 20 = x? न 2 न 09 + [20
+= x(x — 2) न (00 -2)
+न्(त-2)(-0
+So,             x8 — 23x? न वि — 20 = (न ५) न ध0)0 - 2)
+l. Determine which of the following polynomials has (x + |) a factor :
+@ 8t+xr+x4+]                                   (ii) t+ 427 +x4+]
+(0 x4+3x°+ 3x? +x4]                    (iv) जौ जीन (2+ v2) x+2
+2. Use the Factor Theorem to determine whether g(x) is a factor of p(x) in each of the
+following cases:
+@ p(x) =23+x°-2x-l,gQ@)=xt
+2024-25
+|                                       हि
+|                                      L
+(i) p(x) = + 3x? + 3x4 L, g(x) =x42
+(iii) p(x) = — 40? +.x+ 6, g(x) =x-3
+3. Find the value of k, ifx — | is a factor of p(x) in each of the following cases:
+@ pQxy=Hrtxtk                               (ii) p(x) = 2x + kx + बी
+(iii) pQx)=he- 2x4                       (iv) px) =k? -3x +k
+4. Factorise:
+() 2x?-7r+]                                       (ii) 2x2 +7x+3
+(iii) 6x? + 5x—6                                        (iv) 3x°-x-4
+5. Factorise :
+ही) »-2x°-x+2                                   (ii) x3 —3x?-9x—5
+(iii) 8 + 3x2+ 32x +20                           (iv) 2y+y?—2y-l
+From your earlier classes, you may recall that an algebraic identity is an algebraic
+equation that is true for all values of the variables occurring in it. You have studied the
+following algebraic identities in earlier classes:
+(Qxtypaxrt 2xyty
+(नी ar -2yty
+r-y=(rty)O-y)
+(x +a) (x +b) =x? + (at b)x + ab
+You must have also used some of these algebraic identities to factorise the algebraic
+expressions. You can also see their utility in computations.
+Find the following products using appropriate identities:
+(i) (x + 3) (x + 3)        (ii) (« — 3) w+ 5)
+(i) Here we can use Identity I: (x + yy =x? + 2xy +”. Putting y = 3 in it,
+we get
+(x + 3) w+ 3)= (न 3P =x? + 2(x)(3) + BYP
+=v+6xt9
+(ii) Using Identity IV above, i.e., (x + a) (x + b) =x + (a + b)x + ab, we have
+(x — 3) (x +5) = x? + (3 + 5)x + (-3)(5)
+लाने 2 न 5
+2024-25
+|                                       [
+Evaluate 05 x 06 without multiplying directly.
+05 x |06 = (00 + 5) x (00 + 6)
+= (00) + (5 + 6) (00) + (5 6), using Identity IV
+= 0000 + 00 + 30
+= |30
+You have seen some uses of the identities listed above in finding the product of some
+given expressions. These identities are useful in factorisation of algebraic expressions
+also, as you can see in the following examples.
+Factorise:
+(i) 49a? + 70ab + 2507            (ii) 2s -=
+(i) Here you can see that
+49a? = (7a), 25b? = (5b), 70ab = 2(7a) (5b)
+Comparing the given expression with x? + 2xy + y’, we observe that x = 7a and y = 5b.
+Using Identity I, we get
+49a? + 70ab + 25b* = (7a + 5b)? = (Ja + 5b) (7a + 5b)
+2, y_(5_)         ,
+(it) We have —x° — Y .{?y) जद
+4      9    2       3
+Now comparing it with Identity III, we get
+2         2          2       2
+23.2 Y _(5,) (2
+4      9     2       3
+5
+2      3)\2      3
+So far, all our identities involved products of binomials. Let us now extend the Identity
+I to a trinomial x + y + z. We shall compute (x + y + z) by using Identity I.
+Let x + y न. Then,
+Qwty+zPp=(t+z)P
+=P +2z+h                                    (Using Identity I)
+=(x+yP+Ax+y)z+ 2         (Substituting the value of r)
+2024-25
+|                                      L
+=x? + 2 +y? + 2xz + 2yz +2?             (Using Identity I)
+Hr tyt+2+2xy+2yz+2zx  (Rearranging the terms)
+So, we get the following identity:
+ty t+ zy लाने y +224 2xy + 2yz + 2x
+We call the right hand side expression the expanded form of the left hand
+side expression. Note that the expansion of (x + y + z)? consists of three square terms
+and three product terms.
+Write (3a + 4b + 5c)’ in expanded form.
+Comparing the given expression with (x + y + z)*, we find that
+x =3a,y = 4b andz=Sc.
+Therefore, using Identity V, we have
+(3a + 4b + 5c)? = Bay + (व) + (Sc? + 2(3a)(4b) + 2(46)(5c) + 2(5c)(3a)
+= 9a? + [60 + 25c? + 24ab + 40be + 30ac
+Expand (4a — 2b — 3c)’.
+Using Identity V, we have
+(4a — 2b — 3c) = [4a + (-2b) + (-3c)P
+= (4ay + (-2by + (-3c)? + 2(4a)(—2b) + 2(-2b)(-3c) + 2(-3c)(4a)
+= |6a? + 4b? + 9c? न l6ab + l2be न 24ac
+Factorise 4x? + y? + दी — 4xy न 2yz + 4xz.
+We have 4x? +? + दी न 4xy न 2yz + 4xz = (2x)? + (-yy + (2)? + 2(2x)(-)
++ 2(—y)(Z) + 22x)(Z)
+= [2x + (दिन डी]          (Using Identity V)
+= (2x -y+zpP=(2x-ytz)(2x-y +z)
+So far, we have dealt with identities involving second degree terms. Now let us
+extend Identity I to compute (x + y)’. We have:
+(नाक (न हिना
+= (x + y)Q? + 2xy + y’)
+= x(x? + 2xy +) + XX? + 2xy +”)
+Het 2p ने xy txyt Wy? + पी
+Haxt3xryt 3x ty
+=x + y3 + 3xy(x + y)
+2024-25
+|                                       [
+ही                                      L
+So, we get the following identity:
+wtyparety + 3xy wt+y)
+Also, by replacing y by —y in the Identity VI, we get
+(x — yf =x वी — 3xye - y)
+= V— 3x’y + 3xy’- yp?
+Write the following cubes in the expanded form:
+(i) Ga + 4b)           (ii) (Sp - 3q)°
+(i) Comparing the given expression with (x + y)’, we find that
+x = 3a and y = 4b.
+So, using Identity VI, we have:
+Ga + 4b) = Ba) + (4b) + 3(3a)(4b)(3a + 4b)
+= 27a> + 6403 + [08% + वेद
+(ii) Comparing the given expression with (x — y)’, we find that
+x= Sp, y= 34.
+So, using Identity VII, we have:
+(Sp न 3qy = Spy न (कान 35p)3q)(Sp न 39)
+= |25p> — 27q° — 225p’q + 35pq’
+Evaluate each of the following using suitable identities:
+(i) (04)3           (ii) (999)8
+(i) We have
+(04)3 = (00 + 4)
+= (00)° + (4) + 3(00)(4)(00 + 4)
+(Using Identity VI)
+= |000000+ 64 + 24800
+= [24864
+(ii) We have
+(999) = (000 — I)
+= (000)° — ()* — 3(000)(I)(000 — )
+(Using Identity VII)
+= 000000000 — | — 2997000
+= 997002999
+2024-25
+|                                       हि
+J                                       L
+Factorise 8x* + 27)° + 36x°y + 54x)?
+The given expression can be written as
+(2x)? + By) + 344°)By) + 302xN97)
+= (2x) + By)? + 3(2x)P°By) + 3(2x)3yP
+= (2x + 3yy       (Using Identity VI)
+= (2x + 3y)(2x + 3y)(2x + 3y)
+Now consider (x + y + z)(x? + y?+ दी — xy — yz - zx)
+On expanding, we get the product as
+Xx? +? + दी = xy — yz न zx) + yx? + yy? + दी — xy — yz न zx)
+tae ty के दी -—xy—yz-2x) =x +49 की दी जज — xyz न 2x? ने जग
++ ys + yz? = xy? — yz — xyz tz + yz + दी — xyz — yz? — xz?
+कं के yp के दी न 3xyz     (On simplification)
+So, we obtain the following identity:
+P+ PtH —3xyz = (+ yt Vor ty? ने दो — xy — yz - 2x)
+Factorise : 8x3 + y+ 272 — l8xyz
+Here, we have
+8x3 + 3 + 2723 — [8xyz
+= 2x) + 8 + (डोर — 3(2x)0)(32)
+= (2x ty + 32z)[(2xP + y+ 3zP न 2x)0) न (Bz) न (2x)3z)]
+= (2x + y + उठ) (4x? + y? + 92? — Ixy न 3yz न 6xz)
+l. Use suitable identities to find the following products:
+ह) («+4)@+0)                      (ii) («+ 8) (~— l0)            (iii) (3x + 4) (3x—5)
+(छ G+ 3)0*-5)           () (5-20(3+ 20
+2. Evaluate the following products without multiplying directly:
+(i) 03* 07                        (ii) 95 x 96                   (iii) 04 x 96
+3. Factorise the following using appropriate identities:
+@ 92+ 6xy+y2             (i) 4y°—4y+ |          (iii) जा - joo
+2024-25
+|                                        [
+4. Expand each of the following, using suitable identities:
+
+ह) (w+2y+4zy                         ( (2x-y +z                 (iii) (-2x+3y + 220
+
+;                     हि                                              ;            .fl          ,
+
+(iv) 3a-—7b-c)y                     (v) (-2x + Sy—3z)         (vi)   a a- 36
+5... 8८05८:
+
+ही 4 न 9y? + [62 + L2xy—24yz— [602
+
+(i) 2x?+ 2 + 82? = 22 xp + aV2 yz—8xz
+6. Write the following cubes in expanded form:
+
+3          3                            2,     3
+
+ह) (2x+IpP           (ii) (2a—3b)3       (iii) E + |        (iv) E r|
+7. Evaluate the following using suitable identities:
+
+() (99f                                 (ii) (02)5                       (iii) (998)
+8. Factorise each of the following:
+
+(@) 8a°+b3+ [2घक + 6ab>                          (ii) 8a° की — |2वक + 6ab?
+
+(iii) 27 — 25a° — 35 + 225a*                        (iv) 64a3 —27b3 — वन l08ab?
+
+3      |       9, |
+v) 27 न —— गये गया
+
+(v) 27p     69? +4?
+9. Verify : (जी += t+) WP -xy +7”)       (ii) जो -y =(x—y) (व +xy ty’)
+0. Factorise each of the following:
+
+(i) 270 + [252             (ii) 64m? —343n3
+
+[Hint : See Question 9.]
+
+l. Factorise : 2723 +3 + डी —9xyz
+|                  2         2        2
+
+2. Verify पक्ष जो +3 + 23—3xyz= 3 (x+ y+ 2) [a लक +(y-z) + (z- xy ]
+3. Ifx+y+z=0, show thatx? +) ने दी = 3xyz.
+4. Without actually calculating the cubes, find the value of each of the following:
+
+@) (Cl2~ +P +6)
+
+(ii) (28) + CIS + (3)
+5. Give possible expressions for the length and breadth of each of the following
+
+rectangles, in which their areas are given:
+
+Area: 25a’—35a+ |2               Area : 35y?+ ध3िएन 2
+(i)                      (ii)
+2024-25
+J                                      L
+6. What are the possible expressions for the dimensions of the cuboids whose volumes
+are given below?
+Volume : 3x?— [सा                  Volume : l2ky? + 8ky — 20k
+a              Gi)
+
+In this chapter, you have studied the following points:
+
+l. A polynomial p(x) in one variable x is an algebraic expression in x of the form
+कतिऐ न कर ta, x" +... tFaxetaxtay,
+where a), a,,4,,...,4, are constants and a, # 0.
+yy G,, dy, -.., @, are respectively the coefficients of x°, x,x°, ...,x", and nis called the degree
+of the polynomial. Each of a,x", क [नर '; ..., 4g, With a, #0, is called a term of the polynomial
+P(x).
+
+2. A polynomial of one term is called a monomial.
+
+3. A polynomial of two terms is called a binomial.
+
+4. A polynomial of three terms is called a trinomial.
+
+5. A polynomial of degree one is called a linear polynomial.
+
+6. A polynomial of degree two is called a quadratic polynomial.
+
+7. A polynomial of degree three is called a cubic polynomial.
+
+8. Areal number ‘a’ is a zero of a polynomial p(x) if p(a) = 0. In this case, a is also called a
+root of the equation p(x) = 0.
+
+9. Every linear polynomial in one variable has a unique zero, a non-zero constant polynomial
+has no zero, and every real number is a zero of the zero polynomial.
+
+0. Factor Theorem : x —a isa factor of the polynomial p(x), if p(a) = 0. Also, ifx —a is a factor
+of p(x), then p(a) = 0.
+
+VW. (ety tz axe ty +24 Qxy + 2yz+ 22x
+
+2. (जन. Het yt 3xv(x+y)
+
+3. (कला नी नव — 3xy(x-y)
+
+4. जन ने 23 -3xyz=(x t+ y4+z) (व के ली 4+2—xy—yz—zx)
+
+2024-25
+|                                       [

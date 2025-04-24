@@ -1,0 +1,705 @@
+moerete |
+ree       हा
+C
+Oo]
+hapter |0                    डिश
+WwW
+ORK AND ENERGY
+In the previous few chapters we have talked draws diagrams, organises her thoughts,
+about ways of describing the motion of collects question papers, attends classes,
+objects, the cause of motion and gravitation.   discusses problems with her friends, and
+Another concept that helps us understandand performs experiments. She expends a lot of
+interpret many natural phenomena is ‘work’.   energy on these activities. In common
+Closely related to work are energy and power. __ parlance, she is ‘working hard’. All this ‘hard
+In this chapter we shall study these concepts. | work’ may involve very little ‘work’ if we go by
+All living beings need food. Living beings __ the scientific definition of work.
+have to perform several basic activities to          You are working hard to push a huge rock.
+survive. We call such activities ‘life processes’. _ Let us say the rock does not move despite all
+The energy for these processes comes from _ the effort. You get completely exhausted.
+food. We need energy for other activities like | However, you have not done any work on the
+playing, singing, reading, writing, thinking, rock as there is no displacement of the rock.
+jumping, cycling and running. Activities that       You stand still for a few minutes with a
+are strenuous require more energy.               heavy load on your head. You get tired. You
+Animals too get engaged in activities. For have exerted yourself and have spent quite a
+example, they may jump andrun. They have __ bit of your energy. Are you doing work on the
+to fight, move away from enemies, find food load? The way we understand the term ‘work’
+or find a safe place to live. Also, we engage _in science, work is not done.
+some animals to lift weights, carry loads, pull         You climb up the steps of a staircase and
+carts or plough fields. All such activities reach the second floor of a building just to
+require energy.                                         see the landscape from there. You may even
+Think of machines. List the machines that climb up a tall tree. If we apply the scientific
+you have come across. What do they need for _ definition, these activities involve a lot of work.
+their working? Why do some engines require         In day-to-day life, we consider any useful
+fuel like petrol and diesel? Why do living physical or mental labour as work. Activities
+beings and machines need energy?            like playing in a field, talking with friends,
+humming a tune, watching a movie, attending
+0. Work                                  a function are sometimes not considered to
+be work. What constitutes ‘work’ depends
+What is work? There is a difference in the on the way we define it. We use and define
+way we use the term ‘work’ in day-to-day life the term work differently in science. To
+and the way we use it in science. To make understand this let us do the following
+this point clear let us considera fewexamples. activities:
+0.. Nor MUCH ‘WORK’ IN SPITE OF       Activity                            0.7
+WORKING HARD!
+e We have discussed in the above
+Kamali is preparing for examinations. She         paragraphs a number of activities
+spends lot of time in studies. She reads books,                  which we normally consider to be work
+2024-25
+in day-to-day life. For each of these        Activity                      0.3
+activities, ask the following questions                      rs
+and answer them:                         ¢ Think of situations when the object
+(i) What is the work being done on?               is not displaced in spite of a force
+(ii) What is happening to the object?                  acting on it.
+(iii) Who (what) is doing the work?               .    Also think of situations when an object
+gets displaced in the absence of a force
+0.4.2 SCIENTIFIC CONCEPTION OF WORK      Bg eae eitwations that you can
+To understand the way we view work and         think of for each.    |
+define work from the point of view of science,          °     Discuss with.vere inends whether
+let us consider some situations:                      कह 5 दाद NSE 5 पा माह,
+Push a pebble lying on a surface. The         Ww
+pebble moves through a distance. You exerted     |0..3 WORK DONE BY A CONSTANT
+a force on the pebble and the pebble got        FORCE
+displaced. In this situation work is done.       How is work defined in science? To
+throwehPuiistance. ‘The gil has cnerted a   understand this, we shall first consider the
+.           =     .                 case when the force is acting in the direction
+force on the trolley and it is displaced.  of displacement.
+Therefore, work is done.     दि     T        .         Let a constant force, F act on an object.
+Lift a book through a height. To do this   Let the object be displaced through a
+you must apply a force.  The book rises up.    distance, s in the direction of the force (Fig.
+There is a force applied on the book and the    0.). Let Wbe the work done. We define work
+book has moved. Hence, work is done. .       to be equal to the product of the force and
+A closer look at the above situations  displacement.
+reveals that two conditions need to be     Work done = force x displacement
+satisfied for work to be done: (i) a force should                      W =Fs                            (0.)
+act on an object, and (ii) the object must be                                                 ,
+displaced.                                                                  <——_— s —— >>
+If any one of the above conditions does     T J
+not exist, work is not done. This is the way           —
+we view work in science.
+A bullock is pulling a cart. The cart
+moves. There is a force on the cart and the
+cart has moved. Do you think that work is
+done in this situation?
+Activity                                        0.2
+e Think of some situations from your                       Fig. 0.7
+daily life involving work.
+¢ — List them.                                         Thus, work done by a force acting on an
+¢ Discuss with your friends whether       object is equal to the magnitude of the force
+work is being done in each situation.      multiplied by the distance moved in the
+°  Try toTeasomputyourresponse. |      direction of the force. Work has only
+°     workte Sane, which is the force acting         magnitude and no direction.
+on  ie objects
+e¢ What is the object on which the work           In Eq. (0.7). if F=  N and s= प m then
+is done?                              the work done by the force will be  N m.
+°    What happens to the object on which       Here the unit of work is newton metre (N m)
+work is done?                                 or joule (J). Thus ] J is the amount of work
+i4                                                                                                                                             SCIENCE
+|                                              2024-25
+done on an object when a force 0 ]                    ..                              o)
+displaces it by ] m along the line of action of                 T 7                    लि   (et
+the force.                                                                         5.                       iN
+
+Look at Eq. (0.) carefully. What is the                                               (|
+work done when the force on the object is                                    (] }
+zero? What would be the work done when                                   mR
+the displacement of the object is zero? Refer                                                    ~~
+to the conditions that are to be satisfied to                     Fig. 70.4
+say that work is done.
+
+Consider a situation in which an object is
+moving with a uniform velocity along a
+Example I0.I A force of ee acting on      particular direction. Nowa retarding force F.
+an object. The object is displaced    is applied in the opposite direction. That is,
+through 2 m in the direction of the force       the angle between the two directions is 80°.
+(Fig. 0.2). If the force acts on the object      Let the object stop after a displacement s. In
+all through the displacement, then work       such a situation, the work done by the force,
+done is 5 Nx 2m न 0 ऐप 0 ]0 व.         F is taken as negative and denoted by the
+minus sign. The work done by the force is
+
+Fx (-s) or (-Fx हो.
+. 2m नए                    It is clear from the above discussion that
+5N— >                             ay        the work done by a force can be either positive
+or negative. To understand this, let us do the
+
+Fig. 70.2                        following activity:
+
+Activity                                        0.4.
+
+°    Lift an object up. Work is done by the
+force exerted by you on the object. The
+object moves upwards. The force you
+exerted is in the direction of
+displacement. However, there is the
+force of gravity acting on the object.
+
+°   Which one of these forces is doing
+positive work?
+
+°    Which one is doing negative work?
+
+°     Give reasons.
+
+— 8m डे                        Work done is negative when the force acts
+7N—              SI   opposite to the direction of displacement.
+कि                                        Work done is positive when the force is in the
+Fig. /0.3                         directi     f displacement.
+irection of displaceme:
+
+Consider another situation in which the     Example 0.2 A porter lifts a luggage oF
+force and the displacement are in the same         5 kg from the ground and puts it on
+direction: a baby pulling a toy car parallel to          his head l.5 m above the ground.
+the ground, as shown in Fig. 0.4. The baby           Calculate the work done by him on the
+has exerted a force in the direction of          luggage.
+displacement of the car. In this situation, the              aon.
+work done will be equal to the product of the      Solution:
+force and displacement. In such situations,          Mass of luggage, m = ]5 kg and
+the work done by the force is taken as positive.              displacement, 5 = .5 m.
+
+Work AnD ENERGY                                                                                                                                    5
+2024-25                                                   |
+Work done, W = Fxs=mgxs                     raised hammer falls on a nail placed on a piece
+= 5kgxl0ms?xl.5m       of wood, it drives the nail into the wood. We
+= 225kgms?m          have also observed children winding a toy
+= 225Nm= 225d               (such as a toy car) and when the toy is placed
+
+Work done is 225 J.                                 on the floor, it starts moving. When a balloon
+
+is filled with air and we press it we notice a
+change in its shape. As long as we press it
+gently, it can come back to its original shape
+when the force is withdrawn. However, if we
+press the balloon hard, it can even explode
+producing a blasting sound. In all these
+examples, the objects acquire, through
+different means, the capability of doing work.
+An object having a capability to do work is
+said to possess energy. The object which does
+the work loses energy and the object on which
+the work is done gains energy.
+How does an object with energy do work?
+An object that possesses energy can exert a
+force on another object. When this happens,
+energy is transferred from the former to the
+0.2 Energy                                        latter. The second object may move as it
+receives energy and therefore do some work.
+Life is impossible without energy. Thedemand Thus, the first object had a capacity to do
+for energy is ever increasing. Where do we work. This implies that any object that
+get energy from? The Sun is the biggest possesses energy can do work.
+natural source of energy to us. Many of our         The energy possessed by an object is thus
+energy sources are derived from the Sun. We measured in terms of its capacity of doing
+can also get energy from the nuclei of atoms, — work. The unit ofenergy is, therefore, the same
+the interior of the earth, and the tides. Can   as that of work, that is, joule (J). 7 J is the
+you think of other sources of energy?          energy required to do ] joule of work.
+Activity                                0.5          Sometimes a larger unit of energy called kilo
+joule (kJ) is used. kJ equals 000 J.
+e A few sources of energy are listed
+above. There are many other sources       0.2. FORMS OF ENERGY
+of energy. List them.
+e Discuss in small groups how certain       Luckily the world we live in provides energy in
+sources of energy are due to the Sun.        many different forms. The various forms
++ Are there sources of energy which are       include mechanical energy (potential energy
+not due to the Sun?                                 .    कि                                        जि
++ kinetic energy), heat energy, chemical
+The word energy is very often used in our energy, electrical energy and light energy.
+daily life, but in science we give it a definite
+and precise meaning. Let us consider the
+following examples: when a fast moving                      Think it over !
+cricket ball hits a stationary wicket, the wicket      How do you know that some entity is a
+is thrown away. Similarly, an object when     form of energy? Discuss with your friends
+raised to a certain height gets the capability      and teachers.
+to do work. You must have seen that when a
+6                                                                                                                                             SCIENCE
+|                                                   2024-25
+James Prescott        “लि छा Se ee,                                9
+ia ]            outstanding
+    ih 2    British physicist.
+¢        °     He is best known                                          LD
+जे": 2      for his research in                                             YS
+am7   calle       electricity and
+Mg   y जि  y =| thermodynamics.
+i ve |} Amongst other
+ees      things,         he                           Fig. 70.5
+लक | formulated a law
+James Prescott Joule   for the heating            e The trolley moves forward and hits the
+(78768- 7889      effect of electric              wooden block.
+current. He also       e Fix a stop on the table in such a
+verified experimentally the law of          manner that the trolley stops after
+conservation of energy and discovered          hitting the block. The block gets
+the value of the mechanical equivalent            displaced.       हि
+of heat. The unit of energy and work       y   nedown the dispare. orre
+called joule, is named after him.                      blockby the trolley as the block has
+gained energy.
+0.2.2 KINETIC ENERGY                                e From where does this energy come?
+°    Repeat this activity by increasing the
+we                                                         mass on the pan. In which case is the
+Activity                                        40.6                        displacement more?
+e     In which case is the work done more?
+©    ne f heavy pall prop it ond an            e In this activity, the moving trolley does
+be betterDrop the ball on the Sand                 work and hence it possesses energy.
+bed from height of about 25 cm. The           A moving object can do work. An object
+ball creates a depression.               moving faster can do more work than an
+¢ Repeat this activity from heights of     identical object moving relatively slow. A
+5      pom Im and | WP adressions are          moving bullet, blowing wind, a rotating wheel,
+distinctly visible.                         a speeding stone can do work. How does a
+* Mark the depressions to indicate the      bullet pierce the target? How does the wind
+height from which the ball was     move the blades of a windmill? Objects in
+dropped.                              motion possess energy. We call this energy
+e    Compare their depths.                          kinetic energy.
+¢ Which one of them is deepest? >                     A falling coconut, a speeding car, a rolling
+deeper dent?                                wind, a running athlete etc. possess kinetic
+* Discuss and analyse.                            energy. In short, kinetic energy is the energy
+possessed by an object due to its motion. The
+Activity                                  0.7          kinetic energy of an object increases with its
+speed.
+¢ Set up the apparatus as shown in      ° How much energy is possessed by a
+°   Plave a wooden block of known mass      moving body by virtue of its motion? By
+in front of the trolley at a convenient        definition, we say that the kinetic energy ofa
+fixed distance.                                             body moving with a certain velocity is equal to
+e Place a known mass on the pan so     the work done on it to make it acquire
+that the trolley starts moving.            that velocity.
+Work anp ENERGY                                                                                                                               7
+2024-25                                              |
+Let us now express the kinetic energy of     Solution:
+an object in the form of an equation. Consider                                     .           =5                .
+an object of mass, m moving with a uniform          wees oy the object. m* i}5 kg, velocity
+velocity, u. Let it now be displaced through a         F   € object, v= 4m s".
+distance s when a constant force, Facts on it            rom Eq. (0.5),
+in the direction of its displacement. From            E= प्‌   2
+Eq. (l0.), the work done, Wis F's. The work                    kK 9mo
+done on the object will cause a change in its
+velocity. Let its velocity change from u to v.                   = i xl5kgx4ms'x4ms!
+Let abe the acceleration produced.                                           2
+We studied three equations of motion. The                          न]20च
+relation connecting the initial velocity (u)           The kinetic energy of the object is 20 J.
+and final velocity (v) of an object moving
+with a uniform acceleration a, and the
+displacement, s is                                                    Example 0.4 What is the work to be done
+v-uw=2as                                to increase the velocity of a car from
+This gives                                             30 km 7 to 60 km h” if the mass of
+o 9                                        the car is 500 kg?
+Dv -u
+s=—                                    0.2
+2a                           (     }      Solution:
+From section 9.4. we know की न m a. Thus,        Mass of the car, m=500 kg,
+using (Eq. 0.2) in Eq. (0.), we can write the             ay            हि      f          my              4
+work done by the force, Fas                               initial velocity of car, u= 30 km h
+(0? -u2)                                        30 x l000m
+W=max (aa)                                        = 60x 60s
+*                                               =25/3ms".
+or
+मी                                             Similarly, the final velocity of the car,
+W=5m(v* -u’)                (0.3)              v= 60 kmh?
+दि     ि         :            .         हि                        =50/3ms".
+If the object      tart:     fi      its stati
+position “that isore 0. thea SS Stationary         Therefore, the initial kinetic energy of
+,         ,       ;                                      the car,
+|     2
+W=—mv                                                                                हि
+2                                   (0.4)                     E,, = =m uw?
+It is clear that the work done is equal to the
+change in the kinetic energy of an object.
+:                                        = 9 * 500 kg x (25/3 ms)?
+If u= 0, the work done will be 3m” v,                                = 56250/3J.
+Thus, the kinetic energy possessed by an        The final kinetic energy of the car,
+object of mass, mand moving with a uniform
+velocity, v is                                           है
+न                                               Ey = द्रव500 kg x (50/3 ms!
+gb =. mv?                   5)
+Regime                         (20.5)                           = 625000/3J.
+Thus, the work done = Change in
+Example 0.3 An object of mass 5 kg is            kinetic energy
+moving with a uniform velocity of         4                              = E,, -E,
+m 87. What is the kinetic energy                        _    ४
+possessed by the object?                                          = 56250 J.
+8                                                                                                   ‘SCIENCE
+|                                                   2024-25
+Activity                                   0.77
+
+०... [तप an object through a certain
+height. The object can now do work.
+
+It begins to fall when released.
+
+e This implies that it has acquired some
+energy. If raised to a greater height it
+can do more work and hence possesses
+more energy.
+
+.      From where did it get the energy? Think
+and discuss.
+
+In the above situations, the energy gets
+stored due to the work done on the object.
+The energy transferred to an object is stored
+0.2.3 POTENTIAL ENERGY                          as potential energy if it is not used to cause a
+an                                                change in the velocity or speed of the object.
+Activity                       0.8          You transfer energy when you stretch a
+.   Take a rubber band.                     rubber band. The energy transferred to the
+¢ Hold it at one end and pull from the       band is its potential energy. You do work while
+other. The band stretches.              winding the key of a toy car. The energy
+e Release the band at one of the ends.         transferred to the spring inside is stored as
+e What happens?                                 potential energy. The potential energy
+°     The band will tend to regain its original         possessed by the object is the energy present
+length. Obviously the band had         in it by virtue of its position or configuration.
+acquired energy in its stretched
+osition.                                                  ivi
+°    How did it acquire energy when          Activity  TTT  0:2
+stretched?                                          e Take a bamboo stick and make a bow
+oe                                           as shown in Fig. 0.6.
+Activity   —————— 0.9               e Place an arrow Sade of a light stick on
+.   Take a slinky as shown below.                  it with one end supported by the
+°   Ask a friend to hold one of its ends.             stretched string.  कि
+You hold the other end and move away            °     Now stretch the string and release the
+from your friend. Now you release the                 arrow.
+slinky.                                  °   Notice the arrow flying off the bow.
+Notice the change in the shape of the
+bow.
+TROON XS               e The potential energy stored in the bow
+due to the change of shape is thus used
+¢ What happened?      '                                 in the form of kinetic energy in
+.      How did the slinky acquire energy when                       throwing off the arrow.
+stretched?
+°    Would the slinky acquire energy when
+it is compressed?
+Activity                                     0.0
+.    Take a toy car. Wind it using its key.
+°   Place the car on the ground.
+.    Did it move?
+e From where did it acquire energy?
+°   Does the energy acquired depend on
+the number of windings?                   कुछ, 70.6: An arrow and the stretched string
+°    How can you test this?                                    on the bow.
+Work AND ENERGY                                                                                                                               l9
+2024-25                                                   |
+P
+0.2.4 POTENTIAL ENERGY OF AN OBJECT            The potential energy of an object at
+AT A HEIGHT                                              3     a height depends on the ground level
+An object increases its energy when raised   Jz   orthe2er0level you choose. An
+-          This i                            नि                 object in a given position can have a
+through a height. This is because work is    °       नि       ti         q
+d          it     inst      it    hile it is bei        3) certain potential energy with respect
+one oT it against gravity Whe IU IS  eing     ky to one level and a different value of
+raised. The energy present in such an object     EM potential energy with respect to
+is the gravitational potential energy.                       =
+T         yon               .                               another level.
+he gravitational potential energy of an
+object at a point above the ground is defined            .
+as the work done in raising it from the ground          It is useful to note that the work done by
+to that point against gravity.                        gravity depends on the cierence in vertical
+It is easy to arrive at an expression for    eg ts of the initial an  nm positions °
+noon            नि                  .       the object and not on the path along which
+the gravitational potential energy of an object      .                 -
+at a height                                       the object is moved. Fig. ]0.8 shows a case
+दे                                           where a block is raised from position A to B
+by taking two different paths. Let the height
+AB = h. In both the situations the work done
+on the object is mgh.
+A
+।
+i                           i
+||
+||
+i
+                                                |
+r                                                                Path |
+||                                                            h                                                     Path 2
+id
+I
+I
+| ey
+arnt Ground
+A                           A
+Fig. 70.7
+Fig. 70.8
+Consider an object of mass, m. Let it be
+raised through a height, 4 from the ground.     Example 0.5 Find the energy possessed
+A force is required to do this. The minimum           by an object of mass 0 kg when it is at
+force required to raise the object is equal to          a height of 6 m above the ground. Given,
+the weight of the object, mg. The object gains           g=9.8ms?
+energy equal to the work done on it. Let the
+work done on the object against gravity be    Solution:
+W. That is,                                                                                                            .
+work done, W = force x displacement                 Mass of the object, m = ]0 kg,
+=mgxh                                 displacement (height), h = 6 m, and
+=mgh                                                 acceleration due to gravity, g=9.8ms?.
+Since work done on the object is equal to           From Eq. 0.6),
+mgh, an energy equal to mgh units is gained          Potential SOM. = mgh 5
+by the object. This is the potential energy (E,)                   -   beg gx 9.8ms*x6m
+of the object.                                                  Th    ot.   tialJ.        is 588 J
+E, = mgh                        (0.6)           e potential energy is      :
+20                                                                                                   SCIENCE
+|                                                   2024-25
+Example 0.6 An object of mass 2 kg is      0.2.6 Law OF CONSERVATION OF ENERGY
+at a certain height above the ground.     In activities 0.3 and 0.4, we learnt that
+If the potential energy of the object Is     the form of energy can be changed from one
+objectis with respect to the around     form to another. What happens to the total
+Given, g= 0 ms                                 .        energy of a system during or after the process?
+,               .                              Whenever energy gets transformed, the total
+Solution:                                                            energy remains unchanged. This is the law of
+conservation of energy. According to this law,
+Mass of the object, m= ]2 kg,                 energy can only be converted from one form
+potential energy, E,, = 480 J.                      to another; it can neither be created or
+E, = mgh                            destroyed. The total energy before and after
+480J = 2kgxl0ms?xh                the transformation remains the same. The law
+480 J                              of conservation of energy is valid              in
+Ah = yon = थे पा.          all situations and for all kinds of
+720 kg ms                                transformations.
+The object is at the height of 4 m.                     Consider a simple example. Let an object
+of mass, mbe made to fall freely froma height,
+0.2.5 ARE VARIOUS ENERGY FORMS #2 At the start, the potential energy is mgh and
+E                      >                          kinetic energy is zero. Why is the kinetic
+INTERCONVERTIBLE?                        energy zero? It is zero because its velocity is
+Can we convert energy from one form to Zero. The total energy of the object is thus mgh.
+another? We find in nature a number of _ ASit falls, its potential energy will change into
+instances of conversion of energy from one _ kinetic energy. If vis the velocity of the object
+form to another.                                                    at a given instant, the kinetic energy would be
+ee                                                     Yemv’. As the fall of the object continues, the
+Activity                             0.3         potential energy would decrease while the
+«Sit in small groups.                                    kinetic energy would increase. When the object
+* Discuss the various ways of energy        is about to reach the ground, h= 0 and vwill
+conversion in nature.                         be the highest. Therefore, the kinetic energy
+°     Discuss following questions in your         would be the largest and potential energy the
+group:                                                          least. However, the sum of the potential energy
+(a) How do green plants produce food?         and kinetic energy of the object would be the
+(b) Where do they get their energy from?            same at all points. That is,
+(c) Why does the air move from place               नि               ki    :
+to place?                                           potential energy + kinetic energy = constant
+(d) How are fuels, such as coal and                           or
+petroleum formed?                                          पु     2
+(e) What kinds of energy conversions            mgh + 2 एएए न constant.               (0.7)
+sustain the water cycle?
+The sum of kinetic energy and potential energy
+Activity                                     0,.4            of an object is its total mechanical energy.
+We find that during the free fall of the object,
+e Many of the human activities and the        the decrease in potential energy, at any point
+gadgets we use involve conversion of      in its path, appears as an equal amount of
+.    vanefom one form‘0 another and        increase in kinetic energy. (Here the effect of
+gadgets.                                                air resistance on the motion of the object has
+¢ Identify in each activity/gadget the        been ignored.) There is thus a continual
+kind of energy conversion that takes      transformation of gravitational potential
+place.                                                     energy into kinetic energy.
+Work AND ENERGY                                                                                                                                         2]
+2024-25                                      |
+Activity                                 0.5                A stronger person may do certain work in
+OT                  relatively less time. A more powerful vehicle
+e An object of mass 20 kg is dropped      would complete a journey in a shorter time
+from a height of 4 m. Fill in the blanks          than a less powerful one. We talk of the power
+in the following table by computing      of machines like motorbikes and motorcars.
+the potential energy and kinetic       The speed with which these vehicles change
+energy in each case.                                         लि        .         °
+energy or do work is a basis for their
+    classification. Power measures the speed of
+which object | energy      energy                work done, that is, how fast or slow work is
+is located  (B= ingh) |(E,, = mv’/2)           done. Power is defined as the rate of doing
+work or the rate of transfer of energy. If an
+m             J             J           J        agent does a work W in time ¢, then power is
+4                                                        given by:
+3                                                                        Power = work/time
+2
+|                                                                         or              P= =                                         (0.8)
+the round                                      The unit of power is watt [in honour of
+James Watt (]736- 89)] having the symbol
+¢ For simplifying the calculations, take     W. watt is the power of an agent, which
+the value of gas 0 पा 52,                   does work at the rate of ] joule per second.
+We can also say that power is ] W when the
+Think it over !                    rate of consumption of energyis ] ते 57,
+What would have happened if nature had           l watt = ] joule/second or ] फा न ] ले 57.
+not allowed the transformation of energy?       We express larger rates of energy transfer in
+There is a view that life could not have      kilowatts (kW).
+been possible without transformation of                ] kilowatt = 000 watts
+energy. Do you agree with this?                            प पता         = 000 W
+lkw       = 000Js".
+लि      Ww                           The power of an agent may vary with time.
+[0.3 Rate of Doing ork                      This means that the ent may be doing work
+Do all of us work at the same rate? Do  t different rates at different intervals of time.
+machines consume or transfer energy at the | Therefore the concept of average power is
+same rate? Agents that transfer energy do _ useful. We obtain average power by dividing
+work at different rates. Let us understand this __ the total energy consumed by the total time
+from the following activity:                                   taken.
+Activity  —_____ 076            Example 0.7 Two girls, each of weight 400
+e Consider two children, say A and B.               N climb up a rope through a height of 8
+Let us say they weigh the same. Both              m. We name one of the girls A and the
+start climbing up a rope separately.                other B. Girl A takes 20 s while B takes
+Both reach a height of 8 m. Let us say                 5                    .       हि                   .
+A takes 5 s while B takes 20 s to          0 s to accomplish this task. What is the
+accomplish the task.                                  power expended by each girl?
+.    What is the work done by each?                 Solution:
+°   The work done is the same. However,
+A has taken less time than B to do          (i) Power expended by girl A:
+the work.                        oo                        Weight of the girl, mg= 400 N
+e   Who has done more work in a given               .               .
+time, say in ] 5?                                         Displacement (height), h= 8m
+22                                                                                                   SCIENCE
+|                                                   2024-25
+Time taken, f= 20s                                  power, P= Work done/time taken
+From Eq. (0.8),
+mgh
+Power, P = Work done/time taken                           = Ee
+_  imgh                                              500 N x 6.75 m
+t                                                =         9s
+400NxX8m                             = 375 W.
+*        20s                                                5
+Power is 375 W.
+= l60W.
+(ii) Power expended by girl B:
+Weight of the girl, mg = 400 N
+Displacement (height), h = 8m
+Time taken, t= 50s
+mgh
+Power, P = a
+400Nx8m
+=       50s
+= 64 W.                                Activity                              0.77
+Power expended by girl A is 60 W.             * Take a close look at the electric meter
+Power expended by girl B is 64 W.                   installed in your house. Observe its
+features closely.
+e Take the readings of the meter each
+day at 6.30 am and 6.30 pm.
+Example 0.8 A boy of mass 50 kg runs        ¢ Do this activity for about a week.
+up a staircase of 45 steps in 9 5. If the        * How many ‘units’ are consumed
+height of each step is 5 cm, find his           during day time?
+power. Take g= l0 पा 82,                            °    How many ‘units’ are used during night?
+e  Tabulate your observations.
+Solution:                                      .   Draw inferences from the data.
+°    Compare your observations with
+Weight of the boy,                                         the details given in the monthly
+mg=50kg x l0 ms? =500N             electricity bill (One can also estimate
+Height of the staircase,                                 the electricity to be consumed by
+h=45x 5/00 m=6.75m                 specific appliances by tabulating their
+Time taken to climb, t=9s                            known wattages and hours of
+From Eq. (0.8),                                               operation).
+Work AND ENERGY                                                                                                                               23
+2024-25                                                   |
+What
+@ / हक) you have
+pow?) |
+Work done on an object is defined as the magnitude of the
+force multiplied by the distance moved by the object in the
+direction of the applied force. The unit of work is joule:
+] joule = ] newton x | metre.
+Work done on an object by a force would be zero if the
+displacement of the object is zero.
+An object having capability to do work is said to possess
+energy. Energy has the same unit as that of work.
+An object in motion possesses what is known as the kinetic
+energy of the object. An object of mass, m moving with
+]
+velocity v has a kinetic energy of zm :
+The energy possessed by a body due to its change in position
+or shape is called the potential energy. The gravitational
+potential energy of an object of mass, m raised through a
+height, 4 from the earth’s surface is given by m g h.
+According to the law of conservation of energy, energy can
+only be transformed from one form to another; it can neither
+be created nor destroyed. The total energy before and after
+the transformation always remains constant.
+Energy exists in nature in several forms such as kinetic
+energy, potential energy, heat energy, chemical energy etc.
+The sum of the kinetic and potential energies of an object is
+called its mechanical energy.
+Power is defined as the rate of doing work. The SI unit of
+power is watt. | W =  J/s.
+Exercises
+l. Look at the activities listed below. Reason out whether or
+not work is done in the light of your understanding of the
+term ‘work’.
+.    Suma is swimming in a pond.
+.    A donkey is carrying a load on its back.
+.    A wind-mill is lifting water from a well.
+.    A green plant is carrying out photosynthesis.
+.    An engine is pulling a train.
+24                                                                      SCIENCE
+|                                    2024-25
+.    Food grains are getting dried in the sun.
+.    A sailboat is moving due to wind energy.
+
+2. An object thrown at a certain angle to the ground moves in
+a curved path and falls back to the ground. The initial and
+the final points of the path of the object lie on the same
+horizontal line. What is the work done by the force of gravity
+on the object?
+
+3. A battery lights a bulb. Describe the energy changes
+involved in the process.
+
+4. Certain force acting on a 20 kg mass changes its velocity
+from 5 ms! to2 ms". Calculate the work done by the
+force.
+
+5. Amass of 0 kg is at a point A on a table. It is moved toa
+point B. If the line joining A and B is horizontal, what is
+the work done on the object by the gravitational force?
+Explain your answer.
+
+6. The potential energy of a freely falling object decreases
+progressively. Does this violate the law of conservation of
+energy? Why?
+
+7. What are the various energy transformations that occur
+when you are riding a bicycle?
+
+8. Does the transfer of energy take place when you push a
+huge rock with all your might and fail to move it? Where is
+the energy you spend going?
+
+9. A certain household has consumed 250 units of energy
+during a month. How much energy is this in joules?
+
+0. An object of mass 40 kg is raised to a height of 5 m above
+the ground. What is its potential energy? If the object is
+allowed to fall, find its kinetic energy when it is half-way
+down.
+
+ll. What is the work done by the force of gravity on a satellite
+moving round the earth? Justify your answer.
+
+2. Can there be displacement of an object in the absence of
+any force acting on it? Think. Discuss this question with
+your friends and teacher.
+
+3. A person holds a bundle of hay over his head for 30 minutes
+and gets tired. Has he done some work or not? Justify your
+answer.
+
+4. An electric heater is rated 500 W. How much energy does
+it use in l0 hours?
+
+5. Illustrate the law of conservation of energy by discussing
+the energy changes which occur when we draw a pendulum
+bob to one side and allow it to oscillate. Why does the bob
+
+Work AnD ENERGY                                                                                                                               25
+2024-25                                       |
+eventually come to rest? What happens to its energy
+eventually? Is it a violation of the law of conservation of
+energy?
+
+6. An object of mass, m is moving with a constant velocity, v.
+How much work should be done on the object in order to
+bring the object to rest?
+
+7. Calculate the work required to be done to stop a car of 500
+kg moving at a velocity of 60 km/h?
+
+8. In each of the following a force, F is acting on an object of
+mass, m. The direction of displacement is from west to east
+shown by the longer arrow. Observe the diagrams carefully
+and state whether the work done by the force is negative,
+positive or zero.
+
+PF
+t               F                F
+a + +s —
+
+9. Soni says that the acceleration in an object could be zero
+even when several forces are acting on it. Do you agree with
+her? Why?
+
+20. Find the energy in joules consumed in ]0 hours by four
+devices of power 500 W each.
+
+2l. A freely falling object eventually stops on reaching the
+ground. What happenes to its kinetic energy?
+
+26                                                                      SCIENCE
+|                                    2024-25

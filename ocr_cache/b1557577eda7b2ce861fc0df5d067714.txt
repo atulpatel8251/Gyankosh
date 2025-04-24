@@ -1,0 +1,184 @@
+a aR Ta]
+
+y            :
+
+Oa
+
+o962cHo4
+CuapTer 4
+—Edmund Halley
+In earlier classes, you have studied linear equations in one variable. Can you write
+down a linear equation in one variable? You may say that x + ] न 0,अन /2 =0 and
+V2 yt 3 = 0 are examples of linear equations in one variable. You also know that
+such equations have a unique (i.e., one and only one) solution. You may also remember
+how to represent the solution on a number line. In this chapter, the knowledge of linear
+equations in one variable shall be recalled and extended to that of two variables. You
+will be considering questions like: Does a linear equation in two variables have a
+solution? If yes, is it unique? What does the solution look like on the Cartesian plane?
+You shall also use the concepts you studied in Chapter 3 to answer these questions.
+
+Let us first recall what you have studied so far. Consider the following equation:
+
+2x+5=0
+Its solution, i.e., the root of the equation, is   : . This can be represented on the
+number line as shown below:
+2024-25
+While solving an equation, you must always keep the following points in mind:
+
+The solution of a linear equation is not affected when:
+
+() the same number is added to (or subtracted from) both the sides of the equation.
+
+(ii) you multiply or divide both the sides of the equation by the same non-zero
+
+number.
+
+Let us now consider the following situation:
+
+In a One-day International Cricket match between India and Sri Lanka played in
+Nagpur, two Indian batsmen together scored 76 runs. Express this information in the
+form of an equation.
+
+Here, you can see that the score of neither of them is known, i.e., there are two
+unknown quantities. Let us use x and y to denote them. So, the number of runs scored
+by one of the batsmen is x, and the number of runs scored by the other is y. We know
+that
+
+ऊन एच [76
+
+which is the required equation.
+
+This is an example of a linear equation in two variables. It is customary to denote
+the variables in such equations by x and y, but other letters may also be used. Some
+examples of linear equations in two variables are:
+
+[.25 + 3t=5,p+4q= 7, mu + 5v=9 and 3 = V2x- Ty.
+
+Note that you can put these equations in the form |.2s + 3t — 5 = 0,
+p+4q-7=0, nu +5v-9=0and V2 x —7y—3 =0, respectively.
+
+So, any equation which can be put in the form ax + by + c = 0, where a, 6 and c
+are real numbers, and a and b are not both zero, is called a linear equation in two
+variables. This means that you can think of many many such equations.
+
+Write each of the following equations in the form ax + by + c = 0 and
+indicate the values of a, b and c in each case:
+(i) 2x +3y=4.37 (ii)x-4= By      (ili) 4 = Sx — 3y      (iv) 2x =y
+(i) 2x + 3y = 4.37 can be written as 2x + 3y — 4.37 = 0. Here a= 2, 6 न 3
+
+and c = — 4.37.
+
+(ii) The equation x - 4 = ./3y can be written as x — /3y — 4 = 0. Here a = l,
+b=-J3 andc=—4.
+
+(iii) The equation 4 = Sx न 3y can be written as 5x — 3y -4 = 0. Here a = 5, b=-3
+and c =—4. Do you agree that it can also be written as —Sx + 3y + 4=0 ? In this
+case a=—5,b=3 andc =4.
+
+2024-25
+(iv) The equation 2x = y can be written as 2x - y + 0 = 0. Here a न 2, b न न and
+c=0.
+Equations of the type ax + b = 0 are also examples of linear equations in two variables
+because they can be expressed as
+ax + O0.yt+b=0
+For example, 4 — 3x = 0 can be written as 3x + 0.y+4=0.
+Write each of the following as an equation in two variables:
+(i) x =-5           (ii) y= 2           (ili) 2x = 3           (iv) Sy =2
+(i) x = —5 can be written as l.x + 0.y =—5, or lx +0.y+5=0.
+(ii) y = 2 can be written as 0.x + l.y=2, or Ox + ly—2=0.
+(iii) 2x = 3 can be written as 2x + 0.y—3 =0.
+(iv) Sy = 2 can be written as 0.x + 5y-—2=0.
+l. The cost of a notebook is twice the cost of a pen. Write a linear equation in two
+variables to represent this statement.
+(Take the cost of a notebook to be हैं x and that of a pen to be  y).
+2. Express the following linear equations in the form ax + by + c = 0 and indicate the
+values of a, b and c in each case:
+() 2x+3y=9.35 (ii) x- 2 ज0न0 (iii) 2x+3y=6 (iv) x=3y
+(४) 2x=—5y             (vi) 3x +2=0              (vil) y-2=0             (viii) 5=2x
+You have seen that every linear equation in one variable has a unique solution. What
+can you say about the solution of a linear equation involving two variables? As there
+are two variables in the equation, a solution means a pair of values, one for x and one
+for y which satisfy the given equation. Let us consider the equation 2x + 3y = 42.
+Here, x = 3 and y = 2 is a solution because when you substitute x = 3 and y = 2 in the
+equation above, you find that
+2x + 3y = (2 x 3) + (3 x 2) न ]2
+This solution is written as an ordered pair (3, 2), first writing the value for x and
+then the value for y. Similarly, (0, 4) is also a solution for the equation above.
+2024-25
+On the other hand, (], 4) is not a solution of 2x + 3y = [2, because on putting
+x = | and y=4 we get 2x + 3y = 44, which is not 2. Note that (0, 4) is a solution but
+not (4, 0).
+
+You have seen at least two solutions for 2x + 3y = 2, ie., (3, 2) and (0, 4). Can
+you find any other solution? Do you agree that (6, 0) is another solution? Verify the
+same. In fact, we can get many many solutions in the following way. Pick a value of
+your choice for x (say x = 2) in 2x + 3y = |2. Then the equation reduces to 4 + 3y = 42,
+
+8
+which is a linear equation in one variable. On solving this, you get y= 3° So [2 वि is
+another solution of 2x + 3y = 42. Similarly, choosing x =—5, you find that the equation
+wo           22              22).                   .
+becomes -[0 + 3y = 2. This gives y = 3 So, | -5, i  is another solution of
+2x + 3y = [2. So there is no end to different solutions of a linear equation in two
+variables. That is, a linear equation in two variables has infinitely many solutions.
+Find four different solutions of the equation x + 2y = 6.
+By inspection, x = 2, y = 2 is a solution because for x = 2, y = 2
+x+2y=2+4=6
+Now, let us choose x = 0. With this value of x, the given equation reduces to 2y = 6
+which has the unique solution y = 3. So x = 0, y = 3 is also a solution of x + 2y = 6.
+Similarly, taking y = 0, the given equation reduces to x = 6. So, x = 6, y= 0 is a solution
+of x + 2y = 6 as well. Finally, let us take y = |. The given equation now reduces to
+x + 2 = 6, whose solution is given by x = 4. Therefore, (4, |) is also a solution of the
+given equation. So four of the infinitely many solutions of the given equation are:
+(2, 2), (0, 3), (6, 0) and (4, l).
+
+Note that an easy way of getting a solution is to take x = 0 and get the
+corresponding value of y. Similarly, we can put y = 0 and obtain the corresponding
+value of x.
+
+Find two solutions for each of the following equations:
+(i) 4x+3y=2
+(ii) 2x + 5y=0
+(iii) 3y +4=0
+
+(i) Taking x = 0, we get 3y = ।2, iLe., y = 4. So, (0, 4) is a solution of the
+given equation. Similarly, by taking y = 0, we get x = 3. Thus, (3, 0) is also a solution.
+
+2024-25
+(ii) Taking x = 0, we get Sy = 0, i.e., y न 0. So (0, 0) is a solution of the given equation.
+
+Now, if you take y = 0, you again get (0, 0) as a solution, which is the same as the
+
+earlier one. To get another solution, take x = |, say. Then you can check that the
+
+दि                   _ 2               2).                    दि
+
+corresponding value of y is a 50 |, 5   is another solution of 2x + 5y=0.
+
+(iii) Writing the equation 3y + 4 न 0 as 0.x + 3y + न 0, you will find that y= —3 for
+
+.           दि           4          4
+any value of x. Thus, two solutions can be given as (0 - 5) and [; न) :
+l. Which one of the following options is true, and why?
+y=3x+5 has
+(i) aunique solution, (ii) only two solutions, _(iii) infinitely many solutions
+2. Write four solutions for each of the following equations:
+(i) 2x+y=7             (ii) mr +y=9               (iii) x = 4y
+3. Check which of the following are solutions of the equation x — 2y = 4 and which are
+not:
+@ (0,2)               Gi) (2,0)                 (iii) (4,0)
+(iv) (V2.4V2) LD
+4. Find the value of k, if x = 2, y = | is a solution of the equation 2x + 3y =k.
+
+In this chapter, you have studied the following points:
+
+l. An equation of the form ax + by + c = 0, where a, b and c are real numbers, such that a and
+bare not both zero, is called a linear equation in two variables.
+
+2. A linear equation in two variables has infinitely many solutions.
+
+3. Every point on the graph of a linear equation in two variables is a solution of the linear
+equation. Moreover, every solution of the linear equation is a point on the graph of the
+linear equation.
+
+2024-25

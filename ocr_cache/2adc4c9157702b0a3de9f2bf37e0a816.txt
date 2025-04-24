@@ -1,0 +1,669 @@
+oeth
+:             F
+C               :
+hapter || है | है                    fl:
+ovesent
+Everyday we hear sounds from various      ne   NNNN
+sources like humans, birds, bells, machines,                     |
+vehicles, televisions, radios etc. Sound is a            é
+form of energy which produces a sensation            f               Threa.
+:                      read
+of hearing in our ears. There are also other           f
+forms of energy like mechanical energy, light              f
+energy, etc. We have talked about mechanical              é
+energy in the previous chapters. You have       é      कि          Table tennis ball
+been taught about conservation of energy,    ety      |
+which states that we can neither create nor     Seat         iE a
+destroy energy. We can just change it from         ———
+one form to another. When you clap, a sound                              गए Vibrating tuning fork
+is produced. Can you produce sound without
+utilising your energy? Which form of energy
+did you use to produce sound? In this    Fig. 7.7: Vibrating tuning fork just touching the
+chapter we are going to learn how sound is              suspended table tennis ball.
+produced and how it is transmitted through
+a medium and received by our ears.                            Y.
+Activity —i:'z‘CS.:
+I4.4 Production of Sound                     e Fill water in a beaker or a glass up to
+the brim. Gently touch the water surface
+ay.                                                         with one of the prongs of the vibrating
+Activity  es ey एए .                 tuning fork, as shown in Fig. ]].2.
+e Take a tuning fork and set it vibrating         e Next dip the prongs of the vibrating
+by striking its prong on a rubber pad.                 tuning fork in water, as shown in Fig.
+Bring it near your ear.                                       7.3.
+e   Do you hear any sound?                    .   Observe what happens in both the
+e — Touch one of the prongs of the vibrating                      cases.
+tuning fork with your finger and share             e Discuss with your friends why this
+your experience with your friends.                        happens.
+.    Now, suspend a table tennis ball or a
+small plastic ball by a thread from a                   ‘Vibrating tuning fork
+support [Take a big needle and a
+thread, put a knot at one end of the                  4 सर
+thread, and then with the help of the                                   Glass
+needle pass the thread through the                       ना Water
+ball]. Touch the ball gently with the
+prong of a vibrating tuning
+fork (Fig. .).
+°   Observe what happens and discuss
+with your friends.                                      Fig. 27.2: One of the prongs of the vibrating tuning
+fork touching the water surface.
+2024-25
+the vibrating object to the ear. A particle of
+_---Vibrating tuning fork             the medium in contact with the vibrating
+|)                                        object is first displaced from its equilibrium
+ कि                                               position. It then exerts a force on the adjacent
+Lyih       Glass                  particle. As a result of which the adjacent
+particle gets displaced from its position of
+pooner Water                                  rest. After displacing the adjacent particle the
+first particle comes back to its original
+position. This process continues in the
+medium till the sound reaches your ear. The
+कि                              disturbance created by a source of sound in
+Fig. 7-3. Both the prongs of the vibrating tuning the medium travels through the medium and
+fork dipped in water                              not the particles of the medium.
+A wave is a disturbance that moves
+From the above activities what do you through a medium when the particles of the
+conclude? Can you produce sound without medium set neighbouring particles into
+a vibrating object?                                         motion. They in turn produce similar motion
+In the above activities we have produced __ in others. The particles of the medium do not
+sound by striking the tuning fork. We can move forward themselves, but the
+also produce sound by plucking, scratching, disturbance is carried forward. This is what
+rubbing, blowing or shaking different objects. | happens during propagation of sound in a
+As per the above activities what do we do to medium, hence sound can be visualised as a
+the objects? We set the objects vibrating and — wave. Sound waves are characterised by the
+produce sound. Vibration means a kind of | motion of particles in the medium and are
+rapid to and fro motion of an object. The   called mechanical waves.
+sound of the human voice is produced due        Air is the most common medium through
+to vibrations in the vocal cords. Whena bird — which sound travels. When a vibrating object
+flaps its wings, do you hear any sound? Think —‘™0ves forward, it pushes and compresses the
+how the buzzing sound accompanying a bee i in front of it creating a region of high
+is produced. A stretched rubber band when    pressures This region Is called a compression
+plucked vibrates and produces sound. Ifyou _ (©), a8 shown in Fig. ]7-4. This compression
+have never done this, then do it and observe     starts to move away from the vibrating object.
+the vibration of the stretched rubber band.      When the vibrating object moves backwards,
+it creates a region of low pressure called
+Activity                              .3         rarefaction (R), as shown in Fig. ].4. As the
+as                   object moves back and forth rapidly, a series
+e Make a list of different types of       of compressions and rarefactions is created in
+musical instruments and discuss       the air. These make the sound wave that
+with your friends which part of the
+instrument vibrates to produce       | HH TUES DDE USE ft
+sound.                                            WME tf iach EES EERSTE EI
+.2 Propagation of Sound                     = SS
+Sound is produced by vibrating objects. The            2cmes
+matter or substance through which sound
+is transmitted is called a medium. It can be
+solid, liquid or gas. Sound moves through a
+medium from the point of generation to the
+listener. When an object vibrates, itsets the   Fig. 77.4 A vibrating object creating a series of
+particles of the medium around it vibrating.                   compressions (C) and rarefactions (R) in
+The particles do not travel all the way from              the medium.
+28                                                                                                   ‘SCIENCE
+|                                                   2024-25
+propagates through the medium.          The regions where the coils become closer
+Compression is the region of high pressure are called compressions (C) and the regions
+and rarefaction is the region of low pressure. where the coils are further apart are called
+Pressure is related to the number of particles _;grefactions (R). As we already know, sound
+of a medium in a given volume. More density    propagates in the medium as a series of
+of the particles in the medium gives more   compressions and rarefactions. Now, we can
+pressure and vice versa. Thus, propagation    compare the propagation of disturbance in a
+of sound can be visualised as propagation of     linky with the sound propagation in the
+density variations or pressure variations in   जे   kd   T              propag     .    दर
+the medium.                                                   medium. These waves are called longitudinal
+waves. In these waves the individual particles
+of the medium move in a direction parallel to
+the direction of propagation of the disturbance.
+The particles do not move from one place to
+another but they simply oscillate back and
+forth about their position of rest. This is
+exactly how a sound wave propagates, hence
+sound waves are longitudinal waves.
+There is also another type of wave, called
+a transverse wave. In a transverse wave
+particles do not oscillate along the direction
+of wave propagation but oscillate up and down
+about their mean position as the wave travels.
+Thus, a transverse wave is the one in which
+the individual particles of the medium move
+.2. SOUND WAVES ARE LONGITUDINAL about their mean positions in a direction
+perpendicular to the direction of wave
+WAVES                                                     है                                      A
+propagation. When we drop a pebble in a
+oe                                                            pond, the waves you see on the water surface
+Activity  as 4        is an example of transverse wave. Light is a
+e Take a slinky. Ask your friend to hold         transverse wave but for light, the oscillations
+one end. You hold the other end.      are not of the medium particles or their
+Me Il 5a). Thenheat कसम ता       pressure or density— it is not a mechanical
+towards your friend.                  wave. You will come to know more about
+® What do you notice? If you move your         transverse waves in higher classes.
+hand pushing and pulling the slinky
+alternatively, what will you observe?          .2.2 CHARACTERISTICS OF A SOUND
+°   If you mark a dot on the slinky, you             WAVE
+will observe that the dot on the slinky
+will move back and forth parallel to       We can describe a sound wave by its
+the direction of the propagation of the             * frequency
+disturbance.                                        * amplitude and
+ZY BOTTI RRR TTTOTETE TETRIS TS          * speed.
+(a)                                            A sound wave in graphic form is shown in
+कि                                                                    Fig. ].6(0, which represents how density and
+[   J  ८ RCRCRCROC      \     in the medium. TIhe densityas well as the
+pressure of the medium at a given time varies
+(b)                         with distance, above and below the average
+Fig. उ7.5: Longitudinal wave in a slinky.          value of density and pressure. Fig. ].6(a) and
+‘SounD                                                                                                    29
+2024-25                                                   |
+Fig. ]].6(b) represent re density and         arn Heinrich Rudolph Hertz
+pressure variations, respectively, as a soun:                 ws     was born on 22 February
+wave propagates in the medium.                                   @             857. in Hamburg
+
+Compressions are the regions where                Germany and educated at
+particles are crowded together and                       the University of Berlin. He
+represented by the upper portion of the curve         कि      .                confirmed J.C. Maxwell’s
+in Fig. .6(c). The peak represents the region                               electromagnetic theory by
+of maximum compression. Thus,                       his experiments. He laid the
+compressions are regions where density as       H.R. Hertz foundation for future
+well as pressure is high. Rarefactions are the      development of radio, telephone, telegraph
+regions of low pressure where particles are      and even television. He also discovered the
+spread apart and are represented by the   photoelectric effect which was later
+valley, that is, the lower portion of the curve       explained by Albert Einstein. The SI unit of
+in Fig. .6(c). A peak is called the crest anda        frequency was named as hertz in his honour.
+valley is called the trough of a wave.
+
+The distance between two consecutive     Frequency tells us how frequently an
+compressions (C) or two consecutive event occurs. Suppose you are beating a
+rarefactions (R) is called the wavelength, as    drum. How many times you are beating the
+shown in Fig. .6(c), The wavelength is    drum in unit time is called the frequency of
+usually represented by % (Greek letter your beating the drum. We know that when
+lambda). Its SI unit is metre (m).                     sound is propagated through a medium, the
+
+Density variations
+2. cae tee ness प्र, रस
+Cc पर     é      R     c      R     c
+|          @ |
+i Pressure variations
+प्णिी iit 4 iiजिHilaपापा ii i aa}
+Cc    R     Cc      R     Cc      R     Cc
+7 ©)
+OPS  Sonne pa nner Crest
+ही           A
+Density         |                                                       Average density
+or                गए                                                            or pressure
+Pressure
+nS VOT
+Distance —»
+o
+Fig. 27.6: Sound propagates as density or pressure variations as shown in (a) and (b), (c) represents
+graphically the density and pressure variations.
+30                                                                                          ‘SCIENCE
+2024-25
+density of the medium oscillates between a     aise ree
+maximum value and a minimum value. The
+change in density from the maximum value
+to the minimum value, then again to the                KAS           ax     Time
+maximum value, makes one complete                             Ny        7            \        7
+oscillation. The number of such oscillations
+per unit time is the frequency of the sound
+wave. If we can count the number of the           Wave shape for a low pitched sound
+compressions or rarefactions that cross us
+per unit time, we will get the frequency of   dist ence
+the sound wave. It is usually represented by
+v (Greek letter, nu). Its SI unit is hertz
+(symbol, Hz).                                                                                   hannah
+The time taken by two consecutive
+compressions or rarefactions to cross a fixed
+point is called the time period of the wave. In
+other words, we can say that the time taken               Wave shape for a high pitched sound
+for one complete oscillation is called the time
+period of the sound wave. It is represented by Fig. 7-2 Low pitch sound has ipa and
+the symbol T. Its SI unit is second (s).                  high pitch of sound has high frequency.
+Frequency and time period are related as as shown in Fig. .6(c). For sound its unit
+follows:                                                                  will be that of density or pressure.
+_                                      The loudness or softness of a sound is
+v= T                      determined basically by its amplitude. The
+कि                                            amplitude of the sound wave depends upon
+A violin and a flute may both be played at      the force with which an object i       de t
+     नि                                                                                    yject is made to
+the same time in an orchestra. Both sounds        नि                      कि                .
+.           a      vibrate. If we strike a table lightly, we hear a
+travel through the same medium, that is, air
+कर                                           चल                      soft sound because we produce a sound wave
+and arrive at our ear at the same time. Both
+sounds travel at the same speed irrespective          Wave
+of the source. But the sounds we receive are      disturbance
+different. This is due to the different
+characteristics associated with the sound.                                   lavavae    \        / Time
+Pitch is one of the characteristics.                                  \/                          ९
+How the brain interprets the frequency                            Soft sound
+of an emitted sound is called its pitch. The
+faster the vibration of the source, the         Wave
+higher is the frequency and the higher is    disturbance
+the pitch, as shown in Fig. ].7. Thus, a
+high pitch sound corresponds to more
+number of compressions and rarefactions
+passing a fixed point per unit time.                                                        Lote
+Objects of different sizes and conditions                                           —
+vibrate at different frequencies to produce
+sounds of different pitch.
+The magnitude of the maximum                           Louder sound
+disturbance in the medium on either side of
+the mean value is called the amplitude of the       .                                                   |
+हि                                            Fig. 7.86... ऊणी sound has small amplitude and
+wave. It is usually represented by the letter A,                         louder sound has large amplitude.
+‘SounD                                                                                                                                               3
+2024-25                                      |
+of less energy (amplitude). If we hit the table     Example l].] A sound wave has a
+hard we hear a louder sound. Can you tell       frequency of 2 kHz and wave length
+why? A sound wave spreads out from its           35 cm. How long will it take to travel
+source. As it moves away from the source its          .5 km?
+amplitude as well as its loudness decreases.
+Louder sound can travel a larger distance as      Solution:
+it is associated with higher energy. Fig. .8          Given,
+shows the wave shapes of a loud and a soft         Frequency, v = 2 kHz = 2000 Hz
+sound of the same frequency.                               Wavelength, 2. = 35 cm = 0.35 m
+The quality or timber of sound is that       We know that speed, vof the wave
+characteristic which enables us to distinguish                = wavelength x frequency
+one sound from another having the same pitch               veahv
+and loudness. The sound which is more               =0.35m 2000 Hz = 700 m/s
+pleasant is said to be of a rich quality. Asound           The time taken by the wave to travel a
+of single frequency is called a tone. The sound            distance, dof .5 km is
+which is produced due to a mixture of several
+frequencies is called a note and is pleasant to          t= da = .5 x000 m = IS s=2.ls.
+listen to. Noise is unpleasant to the ear! Music                  v        700m 57         7
+is pleasant to hear and is of rich quality.               Thus sound will take 2.] s to travel a
+distance of ].5 km.
+दि    l
+a
+है
+The speed of sound is defined as the
+distance which a point on a wave, such as a     ! v
+compression or a rarefaction, travels per unit
+time.
+We know,
+speed, v= distance / time
+=F
+Here A is the wavelength of the sound wave. It
+is the distance travelled by the sound wave in
+one time period (7) of the wave. Thus,                     Ty                                              .
+The amount of sound energy passing each
+७ सु.                                 second through unit area is called the intensity
+किन | VT v)                        of sound. We sometimes use the terms
+“loudness” and “intensity” interchangeably,
+That i  or       Vea                                      but they are not the same. Loudness is a
+i nat is, speed = wavelength x frequency.             measure of the response of the ear to the sound.
+The speed of sound remains almost the —_ Eyen when two sounds are of equal intensity,
+same for all frequencies in a given medium ye may hear one as louder than the other
+under the same physical conditions.                   simply because our ear detects it better.
+32                                                                                                   ‘SCIENCE
+|                                      2024-25
+.2.3 SPEED OF SOUND IN DIFFERENT
+MEDIA
+Sound propagates through amediumatafinite . 4.3 Reflection of Sound
+speed. The sound of a thunder is heard a little
+later than the flash of light is seen. So, wecan | Sound bounces off a solid or a liquid like a
+make out that sound travels with a speed   rubber ball bounces off a wall. Like light, sound
+which is much less than the speed of light. The     gets reflected at the surface of a solid or liquid
+speed of sound depends on the properties of     and follows the same laws of reflection as you
+the medium through which it travels. You will      have studied in earlier classes. The directions
+learn about this dependence in higher classes.      in which the sound is incident and is reflected
+The speed of sound in a medium depends on    make equal angles with the normal to the
+temperature of the medium. The speed of   reflecting surface at the point of incidence, and
+sound decreases when we go from eid to     the three are in the same plane. An obstacle of
+gaseous state. In any medium as we increase    large size which may ke polished/or rough is
+the temperature, the speed of sound increases.      ee 50फुएत फाधएटड.
+For example, the speed of sound in air is 33        Activity                                7.5
+वा 57 0९५ and 344 ms" at 22 °C. The speeds                        2 --______—      .
+of sound at a particular temperature in various          e Take two identical pipes, as shown in
+media are listed in Table .l. You need not            Fig. l.9. You can make the pipes
+memorise the values.                                  using chart paper. The length of the
+pipes should be sufficiently long
+3                       पर             as shown.
+Table l l -l: Speed of et =        e Arrange them on a table near a wall.
+different media at 25 °C             °    Keep a clock near the open end of one
+of the pipes and try to hear the sound
+State | Substance      Speed in m/s           of the clock through the other pipe.
+r               rae                                           .     Adjust the position of the pipes so
+Solids Aluminium          6420               that you can best hear the sound of
+Nickel                 6040                the clock.
+Steel                     5960             °    Now, measure the angles of incidence
+and reflection and see the
+Tron                 5950              relationship between the angles.
+Brass                       4700                e — Lift the pipe on the right vertically
+Glass (Flint)               3980                      to a small height and observe
+what happens.
+Liquids Water (Sea)           53l               (In place of a clock, a mobile phone
+Water (distilled)         498                   on vibrating mode may also be used.)
+Ethanol              207
+Methanol                        03                                                                                       Wall
+Gases Hydrogen                  ]284                                        yr) (                    fA—Table
+Helium                      965                          OLE ms    ||
+@)                           बा
+Air        346      [Coxe
+Oxygen                            36                            |                                                |
+Sulphur dioxide          273                           Fig. उ7.9: Reflection of sound
+‘SounD                                                                                                    33
+2024-25
+.3.] EcHo                                                               What is the distance of the cliff from the
+|             कि           person if the speed of the sound, v is
+Ifwe shout or clap neara suitable reflecting           taken as 346 m 87?
+object such as a tall building or a
+mountain,we will hear the same sound     Solution:
+again a little later. This sound which we
+hear is called an echo. The sensation of         Given,
+sound persists in our brain for about 0.]        Speed of sound, v= 346ms!
+s. To hear a distinct echo the time interval          Time taken for hearing the echo,
+between the original sound and the        t=2s
+reflected one must be at least 0.ls. If we         Distance travelled by the sound
+take the speed of sound to be 344 m/s ata             =vx t=346ms'x2s=692m
+given temperature, say at 22 °C in air, the       In 2 s sound has to travel twice the
+sound must go to the obstacle and reach       distance between the cliff and the
+back the ear of the listener on reflection after                                         A
+0.ls. Hence, the total distance covered by         person. Hence, the distance between the
+the sound from the point of generation to        cliff and the person
+Pp         g
+the reflecting surface and back should be           = 692 m/2 = 346 m.
+at least (344 m/s) x 0.] 5 = 34.4 m. Thus,
+for hearing distinct echoes, the minimum          |
+distance of the obstacle from the source of
+sound must be half of this distance, that      4
+is, |7.2 m. This distance will change with    4 }
+the temperature of air. Echoes may be heard      \
+more than once due to successive or        ¢
+multiple reflections. The rolling of thunder
+is due to the successive reflections of the |4.3.3 USES OF MULTIPLE REFLECTION
+sound from a number of reflecting surfaces,                   F
+such as the clouds and the land.                        QESOUND
+l. Megaphones or loudhailers, horns,
+.3.2 REVERBERATION                                                musical instruments such as trumpets
+A sound created in a big hall will persist          and shchanals. arealldesignedtosend
+by repeated reflection from the walls until             sound in a particular direction without
+it is reduced to a value where it is no longer             spreading it in all directions, as shown
+audible. The repeated reflection that            in Fig .0.
+results in this persistence of sound is                          eG
+called reverberation. In an auditorium or                     ak           कि
+big hall excessive reverberation is highly                 5   bay          न
+undesirable. To reduce reverberation, the                       . 4             —
+roof and walls of the auditorium are                                          =
+generally covered with sound-absorbent
+materials like compressed fibreboard,                         Megaphone
+rough plaster or draperies. The seat                                             a“
+materials are also selected on the basis of                                            _—
+their sound absorbing properties.                                                     —
+Horn
+Example .2 A person clapped his hands
+near a cliff and heard the echo after 2 s.                Fig 7. 70: A megaphone and a horn.
+उ34                                                                                                   ‘SCIENCE
+|                                                   2024-25
+In these instruments, a tube followed दा Sound board
+by a conical opening reflects sound    =
+successively to guide most of the                                                     >
+sound waves from the source in the
+forward direction towards the
+audience.
+2. Stethoscope is a medical instrument
+used for listening to sounds produced                                   Source of sound
+within the body, mainly in the heart or
+lungs. In stethoscopes the sound of the
+patient’s heartbeat reaches the doctor’s
+ears by multiple reflection of sound, as
+shown in Fig.l.].
+a   ही          _   / <<                            Fig. 27. 73. Sound board used in a big hall.
+BOE ff hs y
+A        ae yy               \
+Fig. 7. 77: Stethoscope                          .4 Range of Hearing
+3. Generally the ceilings of concert halls,     The audible range of sound for human beings
+conference halls and cinema halls are ¢Xtends from about 20 Hz to 20000 Hz (one
+curved so that sound after reflection Hz = one cycle/s). Children under the age of
+reaches all corners of the hall, as     five and some animals, such as dogs can hear
+shown in Fig .2. Sometimes a UP to 25 kHz (l kHz = 000 Hz). As people
+curved soundboard may be placed TOW older their ears become less sensitive to
+behind the stage so that the sound,   higher frequencies. Sounds of frequencies
+after reflecting from the sound board,   below 20 Hz are called infrasonic sound or
+spreads evenly across the width of the     infrasound. If we could hear infrasound we
+hall (Fig .3).                                        would hear the vibrations of a pendulum just
+as we hear the vibrations of the wings of a bee.
+Rhinoceroses communicate using infrasound
+तर    /    कट                of frequency as low as 5 Hz. Whales and
+H  we    Ny?    wae  \           elephants produce sound in the infrasound
+।  On a —_  c         range. It is observed that some animals get
+i   /     x   प्र      a    as,         disturbed before earthquakes. Earthquakes
+pt     >.      my       “              produce low-frequency infrasound before the
+AY ८             x         Ne              main shock waves begin which possibly alert
+ayi                                             the animals. Frequencies higher than 20 kHz
+है                                        are called ultrasonic sound or ultrasound.
+>                                   Ultrasound is produced by animals such as
+‘                                                     dolphins, bats and porpoises. Moths of certain
+families have very sensitive hearing equipment.
+Fig. उ7. 72: Curved ceiling of a conference hall.    These moths can hear the high frequency
+SounD                                                                                                    35
+2024-25                                                   |
+squeaks of the bat and know when a bat          in construction of big structures like
+is flying nearby, and are able to escape        buildings, bridges, machines and also
+capture. Rats also play games by            scientific equipment. The cracks or
+producing ultrasound.                                  holes inside the metal blocks, which
+are invisible from outside reduces the
+strength of the structure. Ultrasonic
+Hearing Aid: People with hearing loss may                   waves are allowed to pass through the
+need a hearing aid. A hearing aid is an           metal block and detectors are used to
+electronic, battery operated device. The              detect the transmitted waves. If there
+hearing aid receives sound through a            is even a small defect, the ultrasound
+microphone. The microphone converts the             gets reflected back indicating the
+sound waves to electrical signals. These               presence of the flaw or defect, as shown
+electrical signals are amplified by an         in Fig. .4.
+amplifier. The amplified electrical signals
+are given to a speaker of the hearing aid.                        Defect or flaw
+The speaker converts the amplified             a
+electrical signal to sound and sends to the           > po —
+ear for clear hearing.                                                  z        a                   2
+3                                                               Ce z
+OG Eo BLE
+Lo $Y
+Metal Block
+Fig उ7. 74: Ultrasound is reflected back from the
+defective locations inside a metal block.
+Ordinary sound of longer wavelengths
+cannot be used for such purpose as it will
+2.5 Applications of Ultrasound     bend around the corners of the defective
+location and enter the detector.
+Ultrasounds are high frequency waves.      e Ultrasonic waves are made to reflect
+Ultrasounds are able to travel along well-          from various parts of the heart and
+defined paths even in the presence of            form the image of the heart. This tech-
+obstacles. Ultrasounds are used extensively            nique is called ‘echocardiography’.
+in industries and for medical purposes.                  e Ultrasound scanner is an instrument
+e Ultrasound isgenerally used to clean          which uses ultrasonic waves for
+parts located in hard-to-reach places,                     ae             हि
+
+|                                                       getting images of internal organs of the
+for example, spiral tube, odd shaped                                        .
+
+.                                                   human body. A doctor may image the
+parts, electronic components, etc.                कि   दि
+Objects to be cleaned are placed in a             patient’s organs, such as the liver, gall
+
+J                         Pp.                                            कि
+
+A        ti               .                  bladder, uterus, kidney, etc. It helps
+
+cleaning solution and ultrasonic waves
+are sent into the solution. Due to        the doctor to detect abnormalities,
+the high frequency, the particles of               such as stones in the gall bladder and
+dust, grease and dirt get detached and                   kidney or tumours in different organs.
+drop out. The objects thus get          In this technique the ultrasonic waves
+thoroughly cleaned.                                          travel through the tissues of the body
+¢ Ultrasounds can be used to detect             and get reflected from a region where
+cracks and flaws in metal blocks.         there is a change of tissue density.
+36                                                                                          SCIENCE
+
+Metallic components are generally used
+2024-25
+squeaks of the bat and know when a bat          in construction of big structures like
+is flying nearby, and are able to escape        buildings, bridges, machines and also
+capture. Rats also play games by            scientific equipment. The cracks or
+producing ultrasound.                                  holes inside the metal blocks, which
+are invisible from outside reduces the
+strength of the structure. Ultrasonic
+Hearing Aid: People with hearing loss may                   waves are allowed to pass through the
+need a hearing aid. A hearing aid is an           metal block and detectors are used to
+electronic, battery operated device. The              detect the transmitted waves. If there
+hearing aid receives sound through a            is even a small defect, the ultrasound
+microphone. The microphone converts the             gets reflected back indicating the
+sound waves to electrical signals. These               presence of the flaw or defect, as shown
+electrical signals are amplified by an         in Fig. .4.
+amplifier. The amplified electrical signals
+are given to a speaker of the hearing aid.                        Defect or flaw
+The speaker converts the amplified             a
+electrical signal to sound and sends to the           > po —
+ear for clear hearing.                                                  z        a                   2
+3                                                               Ce z
+OG Eo BLE
+Lo $Y
+Metal Block
+Fig उ7. 74: Ultrasound is reflected back from the
+defective locations inside a metal block.
+Ordinary sound of longer wavelengths
+cannot be used for such purpose as it will
+2.5 Applications of Ultrasound     bend around the corners of the defective
+location and enter the detector.
+Ultrasounds are high frequency waves.      e Ultrasonic waves are made to reflect
+Ultrasounds are able to travel along well-          from various parts of the heart and
+defined paths even in the presence of            form the image of the heart. This tech-
+obstacles. Ultrasounds are used extensively            nique is called ‘echocardiography’.
+in industries and for medical purposes.                  e Ultrasound scanner is an instrument
+e Ultrasound isgenerally used to clean          which uses ultrasonic waves for
+parts located in hard-to-reach places,                     ae             हि
+
+|                                                       getting images of internal organs of the
+for example, spiral tube, odd shaped                                        .
+
+.                                                   human body. A doctor may image the
+parts, electronic components, etc.                कि   दि
+Objects to be cleaned are placed in a             patient’s organs, such as the liver, gall
+
+J                         Pp.                                            कि
+
+A        ti               .                  bladder, uterus, kidney, etc. It helps
+
+cleaning solution and ultrasonic waves
+are sent into the solution. Due to        the doctor to detect abnormalities,
+the high frequency, the particles of               such as stones in the gall bladder and
+dust, grease and dirt get detached and                   kidney or tumours in different organs.
+drop out. The objects thus get          In this technique the ultrasonic waves
+thoroughly cleaned.                                          travel through the tissues of the body
+¢ Ultrasounds can be used to detect             and get reflected from a region where
+cracks and flaws in metal blocks.         there is a change of tissue density.
+36                                                                                          SCIENCE
+
+Metallic components are generally used
+2024-25
+These waves are then converted into           examination of the foetus during
+electrical signals that are used to        pregnancy to detect congenial defects
+generate images of the organ. These          and growth abnormalities.
+images are then displayed on a monitor         e Ultrasound may be employed to break
+or printed on a film. This technique          small ‘stones’ formed in the kidneys
+is called ‘ultrasonography’.               into fine grains. These grains later get
+Ultrasonography is also used for       flushed out with urine.
+What
+&  AK Ly) you have
+Sound is produced due to vibration of different objects.
+Sound travels as a longitudinal wave through a material
+medium.
+Sound travels as successive compressions and rarefactions
+in the medium.
+In sound propagation, it is the energy of the sound that
+travels and not the particles of the medium.
+The change in density from one maximum value to the
+minimum value and again to the maximum value makes
+one complete oscillation.
+The distance between two consecutive compressions or two
+consecutive rarefactions is called the wavelength, A.
+The time taken by the wave for one complete oscillation of
+the density or pressure of the medium is called the time
+period, T.
+The number of complete oscillations per unit time is called
+the frequency (v), ves.
+The speed v, frequency v, and wavelength i, of sound are
+related by the equation, v = Av.
+The speed of sound depends primarily on the nature and
+the temperature of the transmitting medium.
+The law of reflection of sound states that the directions in
+which the sound is incident and reflected make equal angles
+with the normal to the reflecting surface at the point of
+incidence and the three lie in the same plane.
+For hearing a distinct sound, the time interval between the
+original sound and the reflected one must be at least 0.] s.
+The persistence of sound in an auditorium is the result of
+repeated reflections of sound and is called reverberation.
+Sound                                                                             37
+2024-25                                       |
+Sound properties such as pitch, loudness and quality are
+determined by the corresponding wave properties.
+Loudness is a physiological response of the ear to the intensity
+of sound.
+
+The amount of sound energy passing each second through
+unit area is called the intensity of sound.
+
+The audible range of hearing for average human beings is in
+the frequency range of 20 Hz - 20 kHz.
+
+Sound waves with frequencies below the audible range are
+termed “infrasonic” and those above the audible range are
+termed “ultrasonic”.
+
+Ultrasound has many medical and industrial applications.
+
+Exercises
+
+=                 l. What is sound and how is it produced?
+
+2. Describe with the help of a diagram, how compressions and
+rarefactions are produced in air near a source of sound.
+
+3. Why is sound wave called a longitudinal wave?
+
+4. Which characteristic of the sound helps you to identify your
+friend by his voice while sitting with others in a dark room?
+
+5. Flash and thunder are produced simultaneously. But
+thunder is heard a few seconds after the flash is seen, why?
+
+6. A person has a hearing range from 20 Hz to 20 kHz. What
+are the typical wavelengths of sound waves in air
+corresponding to these two frequencies? Take the speed of
+sound in air as 344m 57.
+
+7. Two children are at opposite ends of an aluminium rod. One
+strikes the end of the rod with a stone. Find the ratio of
+times taken by the sound wave in air and in aluminium to
+reach the second child.
+
+8. The frequency of a source of sound is 00 Hz. How many
+times does it vibrate in a minute?
+
+9. Does sound follow the same laws of reflection as light does?
+Explain.
+
+0. When a sound is reflected from a distant object, an echo is
+produced. Let the distance between the reflecting surface
+and the source of sound production remains the same. Do
+you hear echo sound on a hotter day?
+
+ll. Give two practical applications of reflection of sound waves.
+
+]2. Astone is dropped from the top of a tower 500 m high into a
+pond of water at the base of the tower. When is the splash
+heard at the top? Given, g 0 m s? and speed of sound =
+340 m 57.
+
+38                                                                            ‘SCIENCE
+|                                       2024-25
+L_
+3. Asound wave travels at a speed of 339 ms". If its wavelength
+is [.5 cm, what is the frequency of the wave? Will it be
+audible?
+4. What is reverberation? How can it be reduced?
+5. What is loudness of sound? What factors does it depend on?
+6. How is ultrasound used for cleaning?
+7. Explain how defects in a metal block can be detected using
+ultrasound.
+‘SounD                                                                                   39
+2024-25                                          |
+|.
