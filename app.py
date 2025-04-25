@@ -778,7 +778,7 @@ if st.session_state.teach == 'Teachers':
                         else:
                             selected_files = [f for f in selected_file if f != "Select documents"]
             
-                        vector_store = initialize_chroma()  # your vector DB setup
+                        #vector_store = initialize_chroma()  
             
                         if "combined_text" not in st.session_state:
                             st.session_state.combined_text = None
