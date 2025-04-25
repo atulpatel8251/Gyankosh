@@ -266,11 +266,123 @@ import pytesseract
 import streamlit as st
 import numpy as np
 
-def extract_text_from_pdf(pdf_file_path):
-    """Extract text from PDF directly without caching"""
+class OCRCache:
+    def __init__(self, cache_dir="./ocr_cache"):
+        self.cache_dir = cache_dir
+        self.cache_index_file = os.path.join(cache_dir, "cache_index.json")
+        self.initialize_cache()
+
+    def initialize_cache(self):
+        os.makedirs(self.cache_dir, exist_ok=True)
+        if not os.path.exists(self.cache_index_file):
+            self.save_cache_index({})
+
+    def get_file_hash(self, file_path):
+        modification_time = os.path.getmtime(file_path)
+        file_size = os.path.getsize(file_path)
+        hash_string = f"{file_path}_{modification_time}_{file_size}"
+        return hashlib.md5(hash_string.encode()).hexdigest()
+
+    def load_cache_index(self):
+        try:
+            with open(self.cache_index_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
+            return {}
+
+    def save_cache_index(self, index):
+        with open(self.cache_index_file, 'w', encoding='utf-8') as f:
+            json.dump(index, f, ensure_ascii=False, indent=2)
+
+    def get_cached_text(self, file_path):
+        file_hash = self.get_file_hash(file_path)
+        cache_index = self.load_cache_index()
+        if file_hash in cache_index:
+            cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
+            if os.path.exists(cache_file):
+                try:
+                    with open(cache_file, 'r', encoding='utf-8') as f:
+                        return f.read()
+                except Exception:
+                    return None
+        return None
+
+    def save_text_to_cache(self, file_path, text):
+        file_hash = self.get_file_hash(file_path)
+        cache_index = self.load_cache_index()
+        cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            f.write(text)
+        cache_index[file_hash] = {
+            'file_path': file_path,
+            'cached_date': datetime.now().isoformat(),
+            'cache_file': f"{file_hash}.txt"
+        }
+        self.save_cache_index(cache_index)
+
+def setup_tesseract(base_path="./Tesseract-OCR"):
     try:
-        st.info(f"Processing {os.path.basename(pdf_file_path)}")
-        
+        tesseract_base = pathlib.Path(base_path).absolute()
+        tesseract_cmd = tesseract_base / "tesseract"
+        tessdata_dir = tesseract_base / "tessdata"
+        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
+        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
+
+        test_image = Image.new('RGB', (1, 1), color='white')
+        test_image_path = 'test_ocr.png'
+        test_image.save(test_image_path)
+        try:
+            pytesseract.image_to_string(test_image_path, lang='eng')
+            st.success("Tesseract setup completed successfully!")
+            return True
+        finally:
+            os.remove(test_image_path)
+    except Exception as e:
+        st.error(f"Tesseract setup failed: {str(e)}")
+        return False
+
+
+def optimize_image_for_ocr(image):
+    if image.mode != 'L':
+        image = image.convert('L')
+    max_dimension = 2000
+    if max(image.size) > max_dimension:
+        ratio = max_dimension / max(image.size)
+        new_size = tuple(int(dim * ratio) for dim in image.size)
+        image = image.resize(new_size, Image.LANCZOS)
+    image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
+    return image
+
+
+def process_page(img, language='hin+eng'):
+    try:
+        if not hasattr(process_page, 'tesseract_initialized'):
+            process_page.tesseract_initialized = setup_tesseract()
+            if not process_page.tesseract_initialized:
+                raise Exception("Tesseract not initialized")
+
+        img = optimize_image_for_ocr(img)
+        config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
+
+        try:
+            text = pytesseract.image_to_string(img, lang=language, config=config)
+        except Exception:
+            st.warning("Falling back to English OCR")
+            text = pytesseract.image_to_string(img, lang='eng', config=config)
+
+        return text.strip()
+    except Exception as e:
+        st.error(f"Error processing page: {str(e)}")
+        return ""
+
+
+def extract_text_with_ocr_cached(pdf_file_path, cache_system):
+    cached_text = cache_system.get_cached_text(pdf_file_path)
+    if cached_text is not None:
+        st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
+        return cached_text
+
+    try:
         images = convert_from_path(
             pdf_file_path,
             dpi=200,
@@ -278,135 +390,42 @@ def extract_text_from_pdf(pdf_file_path):
             grayscale=True,
             size=(1800, None)
         )
-        
+
         max_workers = min(multiprocessing.cpu_count(), len(images))
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
             results = list(executor.map(process_page, images))
-        
+
         extracted_text = "\n".join(filter(None, results))
+
+        if extracted_text.strip():
+            cache_system.save_text_to_cache(pdf_file_path, extracted_text)
+
         return extracted_text
-    
     except Exception as e:
-        st.error(f"Error during OCR extraction: {str(e)}")
+        st.error(f"OCR Error: {str(e)}")
         return ""
 
-def setup_tesseract(base_path="/usr/share/tesseract-ocr"):
-    """
-    Configure Tesseract environment for Linux
-    
-    Args:
-        base_path (str): Path to Tesseract directory (default Linux path)
-        
-    Returns:
-        bool: True if setup successful, False otherwise
-    """
-    try:
-        # Convert to Path object and resolve absolute path
-        tesseract_base = pathlib.Path(base_path).absolute()
-        
-        # Set paths for Linux
-        tesseract_cmd = "/usr/bin/tesseract"
-        tessdata_dir = tesseract_base / "tessdata"
-        
-        # Set Tesseract command path
-        pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
-        
-        # Set TESSDATA_PREFIX environment variable
-        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
-        
-        # Quick test
-        test_image = Image.new('RGB', (1, 1), color='white')
-        test_image_path = '/tmp/test_ocr.png'
-        test_image.save(test_image_path)
-        
-        try:
-            pytesseract.image_to_string(test_image_path, lang='eng')
-            st.success("Tesseract setup completed successfully!")
-            return True
-        finally:
-            if os.path.exists(test_image_path):
-                os.remove(test_image_path)
-                
-    except Exception as e:
-        st.error(f"""Tesseract setup failed. Please check:
-        1. Tesseract is installed (try: sudo apt-get install tesseract-ocr)
-        2. Language files are present in: {tessdata_dir}
-        
-        Error: {str(e)}""")
-        return False
 
-def process_page(img, language='hin+eng'):
-    """Process a single page with error handling and verification"""
-    try:
-        # Verify Tesseract is properly initialized
-        if not hasattr(process_page, 'tesseract_initialized'):
-            process_page.tesseract_initialized = setup_tesseract()
-            if not process_page.tesseract_initialized:
-                raise Exception("Tesseract not properly initialized")
-        
-        # Optimize image
-        img = optimize_image_for_ocr(img)
-        
-        # OCR with optimized settings and fallback
-        try:
-            # Try with specified language
-            custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
-            text = pytesseract.image_to_string(
-                img, 
-                lang=language,
-                config=custom_config
-            )
-        except Exception as lang_error:
-            # Fallback to English if specified language fails
-            st.warning(f"Failed with language {language}, falling back to English")
-            text = pytesseract.image_to_string(
-                img,
-                lang='eng',
-                config=custom_config
-            )
-        
-        return text.strip()
-    except Exception as e:
-        st.error(f"Error processing page: {str(e)}")
-        return ""
-
-def optimize_image_for_ocr(image):
-    """Optimize image for faster OCR processing"""
-    # Convert to grayscale if not already
-    if image.mode != 'L':
-        image = image.convert('L')
-    
-    # Resize image if too large (maintain aspect ratio)
-    max_dimension = 2000
-    if max(image.size) > max_dimension:
-        ratio = max_dimension / max(image.size)
-        new_size = tuple(int(dim * ratio) for dim in image.size)
-        image = image.resize(new_size, Image.LANCZOS)
-    
-    # Improve contrast
-    image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
-    
-    return image
-
-def batch_process_pdfs(selected_files, folder_path, progress_bar, status_text):
-    """Process multiple PDFs directly without caching"""
+def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
     total_files = len(selected_files)
     combined_text = []
     processed_files = []
-    
-    # Process files in smaller batches
+
+    cache_system = OCRCache()
     batch_size = 3
+
     for i in range(0, total_files, batch_size):
         batch = selected_files[i:i + batch_size]
-        
+
         with ThreadPoolExecutor(max_workers=batch_size) as executor:
             future_to_file = {
                 executor.submit(
-                    extract_text_from_pdf,
-                    os.path.join(folder_path, file + '.pdf')
+                    extract_text_with_ocr_cached,
+                    os.path.join(folder_path, file + '.pdf'),
+                    cache_system
                 ): file for file in batch
             }
-            
+
             for future in concurrent.futures.as_completed(future_to_file):
                 file = future_to_file[future]
                 try:
@@ -414,15 +433,13 @@ def batch_process_pdfs(selected_files, folder_path, progress_bar, status_text):
                     if text.strip():
                         combined_text.append(text)
                         processed_files.append(file)
-                    
-                    # Update progress
-                    progress = (len(processed_files) / total_files)
+
+                    progress = len(processed_files) / total_files
                     progress_bar.progress(progress)
                     status_text.text(f"Processed {len(processed_files)}/{total_files} files")
-                    
                 except Exception as e:
                     st.warning(f"Error processing {file}: {str(e)}")
-    
+
     return combined_text, processed_files
     
 # Function to convert PDF to text
@@ -613,44 +630,39 @@ if st.session_state.teach == 'Teachers':
             
                     if selected_subject and selected_subject != "Select subject":
                         folder_path = os.path.join(subjects_folder, selected_subject)
-                        files_list = list_files(folder_path)
-                        files_list = [remove_extension(filename) for filename in files_list]
+                        files_list = [f[:-4] for f in os.listdir(folder_path) if f.lower().endswith('.pdf')]
                         files_list.insert(0, "Select documents")
             
                         selected_file = st.multiselect(
                             "Select files (or select all)",
-                            ["Select All"] + files_list,
+                            ["Select All"] + files_list[1:],
                             key="pre_uploaded_files"
                         )
             
                         if "Select All" in selected_file:
                             selected_files = files_list[1:]
-                        elif "Select documents" in selected_file:
-                            selected_file.remove("Select documents")
                         else:
-                            selected_files = selected_file
+                            selected_files = [f for f in selected_file if f != "Select documents"]
             
-                        vector_store = initialize_chroma()  # Replace with your initialization logic
+                        vector_store = initialize_chroma()  # your vector DB setup
             
-                        # Initialize combined_text if it doesn't exist
                         if "combined_text" not in st.session_state:
                             st.session_state.combined_text = None
-                        
+            
                         if selected_files:
                             progress_bar = st.progress(0)
                             status_text = st.empty()
             
-                            # Changed from batch_process_pdfs_with_cache to batch_process_pdfs
-                            combined_text, processed_files = batch_process_pdfs(
+                            combined_text, processed_files = batch_process_pdfs_with_cache(
                                 selected_files,
                                 folder_path,
                                 progress_bar,
                                 status_text
                             )
-                            if combined_text:
-                                #status_text.text("Generating terminologies and keyterms...")
-                                st.session_state.final_text = "\n\n".join(combined_text)
             
+                            if combined_text:
+                                st.session_state.final_text = "\n\n".join(combined_text)
+                        
                             # Handling form for question generation
                             with st.form(key="Pre Uploaded"):
                                 col1, col2 = st.columns(2)
