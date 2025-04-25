@@ -245,33 +245,13 @@ def list_files(folder_path):
 def remove_extension(filename):
     return os.path.splitext(filename)[0]
 
-import os
-import pathlib
-import logging
+from pdf2image import convert_from_path
 import hashlib
 from datetime import datetime
-from PIL import Image
-import pytesseract
-import streamlit as st
-from pdf2image import convert_from_path
-from concurrent.futures import ThreadPoolExecutor
 import multiprocessing
-import json
+from concurrent.futures import ThreadPoolExecutor
+import concurrent.futures
 
-# Set up logger
-logger = logging.getLogger(__name__)
-logger.setLevel(logging.DEBUG)  # You can change the level to INFO or ERROR based on the requirement
-
-# Stream handler to log to console (you can add a file handler for file-based logging)
-console_handler = logging.StreamHandler()
-console_handler.setLevel(logging.DEBUG)
-
-# Formatter to define the log format
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-console_handler.setFormatter(formatter)
-
-# Add the handler to the logger
-logger.addHandler(console_handler)
 
 class OCRCache:
     def __init__(self, cache_dir="./ocr_cache"):
@@ -318,7 +298,6 @@ class OCRCache:
                     with open(cache_file, 'r', encoding='utf-8') as f:
                         return f.read()
                 except Exception:
-                    logger.warning(f"Failed to read cache file for {file_path}")
                     return None
         return None
     
@@ -345,7 +324,7 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
     # Check cache first
     cached_text = cache_system.get_cached_text(pdf_file_path)
     if cached_text is not None:
-        logger.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
+        st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
         return cached_text
     
     # If not in cache, perform OCR
@@ -371,10 +350,9 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
         return extracted_text
     
     except Exception as e:
-        logger.error(f"Error during OCR extraction: {str(e)}")
         st.error(f"Error during OCR extraction: {str(e)}")
         return ""
-
+    
 def optimize_image_for_ocr(image):
     """Optimize image for faster OCR processing"""
     # Convert to grayscale if not already
@@ -393,20 +371,37 @@ def optimize_image_for_ocr(image):
     
     return image
 
+import os
+import pathlib
+from PIL import Image
+import pytesseract
+import streamlit as st
+
 def setup_tesseract(base_path="./Tesseract-OCR"):
     """
     Configure Tesseract environment using Tesseract-OCR folder structure
+    
+    Args:
+        base_path (str): Path to Tesseract-OCR directory (default: "./Tesseract-OCR")
+        
+    Returns:
+        bool: True if setup successful, False otherwise
     """
     try:
-        # Fetch Tesseract path from Streamlit secrets (if using Streamlit Cloud)
-        tesseract_path = st.secrets["TESSERACT"]["tesseract_path"]
-        tessdata_dir = st.secrets["TESSERACT"]["tessdata_dir"]
+        # Convert to Path object and resolve absolute path
+        tesseract_base = pathlib.Path(base_path).absolute()
         
-        # Set Tesseract paths
-        pytesseract.pytesseract.tesseract_cmd = tesseract_path
-        os.environ['TESSDATA_PREFIX'] = tessdata_dir
-
-        # Test the OCR setup
+        # Set paths directly from Tesseract-OCR folder
+        tesseract_cmd = tesseract_base / "tesseract"
+        tessdata_dir = tesseract_base / "tessdata"
+        
+        # Set Tesseract command path
+        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
+        
+        # Set TESSDATA_PREFIX environment variable
+        os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
+        
+        # Quick test
         test_image = Image.new('RGB', (1, 1), color='white')
         test_image_path = 'test_ocr.png'
         test_image.save(test_image_path)
@@ -414,15 +409,19 @@ def setup_tesseract(base_path="./Tesseract-OCR"):
         try:
             pytesseract.image_to_string(test_image_path, lang='eng')
             st.success("Tesseract setup completed successfully!")
-            logger.info("Tesseract setup completed successfully!")
             return True
         finally:
             if os.path.exists(test_image_path):
                 os.remove(test_image_path)
+                
     except Exception as e:
-        logger.error(f"Tesseract setup failed: {str(e)}")
-        st.error(f"Tesseract setup failed: {str(e)}")
+        st.error(f"""Tesseract setup failed. Please check:
+        1. Tesseract is installed in: {base_path}
+        2. Language files are present in: {tessdata_dir}
+        
+        Error: {str(e)}""")
         return False
+    
 
 def process_page(img, language='hin+eng'):
     """Process a single page with error handling and verification"""
@@ -447,7 +446,6 @@ def process_page(img, language='hin+eng'):
             )
         except Exception as lang_error:
             # Fallback to English if specified language fails
-            logger.warning(f"Failed with language {language}, falling back to English")
             st.warning(f"Failed with language {language}, falling back to English")
             text = pytesseract.image_to_string(
                 img,
@@ -457,7 +455,6 @@ def process_page(img, language='hin+eng'):
         
         return text.strip()
     except Exception as e:
-        logger.error(f"Error processing page: {str(e)}")
         st.error(f"Error processing page: {str(e)}")
         return ""
 
@@ -498,7 +495,6 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
                     status_text.text(f"Processed {len(processed_files)}/{total_files} files")
                     
                 except Exception as e:
-                    logger.warning(f"Error processing {file}: {str(e)}")
                     st.warning(f"Error processing {file}: {str(e)}")
     
     return combined_text, processed_files
