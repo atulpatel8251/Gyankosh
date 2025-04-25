@@ -562,7 +562,7 @@ if st.session_state.teach == 'Teachers':
                             status_text = st.empty()
             
                             # Process selected files and fetch their combined text
-                            combined_text, processed_files = batch_process_pdfs_with_cache(
+                            combined_text, processed_files = batch_load_texts(
                                 selected_files,
                                 folder_path,
                                 progress_bar,
