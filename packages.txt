@@ -1,4 +1,4 @@
-ACCEPT_EULA=Y
+
 poppler-utils
 tesseract-ocr
 tesseract-ocr-eng
