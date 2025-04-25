@@ -330,7 +330,7 @@ class OCRCache:
         logger.info(f"Saved OCR result to cache for {file_path}")
 
 
-def setup_tesseract(base_path="./Tesseract-OCR"):
+def setup_tesseract(base_path="/usr/share/tesseract-ocr"):
     try:
         logger.debug("Setting up Tesseract from path: %s", base_path)
         tesseract_base = pathlib.Path(base_path).absolute()
@@ -459,6 +459,7 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
 
     logger.info("Batch processing completed. %d/%d files processed.", len(processed_files), total_files)
     return combined_text, processed_files
+
 
 # Function to convert PDF to text
 def pdf_to_text(file_path):
