@@ -1,7 +1,0 @@
-build-essential
-pkg-config
-default-libmysqlclient-dev
-poppler-utils
-tesseract-ocr
-tesseract-ocr-eng
-tesseract-ocr-hin
