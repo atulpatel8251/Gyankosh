@@ -810,7 +810,7 @@ if st.session_state.teach == 'Teachers':
             
                             if submitted and st.session_state.final_text and st.session_state.mode_of_questions != 'Select Option':
                                 if st.session_state.final_text:
-                                    st.session_state.llm = ConversationChain(llm=ChatOllama(model="llama3", temperature=0.7))
+                                    st.session_state.llm = ConversationChain(llm=ChatOpenAI(model="gpt-4o", temperature=0.7, api_key=openai_api_key2))
                                     chapter_info = f"Chapter: {selected_files}" if selected_files != "All Chapters" else "All Chapters"
             
                                     # Determine language based on medium
