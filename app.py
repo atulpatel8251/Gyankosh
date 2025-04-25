@@ -249,6 +249,7 @@ import os
 import json
 import hashlib
 import logging
+import shutil  # Importing missing shutil module
 from PIL import Image
 from datetime import datetime
 from concurrent.futures import ThreadPoolExecutor
@@ -280,7 +281,6 @@ class OCRCache:
         os.makedirs(self.cache_dir, exist_ok=True)
         if not os.path.exists(self.cache_index_file):
             self.save_cache_index({})
-        logger.debug("OCR cache initialized.")
 
     def get_file_hash(self, file_path):
         modification_time = os.path.getmtime(file_path)
@@ -308,11 +308,9 @@ class OCRCache:
             if os.path.exists(cache_file):
                 try:
                     with open(cache_file, 'r', encoding='utf-8') as f:
-                        logger.info(f"Cache hit for {file_path}")
                         return f.read()
                 except Exception as e:
                     logger.warning(f"Failed to read cache file: {e}")
-        logger.info(f"Cache miss for {file_path}")
         return None
 
     def save_text_to_cache(self, file_path, text):
