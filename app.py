@@ -566,7 +566,7 @@ if st.session_state.teach == 'Teachers':
 
         with col_11:
             if choose == "Pre Uploaded":
-                 os.environ['OMP_THREAD_LIMIT'] = str(multiprocessing.cpu_count())
+                os.environ['OMP_THREAD_LIMIT'] = str(multiprocessing.cpu_count())
 
                 medium_folder = "./preuploaded"
                 medium_options = ["Select Medium", "Hindi Medium", "English Medium"]
