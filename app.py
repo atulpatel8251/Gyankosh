@@ -252,284 +252,187 @@ def list_files(folder_path):
 def remove_extension(filename):
     return os.path.splitext(filename)[0]
 
-import os
-import hashlib
-import json
-import logging
-import multiprocessing
-import concurrent.futures
-import shutil
-import tempfile
-from datetime import datetime
-from concurrent.futures import ThreadPoolExecutor
-import numpy as np
-from PIL import Image
-import pytesseract
 from pdf2image import convert_from_path
+import hashlib
+from datetime import datetime
+import multiprocessing
+from concurrent.futures import ThreadPoolExecutor
+import concurrent.futures
 
 
 class OCRCache:
-    def __init__(self, cache_dir=None):
-        """Initialize OCR cache system with Streamlit Cloud compatibility"""
-        logging.info("Initializing OCRCache...")
-        
-        # Use Streamlit's cache folder in /tmp for Linux environments
-        # This will be writable but temporary across sessions
-        if cache_dir:
-            self.cache_dir = cache_dir
-        else:
-            # Create a unique cache directory in system's temp directory
-            tmp_base = tempfile.gettempdir()
-            self.cache_dir = os.path.join(tmp_base, "streamlit_ocr_cache")
-        
-        logging.info(f"Using cache directory: {self.cache_dir}")
-        
-        # Always use forward slashes for paths
-        self.cache_dir = self.cache_dir.replace('\\', '/')
-        self.cache_index_file = os.path.join(self.cache_dir, "cache_index.json").replace('\\', '/')
-        
-        # Initialize cache directory
+    def __init__(self, cache_dir="./ocr_cache"):
+        """Initialize OCR cache system"""
+        self.cache_dir = cache_dir
+        self.cache_index_file = os.path.join(cache_dir, "cache_index.json")
         self.initialize_cache()
-        
-        # Log cache environment details for debugging
-        logging.info(f"Working directory: {os.getcwd()}")
-        logging.info(f"Cache directory exists: {os.path.exists(self.cache_dir)}")
-        try:
-            logging.info(f"Cache directory is writable: {os.access(self.cache_dir, os.W_OK)}")
-        except Exception as e:
-            logging.warning(f"Could not check write permissions: {e}")
     
     def initialize_cache(self):
-        logging.info(f"Creating cache directory and index at {self.cache_dir}...")
-        try:
-            os.makedirs(self.cache_dir, exist_ok=True)
-            if not os.path.exists(self.cache_index_file):
-                self.save_cache_index({})
-        except Exception as e:
-            logging.error(f"Failed to initialize cache: {e}")
-            # Fallback to memory-only operation by setting dummy values
-            self.cache_dir = None
-            self.cache_index_file = None
+        """Create cache directory and index if they don't exist"""
+        os.makedirs(self.cache_dir, exist_ok=True)
+        if not os.path.exists(self.cache_index_file):
+            self.save_cache_index({})
     
     def get_file_hash(self, file_path):
-        logging.info(f"Generating file hash for: {file_path}")
-        try:
-            # Always normalize path to use forward slashes
-            normalized_path = os.path.normpath(file_path).replace('\\', '/')
-            
-            # Get file stats
-            modification_time = os.path.getmtime(file_path)
-            file_size = os.path.getsize(file_path)
-            
-            # Create hash string
-            hash_string = f"{normalized_path}_{modification_time}_{file_size}"
-            return hashlib.md5(hash_string.encode()).hexdigest()
-        except Exception as e:
-            logging.error(f"Error generating file hash: {e}")
-            # Fallback to just the filename
-            normalized_name = os.path.basename(file_path).replace('\\', '/')
-            return hashlib.md5(normalized_name.encode()).hexdigest()
+        """Generate hash of file content and modification time"""
+        modification_time = os.path.getmtime(file_path)
+        file_size = os.path.getsize(file_path)
+        hash_string = f"{file_path}_{modification_time}_{file_size}"
+        return hashlib.md5(hash_string.encode()).hexdigest()
     
     def load_cache_index(self):
-        logging.info(f"Loading cache index from {self.cache_index_file}...")
+        """Load cache index from file"""
         try:
-            if self.cache_index_file and os.path.exists(self.cache_index_file):
-                with open(self.cache_index_file, 'r', encoding='utf-8') as f:
-                    return json.load(f)
-            else:
-                logging.warning("Cache index file doesn't exist or not configured, returning empty index")
-                return {}
-        except Exception as e:
-            logging.warning(f"Failed to load cache index: {e}")
+            with open(self.cache_index_file, 'r', encoding='utf-8') as f:
+                return json.load(f)
+        except Exception:
             return {}
     
     def save_cache_index(self, index):
-        logging.info(f"Saving cache index to {self.cache_index_file}...")
-        if not self.cache_index_file:
-            logging.warning("Cache not properly initialized, skipping save")
-            return
-            
-        try:
-            with open(self.cache_index_file, 'w', encoding='utf-8') as f:
-                json.dump(index, f, ensure_ascii=False, indent=2)
-        except Exception as e:
-            logging.error(f"Failed to save cache index: {e}")
+        """Save cache index to file"""
+        with open(self.cache_index_file, 'w', encoding='utf-8') as f:
+            json.dump(index, f, ensure_ascii=False, indent=2)
     
     def get_cached_text(self, file_path):
-        try:
-            if not self.cache_dir:
-                logging.info("Cache not properly initialized, skipping cache check")
-                return None
-                
-            file_hash = self.get_file_hash(file_path)
-            logging.info(f"Checking cache for hash: {file_hash}")
-            cache_index = self.load_cache_index()
-            
-            if file_hash in cache_index:
-                cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt").replace('\\', '/')
-                if os.path.exists(cache_file):
-                    try:
-                        with open(cache_file, 'r', encoding='utf-8') as f:
-                            logging.info(f"Cache hit for file: {file_path}")
-                            return f.read()
-                    except Exception as e:
-                        logging.error(f"Failed to read cached file: {e}")
-            logging.info("Cache miss.")
-            return None
-        except Exception as e:
-            logging.error(f"Error in get_cached_text: {e}")
-            return None
+        """Retrieve cached text if available"""
+        file_hash = self.get_file_hash(file_path)
+        cache_index = self.load_cache_index()
+        
+        if file_hash in cache_index:
+            cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
+            if os.path.exists(cache_file):
+                try:
+                    with open(cache_file, 'r', encoding='utf-8') as f:
+                        return f.read()
+                except Exception:
+                    return None
+        return None
     
     def save_text_to_cache(self, file_path, text):
-        """
-        Save extracted text to cache with Linux compatibility
+        """Save extracted text to cache"""
+        file_hash = self.get_file_hash(file_path)
+        cache_index = self.load_cache_index()
         
-        Args:
-            file_path (str): Original PDF file path
-            text (str): Extracted text content
-        """
-        if not self.cache_dir:
-            logging.warning("Cache not properly initialized, skipping cache save")
-            return
-            
-        try:
-            # Generate file hash
-            file_hash = self.get_file_hash(file_path)
-            cache_index = self.load_cache_index()
-            
-            # Normalize path for Linux
-            normalized_path = os.path.normpath(file_path).replace('\\', '/')
-            logging.info(f"Saving text to cache for: {normalized_path}")
-            
-            # Create cache file path
-            cache_filename = f"{file_hash}.txt"
-            cache_file = os.path.join(self.cache_dir, cache_filename).replace('\\', '/')
-            
-            # Ensure directory exists
-            os.makedirs(self.cache_dir, exist_ok=True)
-            
-            # Write text content with UTF-8 encoding
-            with open(cache_file, 'w', encoding='utf-8', newline='\n') as f:
-                f.write(text)
-            
-            # Update cache index
-            cache_index[file_hash] = {
-                'file_path': normalized_path,
-                'cached_date': datetime.now().isoformat(),
-                'cache_file': cache_filename
-            }
-            
-            self.save_cache_index(cache_index)
-            logging.info(f"Successfully saved to cache: {cache_file}")
-            
-            # Verify file was written successfully
-            if os.path.exists(cache_file) and os.path.getsize(cache_file) > 0:
-                logging.info(f"Cache file verified: {cache_file} ({os.path.getsize(cache_file)} bytes)")
-            else:
-                logging.warning(f"Cache file verification failed: {cache_file}")
-                
-        except PermissionError as pe:
-            logging.error(f"Permission error saving to cache: {pe}")
-            st.warning("Permission issue detected with cache directory. Results won't be cached.")
-        except OSError as oe:
-            logging.error(f"OS error saving to cache: {oe}")
-            st.warning("Storage issue detected. Results won't be cached.")
-        except Exception as e:
-            logging.error(f"Failed to save text to cache: {e}")
+        # Save text to cache file
+        cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
+        with open(cache_file, 'w', encoding='utf-8') as f:
+            f.write(text)
+        
+        # Update cache index
+        cache_index[file_hash] = {
+            'file_path': file_path,
+            'cached_date': datetime.now().isoformat(),
+            'cache_file': f"{file_hash}.txt"
+        }
+        self.save_cache_index(cache_index)
 
-def setup_tesseract():
-    """Configure Tesseract with Linux-specific paths for Streamlit Cloud"""
-    logging.info("Setting up Tesseract for Linux environment...")
+def extract_text_with_ocr_cached(pdf_file_path, cache_system):
+    """Extract text from PDF using cache if available"""
+    # Check cache first
+    cached_text = cache_system.get_cached_text(pdf_file_path)
+    if cached_text is not None:
+        st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
+        return cached_text
     
-    # Try different methods to locate tesseract (prioritizing Linux paths)
-    tesseract_paths = [
-        os.environ.get("TESSERACT_PATH"),        # Environment variable
-        "/usr/bin/tesseract",                    # Standard Linux path
-        "/usr/local/bin/tesseract",              # Alternative Linux path
-        "/app/.apt/usr/bin/tesseract",           # Streamlit-specific path
-        "tesseract"                              # Rely on PATH environment variable
-    ]
-    
-    # Handle tessdata directory separately (prioritizing Linux paths)
-    tessdata_paths = [
-        os.environ.get("TESSDATA_PREFIX"),       # Environment variable
-        "/usr/share/tesseract-ocr/4.00/tessdata/",  # Ubuntu/Debian path
-        "/usr/share/tesseract-ocr/tessdata/",    # Modern Ubuntu path
-        "/usr/share/tesseract/tessdata/",        # Common Linux path
-        "/usr/share/tessdata/",                  # Another common Linux path
-        "/app/.apt/usr/share/tesseract-ocr/4.00/tessdata/"  # Streamlit-specific path
-    ]
-    
-    # Log environment information
-    logging.info(f"PATH environment: {os.environ.get('PATH', 'Not set')}")
-    logging.info(f"Working directory: {os.getcwd()}")
-    
-    # Try each tesseract path
-    tesseract_found = False
-    for path in tesseract_paths:
-        if not path:
-            continue
-            
-        # Log attempt
-        logging.info(f"Trying tesseract path: {path}")
-        
-        # Check if exists
-        path_exists = os.path.exists(path)
-        path_in_path = shutil.which(path) is not None
-        logging.info(f"Path exists: {path_exists}, Path in PATH: {path_in_path}")
-        
-        if path_exists or path_in_path:
-            try:
-                pytesseract.pytesseract.tesseract_cmd = path
-                version = pytesseract.get_tesseract_version()
-                logging.info(f"Tesseract found at: {path} (version: {version})")
-                tesseract_found = True
-                st.success(f"Using Tesseract {version} found at: {path}")
-                break
-            except Exception as e:
-                logging.warning(f"Found tesseract at {path} but test failed: {e}")
-    
-    # Set tessdata path if found
-    if tesseract_found:
-        for tessdata_path in tessdata_paths:
-            if not tessdata_path:
-                continue
-                
-            logging.info(f"Checking tessdata path: {tessdata_path}")
-            if os.path.exists(tessdata_path):
-                os.environ['TESSDATA_PREFIX'] = tessdata_path
-                logging.info(f"TESSDATA_PREFIX set to: {tessdata_path}")
-                break
-            else:
-                logging.info(f"Tessdata path does not exist: {tessdata_path}")
-    
-    if not tesseract_found:
-        error_msg = "Tesseract not found. Please ensure it's installed on the Streamlit environment."
-        logging.error(error_msg)
-        st.error(error_msg + " This app requires Tesseract OCR to be available.")
-        return False
-        
-    return tesseract_found
-
-def optimize_image_for_ocr(image):
-    """Optimize image for better OCR results"""
-    logging.info("Optimizing image for OCR...")
+    # If not in cache, perform OCR
     try:
-        if image.mode != 'L':
-            image = image.convert('L')
+        images = convert_from_path(
+            pdf_file_path,
+            dpi=200,
+            thread_count=multiprocessing.cpu_count(),
+            grayscale=True,
+            size=(1800, None)
+        )
         
-        max_dimension = 2000
-        if max(image.size) > max_dimension:
-            ratio = max_dimension / max(image.size)
-            new_size = tuple(int(dim * ratio) for dim in image.size)
-            image = image.resize(new_size, Image.LANCZOS)
+        max_workers = min(multiprocessing.cpu_count(), len(images))
+        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+            results = list(executor.map(process_page, images))
         
-        # Enhance contrast
-        image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
-        return image
+        extracted_text = "\n".join(filter(None, results))
+        
+        # Save to cache if extraction was successful
+        if extracted_text.strip():
+            cache_system.save_text_to_cache(pdf_file_path, extracted_text)
+        
+        return extracted_text
+    
     except Exception as e:
-        logging.error(f"Error optimizing image: {e}")
-        return image
+        st.error(f"Error during OCR extraction: {str(e)}")
+        return ""
+    
+def optimize_image_for_ocr(image):
+    """Optimize image for faster OCR processing"""
+    # Convert to grayscale if not already
+    if image.mode != 'L':
+        image = image.convert('L')
+    
+    # Resize image if too large (maintain aspect ratio)
+    max_dimension = 2000
+    if max(image.size) > max_dimension:
+        ratio = max_dimension / max(image.size)
+        new_size = tuple(int(dim * ratio) for dim in image.size)
+        image = image.resize(new_size, Image.LANCZOS)
+    
+    # Improve contrast
+    image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
+    
+    return image
+
+import os
+import pathlib
+from PIL import Image
+import pytesseract
+import streamlit as st
+
+def setup_tesseract(base_path="/usr/bin", tessdata_path="/usr/share/tesseract-ocr/4.00/tessdata"):
+    """
+    Configure Tesseract environment for Linux (with optional custom paths)
+
+    Args:
+        base_path (str): Path to tesseract executable (default: "/usr/bin")
+        tessdata_path (str): Path to tessdata directory (default: "/usr/share/tesseract-ocr/4.00/tessdata")
+
+    Returns:
+        bool: True if setup successful, False otherwise
+    """
+    try:
+        tesseract_cmd = pathlib.Path(base_path) / "tesseract"
+        tessdata_dir = pathlib.Path(tessdata_path)
+        
+        # Check if tesseract exists
+        if not tesseract_cmd.exists():
+            raise FileNotFoundError(f"Tesseract executable not found at {tesseract_cmd}")
+        
+        # Set Tesseract path
+        pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
+        
+        # Set TESSDATA_PREFIX if tessdata exists
+        if tessdata_dir.exists():
+            os.environ["TESSDATA_PREFIX"] = str(tessdata_dir)
+        else:
+            raise FileNotFoundError(f"Tessdata directory not found at {tessdata_dir}")
+
+        # Quick test
+        test_image = Image.new('RGB', (1, 1), color='white')
+        test_image_path = 'test_ocr.png'
+        test_image.save(test_image_path)
+
+        try:
+            pytesseract.image_to_string(test_image_path, lang='eng')
+            st.success("Tesseract setup completed successfully!")
+            return True
+        finally:
+            if os.path.exists(test_image_path):
+                os.remove(test_image_path)
+
+    except Exception as e:
+        st.error(f"""Tesseract setup failed. Please check:
+1. Tesseract is installed at: {base_path}
+2. Language files are present in: {tessdata_path}
+
+Error: {str(e)}""")
+        return False
+    
 
 def process_page(img, language='hin+eng'):
     """Process a single page with error handling and verification"""
@@ -547,7 +450,6 @@ def process_page(img, language='hin+eng'):
         try:
             # Try with specified language
             custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
-            logging.info(f"Running OCR with language: {language}")
             text = pytesseract.image_to_string(
                 img, 
                 lang=language,
@@ -555,131 +457,48 @@ def process_page(img, language='hin+eng'):
             )
         except Exception as lang_error:
             # Fallback to English if specified language fails
-            logging.warning(f"Failed with language {language}: {lang_error}, falling back to English")
             st.warning(f"Failed with language {language}, falling back to English")
-            try:
-                text = pytesseract.image_to_string(
-                    img,
-                    lang='eng',
-                    config=custom_config
-                )
-            except Exception as eng_error:
-                logging.error(f"English fallback also failed: {eng_error}")
-                return ""
+            text = pytesseract.image_to_string(
+                img,
+                lang='hin+eng',
+                config=custom_config
+            )
         
         return text.strip()
     except Exception as e:
-        logging.error(f"Error processing page: {str(e)}")
         st.error(f"Error processing page: {str(e)}")
-        return ""
-
-def extract_text_with_ocr_cached(pdf_file_path, cache_system):
-    logging.info(f"Processing file: {pdf_file_path}")
-    
-    # Normalize path for Linux
-    pdf_file_path = os.path.normpath(pdf_file_path).replace('\\', '/')
-    
-    cached_text = cache_system.get_cached_text(pdf_file_path)
-    if cached_text is not None:
-        logging.info("Using cached OCR result.")
-        st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
-        return cached_text
-    
-    try:
-        # Check file existence
-        if not os.path.exists(pdf_file_path):
-            logging.error(f"PDF file not found: {pdf_file_path}")
-            st.error(f"File not found: {pdf_file_path}")
-            return ""
-            
-        # Log file info
-        logging.info(f"File size: {os.path.getsize(pdf_file_path)} bytes")
-        logging.info(f"File permissions: {oct(os.stat(pdf_file_path).st_mode)}")
-        
-        images = convert_from_path(
-            pdf_file_path,
-            dpi=200,
-            thread_count=max(1, min(2, multiprocessing.cpu_count() - 1)),  # Limit threads for Streamlit Cloud
-            grayscale=True,
-            size=(1800, None)
-        )
-        
-        if not images:
-            logging.warning(f"No images extracted from PDF: {pdf_file_path}")
-            st.warning(f"No images could be extracted from {os.path.basename(pdf_file_path)}")
-            return ""
-            
-        # Limit workers to prevent overloading Streamlit Cloud
-        max_workers = min(2, len(images))  # Only use up to 2 workers for Streamlit Cloud
-        max_workers = max(1, max_workers)  # Ensure at least 1 worker
-        
-        logging.info(f"Processing {len(images)} pages with {max_workers} workers")
-        
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
-            results = list(executor.map(process_page, images))
-        
-        extracted_text = "\n".join(filter(None, results))
-        
-        if extracted_text.strip():
-            cache_system.save_text_to_cache(pdf_file_path, extracted_text)
-            logging.info(f"Successfully extracted text from {pdf_file_path}")
-        else:
-            logging.warning(f"No text extracted from {pdf_file_path}")
-            st.warning(f"No text could be extracted from {os.path.basename(pdf_file_path)}")
-        
-        return extracted_text
-    
-    except Exception as e:
-        logging.error(f"OCR extraction error: {e}")
-        st.error(f"Error during OCR extraction: {str(e)}")
         return ""
 
 def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
     """Process multiple PDFs using cache when available"""
-    logging.info(f"Starting batch processing of {len(selected_files)} files from {folder_path}")
     total_files = len(selected_files)
     combined_text = []
     processed_files = []
     
-    # Initialize cache system with Streamlit-friendly settings
+    # Initialize cache system
     cache_system = OCRCache()
     
-    # Process files in smaller batches optimized for Streamlit Cloud
-    # Use smaller batch size to prevent resource exhaustion
-    batch_size = min(2, max(1, multiprocessing.cpu_count() - 1))  # Maximum 2 for Streamlit Cloud
-    
+    # Process files in smaller batches
+    batch_size = 3
     for i in range(0, total_files, batch_size):
         batch = selected_files[i:i + batch_size]
-        logging.info(f"Processing batch {i//batch_size + 1}/{(total_files + batch_size - 1)//batch_size}: {batch}")
         
         with ThreadPoolExecutor(max_workers=batch_size) as executor:
-            # Create normalized paths for Linux
-            futures_to_file = {}
-            for file in batch:
-                # Normalize path for Linux
-                pdf_path = os.path.join(folder_path, file + '.pdf')
-                pdf_path = os.path.normpath(pdf_path).replace('\\', '/')
-                
-                # Check if file exists
-                if not os.path.exists(pdf_path):
-                    logging.warning(f"File does not exist: {pdf_path}")
-                    st.warning(f"File not found: {pdf_path}")
-                    processed_files.append(file)  # Count as processed even if not found
-                    continue
-                    
-                futures_to_file[executor.submit(extract_text_with_ocr_cached, pdf_path, cache_system)] = file
+            future_to_file = {
+                executor.submit(
+                    extract_text_with_ocr_cached,
+                    os.path.join(folder_path, file + '.pdf'),
+                    cache_system
+                ): file for file in batch
+            }
             
-            for future in concurrent.futures.as_completed(futures_to_file):
-                file = futures_to_file[future]
+            for future in concurrent.futures.as_completed(future_to_file):
+                file = future_to_file[future]
                 try:
                     text = future.result()
-                    if text and text.strip():
+                    if text.strip():
                         combined_text.append(text)
-                        logging.info(f"Successfully processed: {file}")
-                    else:
-                        logging.warning(f"No text extracted from: {file}")
-                    
-                    processed_files.append(file)
+                        processed_files.append(file)
                     
                     # Update progress
                     progress = (len(processed_files) / total_files)
@@ -687,11 +506,8 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
                     status_text.text(f"Processed {len(processed_files)}/{total_files} files")
                     
                 except Exception as e:
-                    logging.error(f"Error processing {file}: {str(e)}")
                     st.warning(f"Error processing {file}: {str(e)}")
-                    processed_files.append(file)  # Count as processed even if failed
     
-    logging.info(f"Batch processing complete. Processed {len(processed_files)} files, extracted text from {len(combined_text)} files")
     return combined_text, processed_files
     
 # Function to convert PDF to text
