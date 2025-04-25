@@ -332,15 +332,29 @@ class OCRCache:
 
 def setup_tesseract(base_path="/usr/share/tesseract-ocr"):
     try:
-        logger.debug("Setting up Tesseract from path: %s", base_path)
-        tesseract_base = pathlib.Path(base_path).absolute()
-        pytesseract.pytesseract.tesseract_cmd = str(tesseract_base / "tesseract")
-        os.environ['TESSDATA_PREFIX'] = str(tesseract_base / "tessdata")
+        # Check if tesseract is installed
+        tesseract_cmd = shutil.which("tesseract")
+        if not tesseract_cmd:
+            raise FileNotFoundError("Tesseract OCR is not installed or not in PATH")
 
-        # Check if working
+        logger.debug("Setting up Tesseract from path: %s", base_path)
+
+        # Set the correct Tesseract command
+        tesseract_base = pathlib.Path(base_path).absolute()
+        pytesseract.pytesseract.tesseract_cmd = tesseract_cmd
+
+        # Set environment variable for Tesseract language data
+        tessdata_path = tesseract_base / "tessdata"
+        if not tessdata_path.exists():
+            raise FileNotFoundError(f"Tesseract data folder not found: {tessdata_path}")
+
+        os.environ['TESSDATA_PREFIX'] = str(tesseract_base)
+
+        # Check if Tesseract is working by performing a test OCR
         test_img = Image.new('RGB', (1, 1), color='white')
         test_img_path = 'temp_test_ocr.png'
         test_img.save(test_img_path)
+
         try:
             _ = pytesseract.image_to_string(test_img_path, lang='eng')
             logger.info("Tesseract initialized successfully.")
