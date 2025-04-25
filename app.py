@@ -46,14 +46,7 @@ from io import StringIO
 import logging
 import platform
 
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler("ocr_debug.log"),  # File where logs are saved
-        logging.StreamHandler()                # Optional: show in console
-    ]
-)
+
 
 st.set_page_config(layout='wide')
 
@@ -252,19 +245,32 @@ def list_files(folder_path):
 def remove_extension(filename):
     return os.path.splitext(filename)[0]
 
-from pdf2image import convert_from_path
-import hashlib
-from datetime import datetime
-import multiprocessing
-from concurrent.futures import ThreadPoolExecutor
-import concurrent.futures
 import os
 import json
+import hashlib
+import logging
+from datetime import datetime
 import pathlib
 from PIL import Image
 import pytesseract
-import streamlit as st
 import numpy as np
+import streamlit as st
+import multiprocessing
+from concurrent.futures import ThreadPoolExecutor
+import concurrent.futures
+from pdf2image import convert_from_path
+
+# Set up logger
+logging.basicConfig(
+    level=logging.DEBUG,
+    format='[%(asctime)s] [%(levelname)s] - %(message)s',
+    handlers=[
+        logging.FileHandler("ocr_debug.log"),
+        logging.StreamHandler()
+    ]
+)
+logger = logging.getLogger(__name__)
+
 
 class OCRCache:
     def __init__(self, cache_dir="./ocr_cache"):
@@ -276,23 +282,30 @@ class OCRCache:
         os.makedirs(self.cache_dir, exist_ok=True)
         if not os.path.exists(self.cache_index_file):
             self.save_cache_index({})
+        logger.debug("OCR cache initialized.")
 
     def get_file_hash(self, file_path):
         modification_time = os.path.getmtime(file_path)
         file_size = os.path.getsize(file_path)
         hash_string = f"{file_path}_{modification_time}_{file_size}"
-        return hashlib.md5(hash_string.encode()).hexdigest()
+        file_hash = hashlib.md5(hash_string.encode()).hexdigest()
+        logger.debug(f"Generated hash {file_hash} for {file_path}")
+        return file_hash
 
     def load_cache_index(self):
         try:
             with open(self.cache_index_file, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except Exception:
+                index = json.load(f)
+                logger.debug("Loaded cache index.")
+                return index
+        except Exception as e:
+            logger.warning(f"Failed to load cache index: {e}")
             return {}
 
     def save_cache_index(self, index):
         with open(self.cache_index_file, 'w', encoding='utf-8') as f:
             json.dump(index, f, ensure_ascii=False, indent=2)
+        logger.debug("Saved cache index.")
 
     def get_cached_text(self, file_path):
         file_hash = self.get_file_hash(file_path)
@@ -302,9 +315,11 @@ class OCRCache:
             if os.path.exists(cache_file):
                 try:
                     with open(cache_file, 'r', encoding='utf-8') as f:
+                        logger.info(f"Cache hit for {file_path}")
                         return f.read()
-                except Exception:
-                    return None
+                except Exception as e:
+                    logger.warning(f"Failed to read cache file: {e}")
+        logger.info(f"Cache miss for {file_path}")
         return None
 
     def save_text_to_cache(self, file_path, text):
@@ -319,6 +334,8 @@ class OCRCache:
             'cache_file': f"{file_hash}.txt"
         }
         self.save_cache_index(cache_index)
+        logger.info(f"Saved OCR result to cache for {file_path}")
+
 
 def setup_tesseract(base_path="./Tesseract-OCR"):
     try:
@@ -327,22 +344,26 @@ def setup_tesseract(base_path="./Tesseract-OCR"):
         tessdata_dir = tesseract_base / "tessdata"
         pytesseract.pytesseract.tesseract_cmd = str(tesseract_cmd)
         os.environ['TESSDATA_PREFIX'] = str(tessdata_dir)
+        logger.debug(f"Tesseract path set: {tesseract_cmd}")
 
         test_image = Image.new('RGB', (1, 1), color='white')
         test_image_path = 'test_ocr.png'
         test_image.save(test_image_path)
         try:
             pytesseract.image_to_string(test_image_path, lang='eng')
+            logger.info("Tesseract test run succeeded.")
             st.success("Tesseract setup completed successfully!")
             return True
         finally:
             os.remove(test_image_path)
     except Exception as e:
+        logger.error(f"Tesseract setup failed: {str(e)}")
         st.error(f"Tesseract setup failed: {str(e)}")
         return False
 
 
 def optimize_image_for_ocr(image):
+    logger.debug("Optimizing image for OCR...")
     if image.mode != 'L':
         image = image.convert('L')
     max_dimension = 2000
@@ -361,22 +382,26 @@ def process_page(img, language='hin+eng'):
             if not process_page.tesseract_initialized:
                 raise Exception("Tesseract not initialized")
 
+        logger.debug("Processing page with OCR...")
         img = optimize_image_for_ocr(img)
         config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
 
         try:
             text = pytesseract.image_to_string(img, lang=language, config=config)
-        except Exception:
-            st.warning("Falling back to English OCR")
+            logger.debug("OCR success with provided language.")
+        except Exception as e:
+            logger.warning(f"Failed for lang={language}, fallback to English: {e}")
             text = pytesseract.image_to_string(img, lang='eng', config=config)
 
         return text.strip()
     except Exception as e:
+        logger.error(f"Error processing page: {str(e)}")
         st.error(f"Error processing page: {str(e)}")
         return ""
 
 
 def extract_text_with_ocr_cached(pdf_file_path, cache_system):
+    logger.debug(f"Starting OCR extraction for: {pdf_file_path}")
     cached_text = cache_system.get_cached_text(pdf_file_path)
     if cached_text is not None:
         st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
@@ -390,6 +415,7 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
             grayscale=True,
             size=(1800, None)
         )
+        logger.info(f"{len(images)} pages extracted from PDF.")
 
         max_workers = min(multiprocessing.cpu_count(), len(images))
         with ThreadPoolExecutor(max_workers=max_workers) as executor:
@@ -399,14 +425,17 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
 
         if extracted_text.strip():
             cache_system.save_text_to_cache(pdf_file_path, extracted_text)
+            logger.info("OCR text cached successfully.")
 
         return extracted_text
     except Exception as e:
+        logger.error(f"OCR Error: {str(e)}")
         st.error(f"OCR Error: {str(e)}")
         return ""
 
 
 def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
+    logger.debug("Batch processing started.")
     total_files = len(selected_files)
     combined_text = []
     processed_files = []
@@ -416,6 +445,7 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
 
     for i in range(0, total_files, batch_size):
         batch = selected_files[i:i + batch_size]
+        logger.debug(f"Processing batch: {batch}")
 
         with ThreadPoolExecutor(max_workers=batch_size) as executor:
             future_to_file = {
@@ -433,14 +463,17 @@ def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, sta
                     if text.strip():
                         combined_text.append(text)
                         processed_files.append(file)
+                        logger.info(f"Successfully processed: {file}")
 
                     progress = len(processed_files) / total_files
                     progress_bar.progress(progress)
                     status_text.text(f"Processed {len(processed_files)}/{total_files} files")
                 except Exception as e:
-                    st.warning(f"Error processing {file}: {str(e)}")
+                    logger.warning(f"Error processing {file}: {str(e)}")
 
+    logger.debug("Batch processing completed.")
     return combined_text, processed_files
+
     
 # Function to convert PDF to text
 def pdf_to_text(file_path):
