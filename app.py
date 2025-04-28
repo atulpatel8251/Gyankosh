@@ -183,7 +183,7 @@ with st.container():
         st.image(resized_logo)
     with col2:
         st.markdown("<h1 style='color: Blue;'>ज्ञानकोश</h1>", unsafe_allow_html=True)
-        st.markdown("###### एआई आधारित प्रश्न निर्माण सहायक")
+        st.markdown("###### एआई आधारित प्रश्नोत्तर सहायक")
     with col3:
         l = Image.open('assests/28072020125926mpsedclogo.png')
         re = l.resize((165, 127))  # Corrected the resize method call
