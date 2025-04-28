@@ -659,7 +659,7 @@ if st.session_state.teach == 'Teachers':
                         elif "Select documents" in selected_file:
                             selected_file.remove("Select documents")
 
-                        vector_store = initialize_chroma()  # Replace with your initialization logic
+                          # Replace with your initialization logic
 
                         # Initialize combined_text if it doesn't exist
                         if "combined_text" not in st.session_state:
