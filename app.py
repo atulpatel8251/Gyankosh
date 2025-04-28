@@ -245,13 +245,13 @@ def list_files(folder_path):
 def remove_extension(filename):
     return os.path.splitext(filename)[0]
 
+import os  # You missed this
 import json
 import hashlib
 import logging
 from datetime import datetime
 import multiprocessing
 from concurrent.futures import ThreadPoolExecutor
-import concurrent.futures
 import tempfile
 import numpy as np
 from PIL import Image
@@ -264,11 +264,10 @@ import sys
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.StreamHandler(sys.stdout)
-    ]
+    handlers=[logging.StreamHandler(sys.stdout)]
 )
 logger = logging.getLogger("ocr_app")
+
 
 class OCRCache:
     def __init__(self, cache_dir="./ocr_cache"):
@@ -277,14 +276,14 @@ class OCRCache:
         self.cache_index_file = os.path.join(cache_dir, "cache_index.json")
         self.initialize_cache()
         logger.info(f"OCR Cache initialized at {cache_dir}")
-    
+
     def initialize_cache(self):
         """Create cache directory and index if they don't exist"""
         os.makedirs(self.cache_dir, exist_ok=True)
         if not os.path.exists(self.cache_index_file):
             self.save_cache_index({})
             logger.info(f"Created new cache index at {self.cache_index_file}")
-    
+
     def get_file_hash(self, file_path):
         """Generate hash of file content and modification time"""
         try:
@@ -294,9 +293,8 @@ class OCRCache:
             return hashlib.md5(hash_string.encode()).hexdigest()
         except Exception as e:
             logger.error(f"Error generating file hash for {file_path}: {str(e)}")
-            # Fallback to just the filename if there's an error
             return hashlib.md5(file_path.encode()).hexdigest()
-    
+
     def load_cache_index(self):
         """Load cache index from file"""
         try:
@@ -305,7 +303,7 @@ class OCRCache:
         except Exception as e:
             logger.warning(f"Failed to load cache index: {str(e)}")
             return {}
-    
+
     def save_cache_index(self, index):
         """Save cache index to file"""
         try:
@@ -314,12 +312,12 @@ class OCRCache:
             logger.debug("Cache index saved successfully")
         except Exception as e:
             logger.error(f"Failed to save cache index: {str(e)}")
-    
+
     def get_cached_text(self, file_path):
         """Retrieve cached text if available"""
         file_hash = self.get_file_hash(file_path)
         cache_index = self.load_cache_index()
-        
+
         if file_hash in cache_index:
             cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
             if os.path.exists(cache_file):
@@ -329,21 +327,20 @@ class OCRCache:
                         return f.read()
                 except Exception as e:
                     logger.warning(f"Failed to read cache file: {str(e)}")
-                    return None
         logger.info(f"Cache miss for {os.path.basename(file_path)}")
         return None
-    
+
     def save_text_to_cache(self, file_path, text):
         """Save extracted text to cache"""
         try:
             file_hash = self.get_file_hash(file_path)
             cache_index = self.load_cache_index()
-            
+
             # Save text to cache file
             cache_file = os.path.join(self.cache_dir, f"{file_hash}.txt")
             with open(cache_file, 'w', encoding='utf-8') as f:
                 f.write(text)
-            
+
             # Update cache index
             cache_index[file_hash] = {
                 'file_path': file_path,
@@ -355,138 +352,71 @@ class OCRCache:
         except Exception as e:
             logger.error(f"Failed to save to cache: {str(e)}")
 
+
 def setup_tesseract():
-    """
-    Configure Tesseract environment for Linux deployment
-    
-    Returns:
-        bool: True if setup successful, False otherwise
-    """
+    """Configure Tesseract environment for Linux deployment"""
     try:
-        # First check if tesseract is available in PATH
-        # This is more likely on Linux/Streamlit Cloud
         try:
             version = pytesseract.get_tesseract_version()
             logger.info(f"Found Tesseract in PATH: version {version}")
             return True
         except:
             logger.warning("Tesseract not found in PATH, trying alternative locations")
-        
-        # Try common Linux locations
-        linux_paths = [
-            "/usr/bin/tesseract",
-            "/usr/local/bin/tesseract",
-            "./Tesseract-OCR/tesseract"  # Fallback to relative path
-        ]
-        
+
+        linux_paths = ["/usr/bin/tesseract", "/usr/local/bin/tesseract", "./Tesseract-OCR/tesseract"]
         for path in linux_paths:
             if os.path.exists(path):
-                logger.info(f"Found Tesseract at {path}")
                 pytesseract.pytesseract.tesseract_cmd = path
-                
-                # Set TESSDATA_PREFIX if necessary
-                if path.endswith("/tesseract"):
-                    base_dir = os.path.dirname(path)
-                    tessdata_dir = os.path.join(base_dir, "tessdata")
-                    if os.path.exists(tessdata_dir):
-                        os.environ['TESSDATA_PREFIX'] = tessdata_dir
-                        logger.info(f"Set TESSDATA_PREFIX to {tessdata_dir}")
-                
-                # Quick test
-                with tempfile.NamedTemporaryFile(suffix='.png') as tmp:
-                    test_image = Image.new('RGB', (10, 10), color='white')
-                    test_image.save(tmp.name)
-                    pytesseract.image_to_string(tmp.name)
-                    logger.info("Tesseract test successful")
-                    return True
-        
-        # If we get here, we couldn't find tesseract
+                logger.info(f"Found Tesseract at {path}")
+                return True
         logger.error("Could not find Tesseract installation")
-        st.error("Tesseract OCR not found. Please make sure it's installed on the system.")
+        st.error("Tesseract OCR not found. Please make sure it's installed.")
         return False
-                
     except Exception as e:
         logger.error(f"Tesseract setup failed: {str(e)}")
         st.error(f"Tesseract setup failed: {str(e)}")
         return False
 
+
 def optimize_image_for_ocr(image):
     """Optimize image for faster OCR processing"""
     try:
-        # Convert to grayscale if not already
         if image.mode != 'L':
             image = image.convert('L')
-            logger.debug("Converted image to grayscale")
-        
-        # Resize image if too large (maintain aspect ratio)
         max_dimension = 2000
         if max(image.size) > max_dimension:
             ratio = max_dimension / max(image.size)
             new_size = tuple(int(dim * ratio) for dim in image.size)
             image = image.resize(new_size, Image.LANCZOS)
-            logger.debug(f"Resized image to {new_size}")
-        
-        # Improve contrast
         image = Image.fromarray(np.uint8(np.clip((np.array(image) * 1.2), 0, 255)))
-        logger.debug("Enhanced image contrast")
-        
         return image
     except Exception as e:
         logger.error(f"Error optimizing image: {str(e)}")
-        return image  # Return original image on error
+        return image
+
 
 def process_page(img, language='hin+eng'):
     """Process a single page with error handling and verification"""
     try:
-        # Optimize image
         img = optimize_image_for_ocr(img)
-        
-        # OCR with optimized settings and fallback
-        try:
-            # Try with specified language
-            custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
-            logger.debug(f"Running OCR with language: {language}")
-            text = pytesseract.image_to_string(
-                img, 
-                lang=language,
-                config=custom_config
-            )
-        except Exception as lang_error:
-            # Fallback to English if specified language fails
-            logger.warning(f"OCR failed with language {language}, falling back to English: {str(lang_error)}")
-            try:
-                text = pytesseract.image_to_string(
-                    img,
-                    lang='eng',
-                    config=custom_config
-                )
-            except Exception as eng_error:
-                logger.error(f"English fallback also failed: {str(eng_error)}")
-                return ""
-        
-        text_length = len(text.strip())
-        logger.debug(f"OCR extracted {text_length} characters")
+        custom_config = r'--oem 3 --psm 6 -c preserve_interword_spaces=1'
+        text = pytesseract.image_to_string(img, lang=language, config=custom_config)
         return text.strip()
     except Exception as e:
         logger.error(f"Error processing page: {str(e)}")
         return ""
 
+
 def extract_text_with_ocr_cached(pdf_file_path, cache_system):
     """Extract text from PDF using cache if available"""
     logger.info(f"Processing file: {os.path.basename(pdf_file_path)}")
-    
-    # Check cache first
     cached_text = cache_system.get_cached_text(pdf_file_path)
     if cached_text is not None:
         st.info(f"Using cached text for {os.path.basename(pdf_file_path)}")
         return cached_text
-    
-    # If not in cache, perform OCR
+
     try:
-        logger.info(f"Converting PDF to images: {os.path.basename(pdf_file_path)}")
-        # Use a more conservative thread count for cloud deployment
-        cpu_count = min(multiprocessing.cpu_count(), 2)  # Limit CPU usage
-        
+        cpu_count = min(multiprocessing.cpu_count(), 2)
         images = convert_from_path(
             pdf_file_path,
             dpi=200,
@@ -494,85 +424,37 @@ def extract_text_with_ocr_cached(pdf_file_path, cache_system):
             grayscale=True,
             size=(1800, None)
         )
-        
-        logger.info(f"Converted {len(images)} pages from PDF")
-        
-        # Use a more conservative max_workers for cloud deployment
-        max_workers = min(cpu_count, len(images), 4)  # Further limit parallelism
-        logger.info(f"Processing with {max_workers} workers")
-        
-        with ThreadPoolExecutor(max_workers=max_workers) as executor:
+        with ThreadPoolExecutor(max_workers=min(cpu_count, len(images), 4)) as executor:
             results = list(executor.map(process_page, images))
-        
+
         extracted_text = "\n".join(filter(None, results))
-        logger.info(f"Extracted {len(extracted_text)} characters of text")
-        
-        # Save to cache if extraction was successful
+
         if extracted_text.strip():
             cache_system.save_text_to_cache(pdf_file_path, extracted_text)
-        else:
-            logger.warning(f"No text extracted from {os.path.basename(pdf_file_path)}")
-        
+
         return extracted_text
-    
+
     except Exception as e:
         logger.error(f"Error during OCR extraction: {str(e)}")
         st.error(f"Error processing {os.path.basename(pdf_file_path)}: {str(e)}")
         return ""
 
+
 def batch_process_pdfs_with_cache(selected_files, folder_path, progress_bar, status_text):
     """Process multiple PDFs using cache when available"""
     logger.info(f"Starting batch processing of {len(selected_files)} files")
-    total_files = len(selected_files)
-    combined_text = []
-    processed_files = []
-    
-    # Initialize cache system
     cache_system = OCRCache()
-    
-    # Ensure tesseract is set up
-    if not setup_tesseract():
-        status_text.text("Tesseract setup failed. Check logs for details.")
-        return [], []
-    
-    # Process files in smaller batches - use even smaller batches for cloud
-    batch_size = 2  # Reduced from 3 for cloud environment
-    for i in range(0, total_files, batch_size):
-        batch = selected_files[i:i + batch_size]
-        logger.info(f"Processing batch {i//batch_size + 1}/{(total_files + batch_size - 1)//batch_size}")
-        
-        # Use more conservative worker count for cloud
-        with ThreadPoolExecutor(max_workers=min(batch_size, 2)) as executor:
-            future_to_file = {
-                executor.submit(
-                    extract_text_with_ocr_cached,
-                    os.path.join(folder_path, file + '.pdf'),
-                    cache_system
-                ): file for file in batch
-            }
-            
-            for future in concurrent.futures.as_completed(future_to_file):
-                file = future_to_file[future]
-                try:
-                    text = future.result()
-                    if text.strip():
-                        combined_text.append(text)
-                        processed_files.append(file)
-                        logger.info(f"Successfully processed: {file}")
-                    else:
-                        logger.warning(f"No text extracted from: {file}")
-                    
-                    # Update progress
-                    progress = (len(processed_files) / total_files)
-                    progress_bar.progress(progress)
-                    status_text.text(f"Processed {len(processed_files)}/{total_files} files")
-                    
-                except Exception as e:
-                    logger.error(f"Error processing {file}: {str(e)}")
-                    st.warning(f"Error processing {file}: {str(e)}")
-    
-    logger.info(f"Batch processing complete. Successfully processed {len(processed_files)}/{total_files} files")
-    return combined_text, processed_files
+
+    for idx, file_name in enumerate(selected_files):
+        file_path = os.path.join(folder_path, file_name)
+        text = extract_text_with_ocr_cached(file_path, cache_system)
+        # (Here you can save text, show text, or process it further)
+        progress_bar.progress((idx + 1) / len(selected_files))
+        status_text.text(f"Processed {idx + 1}/{len(selected_files)} files")
+
+    status_text.text("Batch processing completed.")
+    logger.info("Batch processing completed.")
+
 
 # Function to convert PDF to text
 def pdf_to_text(file_path):
