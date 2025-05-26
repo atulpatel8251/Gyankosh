@@ -726,7 +726,7 @@ st.sidebar.header("Select Module")
 
 st.session_state.teach = st.sidebar.selectbox(
     "",
-    ('Teachers', 'Students', 'Administration'),
+    ('Teachers', 'Students'),
     key='airadio1'
 )
 if st.session_state.teach == 'Teachers':
