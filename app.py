@@ -1978,7 +1978,8 @@ if st.session_state.teach=='Students':
                     # Extract text from each image using pytesseract
                     raw_text = ''
                     for i, image in enumerate(images):
-                        text = pytesseract.image_to_string(image, lang='eng')  # use 'hin' for Hindi
+                        text = pytesseract.image_to_string(image, lang='eng+hin')  # use 'hin' for Hindi
+                        print("textis:",text)
                         if text:
                             raw_text += text + '\n'
             
