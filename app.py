@@ -1970,199 +1970,89 @@ if st.session_state.teach=='Students':
 
     with col_1:
         if choose == "Ask a Query":
-                uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
-                if uploaded_file is not None:
-                    try:
-                        # Convert PDF pages to images
-                        st.info("Converting PDF to images...")
-                        images = convert_from_bytes(uploaded_file.read())
-                        
-                        if not images:
-                            st.error("Could not convert PDF to images. Please check if the PDF is valid.")
-                        else:
-                            st.success(f"Successfully converted PDF to {len(images)} images")
-                    except Exception as e:
-                        st.error(f"Failed to convert PDF: {str(e)}")
-                        images = []
+            uploaded_file = st.file_uploader("Upload a PDF file", type=["pdf"])
+
+            if uploaded_file is not None:
+                pdfreader = PdfReader(uploaded_file)
+                raw_text = ''
+                for i, page in enumerate(pdfreader.pages):
+                    content = page.extract_text()
+                    if content:
+                        raw_text += content
+
+                text_splitter = CharacterTextSplitter(
+                    separator="\n",
+                    chunk_size=800,
+                    chunk_overlap=200,
+                    length_function=len,
+                )
+                texts = text_splitter.split_text(raw_text)
+                #st.write(f"PDF loaded and split into {len(texts)} chunks.")
+
+                embeddings = OpenAIEmbeddings(api_key=openai_api_key2)
+                document_search = FAISS.from_texts(texts, embeddings)
+                #st.write("Document embeddings created and stored in FAISS index.")
+
+                chain = load_qa_chain(OpenAI(api_key=openai_api_key2), chain_type="stuff")
+
+                query = st.chat_input("Ask a question about the PDF:")
+                st.write(query)
+                if query:
+                    docs = document_search.similarity_search(query)
+                    answer = chain.run(input_documents=docs, question=query)
+                    st.session_state.history.append((query, answer))
+                    st.write("Answer:", answer)
+
+                    # Translate to Hindi
+                    translator = Translator(to_lang="hi")
+                    
+                    # Split query and answer into smaller chunks for translation
+                    query_chunks = split_text_into_chunks(query, 500)
+                    query_hindi_chunks = [translator.translate(chunk) for chunk in query_chunks]
+                    query_hindi = " ".join(query_hindi_chunks)
+
+                    answer_chunks = split_text_into_chunks(answer, 500)
+                    answer_hindi_chunks = [translator.translate(chunk) for chunk in answer_chunks]
+                    answer_hindi = " ".join(answer_hindi_chunks)
+
+                    st.session_state.history[-1] += (query_hindi, answer_hindi)
+                    st.write("**In Hindi:**")
+                    st.write(f"**Q:** {query_hindi}")
+                    st.write(f"**A:** {answer_hindi}")
+
+                if st.session_state.history:
+                    doc = Document()
+                    doc.add_heading('Questions and Answers', 0)
+
+                    for i, (question, answer, question_hindi, answer_hindi) in enumerate(st.session_state.history):
+                        doc.add_heading(f"Q{i+1}: {question}", level=1)
+                        doc.add_paragraph(f"A{i+1}: {answer}")
+                        doc.add_heading(f"Q{i+1} (Hindi): {question_hindi}", level=1)
+                        doc.add_paragraph(f"A{i+1} (Hindi): {answer_hindi}")
+
+                    # Save the document in the current directory with a unique name
+                    timestamp = time.strftime("%Y%m%d-%H%M%S")
+                    doc_path = f"QnA_History_{timestamp}.docx"
+                    doc.save(doc_path)
+
+                    with open(doc_path, "rb") as f:
+                        st.download_button(
+                            label="Download Word Document",
+                            data=f,
+                            file_name=doc_path,
+                            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                        )
+
+            # Add a section for predefined prompts
             
-                    if images:
-                        # Extract text from each image using pytesseract
-                        raw_text = ''
-                        progress_bar = st.progress(0)
-                        
-                        for i, image in enumerate(images):
-                            try:
-                                text = pytesseract.image_to_string(image, lang='eng+hin')  # use 'hin' for Hindi
-                                print("textis:",text)
-                                
-                                # Clean and validate text
-                                cleaned_text = text.strip()
-                                if cleaned_text and len(cleaned_text) > 10:  # Minimum meaningful text length
-                                    raw_text += cleaned_text + '\n'
-                                    st.info(f"Extracted text from page {i+1}")
-                                else:
-                                    st.warning(f"Page {i+1} contains minimal readable text")
-                                
-                                progress_bar.progress((i + 1) / len(images))
-                            except Exception as e:
-                                st.warning(f"OCR failed for page {i+1}: {str(e)}")
-                                continue
-                        
-                        progress_bar.empty()
-                        
-                        # Check if we have meaningful text
-                        if not raw_text.strip():
-                            st.error("No readable text could be extracted from the PDF. Please ensure the PDF contains clear, readable text.")
-                        else:
-                            st.success(f"Total extracted text length: {len(raw_text)} characters")
-                            
-                            # Show preview of extracted text
-                            with st.expander("Preview Extracted Text"):
-                                st.text(raw_text[:500] + "..." if len(raw_text) > 500 else raw_text)
-                            
-                            try:
-                                # Split text into chunks
-                                st.info("Processing text...")
-                                text_splitter = CharacterTextSplitter(
-                                    separator="\n",
-                                    chunk_size=800,
-                                    chunk_overlap=200,
-                                    length_function=len,
-                                )
-                                texts = text_splitter.split_text(raw_text)
-                                print("texts created:", len(texts))
-                                
-                                if not texts:
-                                    st.error("Could not split text into chunks")
-                                else:
-                                    st.success(f"Created {len(texts)} text chunks")
-                                    
-                                    # Create embeddings and search
-                                    embeddings = OpenAIEmbeddings(api_key=openai_api_key2)
-                                    document_search = FAISS.from_texts(texts, embeddings)
-                                    chain = load_qa_chain(OpenAI(api_key=openai_api_key2, temperature=0), chain_type="stuff")
-                                    
-                                    st.success("Document processing complete! You can now ask questions.")
-                                    
-                            except Exception as e:
-                                st.error(f"Failed to process document: {str(e)}")
-                                document_search = None
-                                chain = None
-            
-                            # Query interface - only show if processing was successful
-                            if 'document_search' in locals() and document_search is not None:
-                                query = st.chat_input("Ask a question about the PDF:")
-                                if query:
-                                    st.write("**Your Question:**", query)
-                                
-                                if query:
-                                    try:
-                                        st.info("Searching for relevant information...")
-                                        docs = document_search.similarity_search(query, k=3)
-                                        
-                                        if not docs:
-                                            st.warning("No relevant content found for your query. Try rephrasing your question.")
-                                            answer = "I couldn't find relevant information in the document to answer your question. Please try rephrasing or ask about content that's clearly mentioned in the PDF."
-                                        else:
-                                            st.success(f"Found {len(docs)} relevant sections")
-                                            
-                                            # Show what sections were found (optional debug info)
-                                            with st.expander("Relevant sections found"):
-                                                for i, doc in enumerate(docs):
-                                                    st.write(f"**Section {i+1}:**")
-                                                    st.text(doc.page_content[:200] + "...")
-                                            
-                                            answer = chain.run(input_documents=docs, question=query)
-                                            
-                                            # Validate answer quality
-                                            if not answer or answer.strip() == "":
-                                                answer = "I couldn't generate a proper answer from the document. Please try a different question."
-                                        
-                                        st.write("**Answer:**", answer)
-                                        
-                                        # Translation to Hindi with error handling
-                                        try:
-                                            st.info("Translating to Hindi...")
-                                            translator = Translator(to_lang="hi")
-                                            query_hindi = translator.translate(query)
-                                            answer_hindi = translator.translate(answer)
-                                            
-                                            # Validate translations
-                                            if not query_hindi or query_hindi == query:
-                                                query_hindi = "Translation failed"
-                                            if not answer_hindi or answer_hindi == answer:
-                                                answer_hindi = "Translation failed"
-                                                
-                                        except Exception as e:
-                                            st.warning(f"Translation error: {str(e)}")
-                                            query_hindi = "Translation failed"
-                                            answer_hindi = "Translation failed"
-                                        
-                                        # Store in session state - FIX: Create complete tuple at once
-                                        st.session_state.history.append((query, answer, query_hindi, answer_hindi))
-                                        
-                                        st.write("**In Hindi:**")
-                                        st.write(f"**Q:** {query_hindi}")
-                                        st.write(f"**A:** {answer_hindi}")
-                                        
-                                    except Exception as e:
-                                        st.error(f"Error processing your question: {str(e)}")
-                                        st.write("Please try rephrasing your question or check if the PDF content is relevant to your query.")
-            
-                            # Download Word document - only if there's history
-                            if st.session_state.history:
-                                try:
-                                    doc = Document()
-                                    doc.add_heading('Questions and Answers', 0)
-                                    doc.add_paragraph(f'Generated on: {time.strftime("%Y-%m-%d %H:%M:%S")}')
-                                    doc.add_paragraph('')
-                                    
-                                    for i, (question, answer, question_hindi, answer_hindi) in enumerate(st.session_state.history):
-                                        doc.add_heading(f"Q{i+1}: {question}", level=1)
-                                        doc.add_paragraph(f"A{i+1}: {answer}")
-                                        doc.add_heading(f"Q{i+1} (Hindi): {question_hindi}", level=1)
-                                        doc.add_paragraph(f"A{i+1} (Hindi): {answer_hindi}")
-                                        doc.add_paragraph('')  # Add spacing
-            
-                                    timestamp = time.strftime("%Y%m%d-%H%M%S")
-                                    doc_path = f"QnA_History_{timestamp}.docx"
-                                    doc.save(doc_path)
-            
-                                    with open(doc_path, "rb") as f:
-                                        st.download_button(
-                                            label="Download Word Document",
-                                            data=f,
-                                            file_name=doc_path,
-                                            mime="application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-                                        )
-                                except Exception as e:
-                                    st.error(f"Failed to generate Word document: {str(e)}")
-            
-                # History Panel
-                if 'col_2' in locals():  # Only show if col_2 is defined in your layout
-                    with col_2:
-                        st.write("### History")
-                        
-                        if st.session_state.history:
-                            st.write(f"Total Questions: {len(st.session_state.history)}")
-                            
-                            # Add clear history button
-                            if st.button("Clear History"):
-                                st.session_state.history = []
-                                st.success("History cleared!")
-                                st.experimental_rerun()
-                            
-                            st.write("---")
-                            
-                            # Display history
-                            for i, (question, answer, question_hindi, answer_hindi) in enumerate(st.session_state.history):
-                                with st.expander(f"Q{i+1}: {question[:50]}..."):
-                                    st.write(f"**Q{i+1}:** {question}")
-                                    st.write(f"**A{i+1}:** {answer}")
-                                    st.write(f"**Q{i+1} (Hindi):** {question_hindi}")
-                                    st.write(f"**A{i+1} (Hindi):** {answer_hindi}")
-                        else:
-                            st.info("No questions asked yet!")
+
+            with col_2:
+                st.write("### History")
+                for i, (question, answer, question_hindi, answer_hindi) in enumerate(st.session_state.history):
+                    st.write(f"**Q{i+1}:** {question}")
+                    st.write(f"**A{i+1}:** {answer}")
+                    st.write(f"**Q{i+1} (Hindi):** {question_hindi}")
+                    st.write(f"**A{i+1} (Hindi):** {answer_hindi}")
             
 
 # Add a download button to download the history as a Word document
